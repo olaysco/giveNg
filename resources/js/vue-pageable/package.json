@@ -1,0 +1,29 @@
+{
+  "name": "vue-pageable",
+  "version": "1.0.0",
+  "description": "A vue plugin for creating full page scrolling web pages.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olaysco/vue-pageable.git"
+  },
+  "keywords": [
+    "pageable",
+    "one-page",
+    "singlepage",
+    "vue",
+    "plugin"
+  ],
+  "author": "Olayiwola Odunsi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olaysco/vue-pageable/issues"
+  },
+  "homepage": "https://github.com/olaysco/vue-pageable#readme",
+  "dependencies": {
+    "pageable": "^0.6.8"
+  }
+}
