@@ -1843,60 +1843,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MainApp",
   data: function data() {
-    return {
-      options: {
-        animation: 500,
-        delay: 400,
-        orientation: "horizontal"
-      }
-    };
+    return {};
   },
   created: function created() {}
 });
@@ -19580,134 +19530,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _vm._m(0),
-      _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
-      _c("vue-pageable", { attrs: { options: _vm.options } }, [
-        _c(
-          "div",
-          {
-            staticClass: "container-fluid",
-            attrs: { "data-anchor": "page 1" }
-          },
-          [
-            _c("div", { staticClass: "row page-row" }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "col d-flex align-items-center text-white flex-column content"
-                },
-                [
-                  _c("h5", { staticClass: "subtext" }, [
-                    _vm._v("Giving to help the world")
-                  ]),
-                  _vm._v(" "),
-                  _c("h1", { staticClass: "maintext" }, [
-                    _vm._v("Give and it shall be given unto you")
-                  ])
-                ]
-              )
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "container-fluid",
-            attrs: { "data-anchor": "page 2" }
-          },
-          [
-            _c("div", { staticClass: "row page-row" }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "col d-flex align-items-center text-white flex-column content"
-                },
-                [
-                  _c("h5", { staticClass: "subtext" }, [_vm._v("As you give")]),
-                  _vm._v(" "),
-                  _c("h1", { staticClass: "maintext" }, [
-                    _vm._v(
-                      "For what you give shall be returned unto you in good measures"
-                    )
-                  ])
-                ]
-              )
-            ])
-          ]
-        )
-      ])
-    ],
-    1
-  )
+  return _c("div")
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "overlay" }, [
-      _c("nav", { staticClass: "navbar navbar-expand-md" }, [
-        _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
-          _vm._v("[_______]")
-        ]),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "navbar-toggler",
-            attrs: {
-              type: "button",
-              "data-toggle": "collapse",
-              "data-target": "#navbarCollapse",
-              "aria-controls": "navbarCollapse",
-              "aria-expanded": "false",
-              "aria-label": "Toggle navigation"
-            }
-          },
-          [_c("span", { staticClass: "navbar-toggler-icon" })]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "collapse navbar-collapse",
-            attrs: { id: "navbarCollapse" }
-          },
-          [
-            _c("ul", { staticClass: "navbar-nav ml-auto" }, [
-              _c("li", { staticClass: "nav-item" }, [
-                _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                  _vm._v("HOME "),
-                  _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")])
-                ])
-              ])
-            ])
-          ]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ocean" }, [
-      _c("div", { staticClass: "wave" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "wave" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "wave" })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
