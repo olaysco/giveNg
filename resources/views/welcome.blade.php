@@ -9,9 +9,9 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
         <!-- Styles -->
-        <link rel="stylesheet" href="{{asset('./css/bootstrap.min.css')}}">
-        {{-- <link rel="stylesheet" href="https://unpkg.com/pageable@latest/dist/pageable.min.css"> --}}
-        <link rel="stylesheet" href="{{asset('./css/all.css')}}">
+        {{-- <link rel="stylesheet" href="{{asset('./css/bootstrap.min.css')}}"> --}}
+        <link rel="stylesheet" href="{{asset('./css/app.css')}}">
+        <link rel="stylesheet" href="{{asset('./css/style.css')}}">
         <style>
             html, body {
                 font-family: 'Lora', serif;
