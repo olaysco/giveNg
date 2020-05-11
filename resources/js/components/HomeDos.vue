@@ -6,7 +6,7 @@
       <div class="py-10">
           <h3 class="text-3xl text-sm text-white font-bold">Our mission is to create sustainable and conducive schooling environment for out of school children while providing quality support.</h3>
       </div>
-        <div class="box-card grid grid-cols-1" :class="[`sm:grid-cols-${missions.length}`]">
+        <div class="box-card grid grid-cols-1" :class="[`sm:grid-cols-3`]">
             <div class="flex justify-between" v-for="mission in missions" :key="mission.title">
                 <card-base class=" px-3 py-5 relative">
                     <div class="bg-white rounded shadow p-5">
