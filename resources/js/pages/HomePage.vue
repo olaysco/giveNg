@@ -1,18 +1,14 @@
 <template>
-    <div>
+    <div class="bg-image">
         <page-header></page-header>
-        <page-hero></page-Hero>
-        <home-actions></home-actions>
-        <home-dos></home-dos>
-        <home-stat></home-stat>
-        <home-impacts></home-impacts>
-        <home-event></home-event>
+        <home-hero></home-Hero>
+
         <page-footer></page-footer>
     </div>
 </template>
 <script>
 import PageHeader from "../components/PageHeader";
-import PageHero from "../components/PageHero";
+import HomeHero from "../components/HomeHero";
 import HomeActions from "../components/HomeActions";
 import HomeDos from "../components/HomeDos";
 import HomeStat from "../components/HomeStat";
@@ -22,7 +18,7 @@ import PageFooter from "../components/PageFooter"
 export default {
     components: {
         PageHeader,
-        PageHero,
+        HomeHero,
         HomeActions,
         HomeDos,
         HomeStat,
@@ -33,4 +29,10 @@ export default {
 }
 </script>
 <style scoped>
+.bg-image{
+    background-image: url("/img/give-bg.svg");
+	background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
 </style>

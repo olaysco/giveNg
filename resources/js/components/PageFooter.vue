@@ -8,9 +8,9 @@
             <div class="w-full sm:w-4/6 grid grid-cols-3 gap-4 text-gray-500">
                 <div>
                     <span class="block border-solid border-b border-blue-900 pb-2 mb-3 text-sm">CONTACT US</span>
-                    <p class="text-xs hover:text-blue-900 cursor-default">12 Ayorinde Agbabiaka
-                        Street, Lagos Lagoon
-                        Nigeria.</p>
+                    <p class="text-xs hover:text-blue-900 cursor-default">Flat 190.0.0.1 Internet
+                        Street, by Web road
+                    .</p>
                 </div>
                 <div class="text-xs">
                     <span class="block border-solid border-b border-blue-900 pb-2 mb-3 text-sm">LINKS</span>
