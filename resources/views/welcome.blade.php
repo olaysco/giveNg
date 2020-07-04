@@ -22,6 +22,15 @@
 
 
         </style>
+            @guest
+    <script>
+        window.user = null
+    </script>
+    @else
+<script>
+        window.user = {!! Auth::user() !!}
+    </script>
+    @endguest
     </head>
     <body>
         <div id="main">

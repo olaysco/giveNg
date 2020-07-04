@@ -14,7 +14,12 @@ const tailwindcss = require('tailwindcss')
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
+mix.js('resources/js/app.js', 'public/js').override(config => {
+    config.module.rules.push({
+        test: /\.svg$/,
+        use: [{ loader: 'vue-svg-loader' }]
+    })
+})
     .sass('resources/sass/app.scss', 'public/css')
     .styles(['resources/css/style.css'],'public/css/all.css')
     .options({
@@ -23,4 +28,5 @@ mix.js('resources/js/app.js', 'public/js')
           tailwindcss('./tailwind.config.js'),
         ]
       })
+
     .browserSync({proxy:process.env.APP_URL, open:false});

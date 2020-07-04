@@ -13,7 +13,7 @@
 			</li>
 			<li class="mr-6 p-1">
 				<router-link
-					to="/register"
+					to="/login"
 					class="text-white text-sm bg-blue-500 py-2 px-6 rounded-full hover:bg-white hover:text-blue-500 hover:border-blue-500 font-100"
 				>Login</router-link>
 			</li>

@@ -10,4 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes(['verify' => true]);
+Route::get('/register', function () {
+    return view('welcome');
+});
+Route::get('/login', function () {
+    return view('welcome');
+});
 Route::view('/{path?}', 'welcome');

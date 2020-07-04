@@ -1,22 +1,18 @@
 <template>
 	<div class="pt-90">
 		<div class="flex w-100 hero">
-			<div class="w-1/2 flex justify-center items-center">
-				<CardDemo></CardDemo>
-			</div>
-			<div class="w-1/2 flex flex-col items-center justify-center">
-				<div class="text-5xl font-bold">
-					<span>
-						We
-						<b class="text-gray-400">all</b>
-					</span>
-					<br />
-					<span>
-						<b class="text-gray-400">can</b>
-						Give
-					</span>
-					<br />
-					<button class="btn border-none px-4 py-4 shadow-xl text-md">Give something</button>
+			<div class="w-full flex flex-col items-center justify-center">
+				<div class="text-5xl font-bold w-4/5 text-center mb-5">
+					<span>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+				</div>
+				<div class="w-full flex justify-center mt-4">
+					<div class="w-11/12 md:w-4/5">
+						<magnify class="absolute ml-4 mt-5" />
+						<input
+							class="w-full px-4 py-2 h-16 rounded-full shadow-2xl text-xl pl-12"
+							placeholder="Search for free givetem"
+						/>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -25,10 +21,12 @@
 <script>
 import CardHero from "../components/CardHero";
 import CardDemo from "../components/CardDemo";
+import magnify from "@mdi/svg/svg/magnify.svg";
 export default {
 	components: {
 		CardHero,
-		CardDemo
+		CardDemo,
+		magnify
 	}
 };
 </script>

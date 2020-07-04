@@ -4906,6 +4906,19 @@ html {
   min-width: 30vw;
 }
 
+.input.is-invalid {
+  --border-opacity: 1;
+  border-color: #f56565;
+  border-color: rgba(245, 101, 101, var(--border-opacity));
+}
+
+.input + div.invalid-feedback {
+  font-size: 0.75rem;
+  --text-opacity: 1;
+  color: #f56565;
+  color: rgba(245, 101, 101, var(--text-opacity));
+}
+
 @media (max-width: 768px) {
   .input {
     min-width: 80vw;
