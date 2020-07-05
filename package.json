@@ -22,6 +22,15 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "vue": "^2.6.10"
+        "@mdi/svg": "^5.3.45",
+        "animate.css": "^4.1.0",
+        "tailwindcss": "^1.4.6",
+        "vform": "^1.0.1",
+        "vue": "^2.6.10",
+        "vue-router": "^3.1.6",
+        "vue-social-auth": "^1.4.3",
+        "vue-styled-components": "^1.5.1",
+        "vue-svg-loader": "^0.16.0",
+        "vuex": "^3.3.0"
     }
 }

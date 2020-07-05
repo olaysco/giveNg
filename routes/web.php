@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
+Route::post('sociallogin/{provider}', 'Auth\AuthController@SocialSignup');
+Route::get('auth/{provider}/callback', 'Auth\AuthController@index')->where('provider', '.*');
+
+Auth::routes();
+Route::get('/register', function () {
     return view('welcome');
 });
+Route::get('/login', function () {
+    return view('welcome');
+});
+Route::view('{path}', "welcome")->where('path', '([A-z\d-\/_.]+)?');
