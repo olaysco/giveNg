@@ -5,6 +5,7 @@ import HomePage from "../pages/HomePage.vue";
 import GivetemPage from "../pages/GivetemPage.vue"
 import Verify from "../pages/Auth/Verify.vue";
 import Login from "../pages/Auth/Login.vue";
+import Prpfile from "../pages/ProfilePage.vue";
 import Register from "../pages/Auth/Register.vue";
 import SocialAuth from "../pages/Auth/SocialAuth.vue";
 vue.use(router)
@@ -32,6 +33,10 @@ const routes = [{
     ,{
         path: "/verify",
         component: Verify
+    },
+    {
+        path: "/profile",
+        component: Profile
     },
     {
         path: '/auth/:provider/callback',
