@@ -4963,6 +4963,38 @@ html {
   color: rgba(66, 153, 225, var(--text-opacity));
 }
 
+.btn-outline {
+  --text-opacity: 1;
+  color: #2a4365;
+  color: rgba(42, 67, 101, var(--text-opacity));
+  font-size: 0.875rem;
+  --bg-opacity: 1;
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, var(--bg-opacity));
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  border-radius: 9999px;
+  border-width: 1px;
+  display: inline-block;
+  transition-property: all;
+  transition-timing-function: linear;
+  transition-duration: 75ms;
+  transition-delay: 75ms;
+}
+
+.btn-outline:hover,
+.btn-outline:focus {
+  --text-opacity: 1;
+  color: #fff;
+  color: rgba(255, 255, 255, var(--text-opacity));
+  font-size: 0.875rem;
+  --bg-opacity: 1;
+  background-color: #4299e1;
+  background-color: rgba(66, 153, 225, var(--bg-opacity));
+}
+
 .input:hover,
 .input:focus {
   border-width: 1px;
@@ -4971,6 +5003,10 @@ html {
   border-color: rgba(49, 130, 206, var(--border-opacity));
   outline: none;
 }
+
+/******
+* Scrollbar
+*******/
 
 body::-webkit-scrollbar {
   background-color: #fff;

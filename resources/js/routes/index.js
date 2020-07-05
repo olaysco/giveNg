@@ -6,6 +6,7 @@ import GivetemPage from "../pages/GivetemPage.vue"
 import Verify from "../pages/Auth/Verify.vue";
 import Login from "../pages/Auth/Login.vue";
 import Register from "../pages/Auth/Register.vue";
+import SocialAuth from "../pages/Auth/SocialAuth.vue";
 vue.use(router)
 
 const routes = [{
@@ -31,7 +32,11 @@ const routes = [{
     ,{
         path: "/verify",
         component: Verify
-    }
+    },
+    {
+        path: '/auth/:provider/callback',
+        component: SocialAuth
+    },
 ]
 
 export default new router({

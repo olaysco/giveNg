@@ -1,9 +1,9 @@
 <template>
 	<div class="flex justify-between items-center py-1 bg-transparent fixed w-full z-20 font-sans">
 		<div class="flex-shrink-0 ml-10 cursor-pointer">
-			<a href="/">
+			<router-link to="/">
 				<img class="w-20 h-auto" src="/img/giveng-logo-light.svg" alt="logo" />
-			</a>
+			</router-link>
 		</div>
 		<i class="fas fa-bars fa-2x visible md:invisible mr-10 md:mr-0 text-blue-200 cursor-pointer"></i>
 		<ul class="md:flex mr-5 font-semibold">

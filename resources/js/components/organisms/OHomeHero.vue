@@ -21,13 +21,9 @@
 	</div>
 </template>
 <script>
-import CardHero from "../components/CardHero";
-import CardDemo from "../components/CardDemo";
 import magnify from "@mdi/svg/svg/magnify.svg";
 export default {
 	components: {
-		CardHero,
-		CardDemo,
 		magnify
 	}
 };

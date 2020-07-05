@@ -3,19 +3,16 @@
         <page-header></page-header>
         <home-hero></home-Hero>
         <givetem-group />
-        <page-footer></page-footer>
     </div>
 </template>
 <script>
 import PageHeader from "../components/PageHeader";
-import HomeHero from "../components/HomeHero";
-import PageFooter from "../components/PageFooter";
-import GivetemGroup from "../components/organisms/GivetemGroup";
+import HomeHero from "../components/organisms/OHomeHero";
+import GivetemGroup from "../components/organisms/OGivetemGroup";
 export default {
     components: {
         PageHeader,
         HomeHero,
-        PageFooter,
         GivetemGroup
     }
 }
