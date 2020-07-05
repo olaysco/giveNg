@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+// $router->pattern('subpath', 'w+');
 Auth::routes(['verify' => true]);
 Route::get('/register', function () {
     return view('welcome');
@@ -17,4 +18,4 @@ Route::get('/register', function () {
 Route::get('/login', function () {
     return view('welcome');
 });
-Route::view('/{path?}', 'welcome');
+Route::view('/{path?}/{subpath?}', 'welcome');

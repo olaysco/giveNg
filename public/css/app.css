@@ -4869,6 +4869,11 @@ video {
   }
 }
 
+::root {
+  --primay-color: #4299e1;
+  --text-color: #ffffff;
+}
+
 .circle {
   border-radius: 100%;
 }
