@@ -17,6 +17,7 @@
                 font-family: 'Lora', serif;
                 height: 100vh;
                 margin: 0;
+                overflow-x:hidden;
             }
 
 

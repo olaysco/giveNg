@@ -4,7 +4,7 @@ import authStore from './auth';
 
 vue.use(vuex)
 
-const store = new vuex.Store({
+export default new vuex.Store({
     modules: { authStore },
     state: {
     },
@@ -13,5 +13,3 @@ const store = new vuex.Store({
     actions: {
     },
 });
-
-export default store;

@@ -72,7 +72,7 @@
 	</div>
 </template>
 <script>
-import { mapMutations } from "vuex";
+import { mapMutations, mapActions } from "vuex";
 export default {
 	components: {},
 	data() {
@@ -105,12 +105,19 @@ export default {
 		}
 	},
 	methods: {
-		...mapMutations(["setRegistereduser"]),
+		...mapMutations(["setRegisteredUser"]),
+		...mapActions(["loginUser"]),
 		register() {
 			this.registerForm
 				.post("/api/register")
 				.then(async result => {
-					await this.setRegistereduser(this.registerForm);
+					await this.setRegisteredUser(this.registerForm);
+					try {
+						let e = this.loginUser();
+						console.log(e);
+					} catch (e) {
+						console.log(e);
+					}
 					this.$emit("registerSuccess");
 				})
 				.catch(err => {
