@@ -16,6 +16,7 @@
 <script>
 import PageHeader from "./PageHeader";
 import PageFooter from "./PageFooter";
+import { mapActions } from "vuex";
 export default {
 	name: "MainApp",
 	components: {
@@ -28,6 +29,7 @@ export default {
 		};
 	},
 	methods: {
+		...mapActions(["getUser"]),
 		beforeLeave(element) {
 			this.prevHeight = getComputedStyle(element).height;
 		},
@@ -41,6 +43,9 @@ export default {
 		afterEnter(element) {
 			element.style.height = "auto";
 		}
+	},
+	async beforeMount() {
+		await this.getUser();
 	}
 };
 </script>

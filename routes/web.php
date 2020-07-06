@@ -22,3 +22,5 @@ Route::get('/login', function () {
     return view('welcome');
 });
 Route::view('{path}', "welcome")->where('path', '([A-z\d-\/_.]+)?');
+
+Route::get('/home', 'HomeController@index')->name('home');

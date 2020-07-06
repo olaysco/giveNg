@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div :class="[registerForm.busy?'blur':'']">
 		<form @submit.prevent="register()">
 			<h3 class="text-center text-blue-500 text-2xl">Create an account</h3>
 			<div class="mt-6 relative">
@@ -55,7 +55,10 @@
 				<has-error :form="registerForm" field="password_confirmation"></has-error>
 			</div>
 			<div class="mt-6">
-				<button class="btn w-full" type="submit" :disabled="registerForm.busy">REGISTER</button>
+				<button class="btn w-full" type="submit" :disabled="registerForm.busy">
+					<span v-if="!registerForm.busy">REGISTER</span>
+					<span v-else>busy....</span>
+				</button>
 			</div>
 			<div class="mt-4 text-center">
 				<span class="text-sm">
@@ -69,7 +72,7 @@
 	</div>
 </template>
 <script>
-import { mapMutations } from "vuex";
+import { mapMutations, mapActions } from "vuex";
 export default {
 	components: {},
 	data() {
@@ -102,15 +105,20 @@ export default {
 		}
 	},
 	methods: {
-		...mapMutations(["setRegistereduser"]),
+		...mapMutations(["setRegisteredUser"]),
+		...mapActions(["loginUser"]),
 		register() {
 			this.registerForm
 				.post("/api/register")
 				.then(async result => {
-					if (result.status == 200) {
-						await this.setRegistereduser(this.registerForm);
-						this.$emit("registerSuccess");
+					await this.setRegisteredUser(this.registerForm);
+					try {
+						let e = this.loginUser();
+						console.log(e);
+					} catch (e) {
+						console.log(e);
 					}
+					this.$emit("registerSuccess");
 				})
 				.catch(err => {
 					console.log(err);

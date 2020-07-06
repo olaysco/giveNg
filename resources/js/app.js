@@ -12,7 +12,7 @@ Vue.prototype.$http = axios
 Vue.use(VueSocialauth, {
   providers: {
     google: {
-      clientId: '64730563317-5381abrhbog1aamubtjaimn6gjj4o2sj.apps.googleusercontent.com',
+      clientId: '',
       redirectUri: `${window.location.origin}/auth/google/callback` // Your client app URL
     }
   }
