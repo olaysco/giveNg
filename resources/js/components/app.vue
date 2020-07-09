@@ -14,8 +14,8 @@
 	</div>
 </template>
 <script>
-import PageHeader from "./PageHeader";
-import PageFooter from "./PageFooter";
+import PageHeader from "./organisms/OPageHeader";
+import PageFooter from "./organisms/OPageFooter";
 import { mapActions } from "vuex";
 export default {
 	name: "MainApp",

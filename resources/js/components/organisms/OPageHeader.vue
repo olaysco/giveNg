@@ -1,5 +1,5 @@
 <template>
-	<div class="flex justify-between items-center py-1 bg-transparent fixed w-full z-20 font-sans">
+	<div class="flex justify-between items-center py-1 bg-transparent w-full z-20 font-sans">
 		<div class="flex-shrink-0 ml-10 cursor-pointer">
 			<router-link to="/">
 				<img class="w-20 h-auto" src="/img/giveng-logo-light.svg" alt="logo" />
