@@ -1,36 +1,30 @@
 <template>
-    <div>
-        <page-header></page-header>
-        <page-hero></page-Hero>
-        <!-- <home-actions></home-actions> -->
-        <home-dos></home-dos>
-        <home-stat></home-stat>
-        <home-impacts></home-impacts>
-        <home-event></home-event>
-        <page-footer></page-footer>
-    </div>
+	<div>
+		<page-hero></page-hero>
+		<!-- <home-actions></home-actions> -->
+		<home-dos></home-dos>
+		<home-stat></home-stat>
+		<home-impacts></home-impacts>
+		<home-event></home-event>
+	</div>
 </template>
 <script>
-import PageHeader from "../../components/PageHeader";
-import PageHero from "../../components/PageHero";
-import HomeActions from "../../components/HomeActions";
-import HomeDos from "../../components/HomeDos";
-import HomeStat from "../../components/HomeStat";
-import HomeImpacts from "../../components/HomeImpacts";
-import HomeEvent from "../../components/HomeEvent";
-import PageFooter from "../../components/PageFooter"
+import PageHero from "../../components/organisms/OEduHero";
+import HomeActions from "../../components/organisms/OHomeActions";
+import HomeDos from "../../components/organisms/OHomeDos";
+import HomeStat from "../../components/organisms/OHomeStat";
+import HomeImpacts from "../../components/organisms/OHomeImpacts";
+import HomeEvent from "../../components/organisms/OHomeEvent";
 export default {
-    components: {
-        PageHeader,
-        PageHero,
-        HomeActions,
-        HomeDos,
-        HomeStat,
-        HomeImpacts,
-        HomeEvent,
-        PageFooter
-    }
-}
+	components: {
+		PageHero,
+		HomeActions,
+		HomeDos,
+		HomeStat,
+		HomeImpacts,
+		HomeEvent
+	}
+};
 </script>
 <style scoped>
 </style>

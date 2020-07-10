@@ -12,7 +12,7 @@
 	</div>
 </template>
 <script>
-import loading from "@mdi/svg/svg/loading.svg";
+import loading from "../icons/loading";
 export default {
 	components: {
 		loading

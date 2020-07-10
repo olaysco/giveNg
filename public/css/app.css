@@ -4882,6 +4882,10 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  font-family: "Inter", sans-serif;
+}
+
 .w-128 {
   width: 32rem;
 }
