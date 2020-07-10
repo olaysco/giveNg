@@ -1,5 +1,5 @@
 <template>
-	<div class="bg-image font-sans">
+	<div class="bg-image">
 		<page-header></page-header>
 		<transition
 			name="fade"

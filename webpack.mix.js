@@ -22,7 +22,6 @@ mix.webpackConfig({
         ]
     }
 }).js('resources/js/app.js', 'public/js').sass('resources/sass/app.scss', 'public/css')
-    .styles(['resources/css/style.css'],'public/css/all.css')
     .options({
         processCssUrls: false,
         postCss: [

@@ -3,7 +3,7 @@
 
 @tailwind components;
 
-//Custom css components
+@import "./variables";
 ::root {
     --primay-color: #4299e1;
     --text-color: #ffffff;
@@ -13,6 +13,9 @@
 }
 html {
     scroll-behavior: smooth;
+}
+body {
+    font-family: $font-family-inter;
 }
 .w-128 {
     width: 32rem;
@@ -27,7 +30,6 @@ html {
         @apply text-xs text-red-500;
     }
 }
-
 @media (screen and max-width: 768px) {
     .input {
         min-width: 80vw;
