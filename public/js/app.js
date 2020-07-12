@@ -3578,8 +3578,6 @@ var _vueStyledComponents = _interopRequireDefault(__webpack_require__(/*! vue-st
 //
 //
 //
-//
-//
 var _default = {};
 exports["default"] = _default;
 
@@ -4001,7 +3999,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".fade-enter-active[data-v-f9a0fcb4],\n.fade-leave-active[data-v-f9a0fcb4] {\n  transition-duration: 0.3s;\n  transition-property: opacity;\n  transition-timing-function: ease;\n}\n.fade-enter[data-v-f9a0fcb4],\n.fade-leave-active[data-v-f9a0fcb4] {\n  opacity: 0;\n}\n", ""]);
+exports.push([module.i, ".fade-enter-active[data-v-f9a0fcb4],\r\n.fade-leave-active[data-v-f9a0fcb4] {\n  transition-duration: 0.3s;\n  transition-property: opacity;\n  transition-timing-function: ease;\n}\n.fade-enter[data-v-f9a0fcb4],\r\n.fade-leave-active[data-v-f9a0fcb4] {\n  opacity: 0;\n}\r\n", ""]);
 
 // exports
 
@@ -4058,7 +4056,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "@-webkit-keyframes rotating-data-v-5a0a37a8 {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(360deg);\n}\n}\n@keyframes rotating-data-v-5a0a37a8 {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(360deg);\n}\n}\n.rotate[data-v-5a0a37a8] {\n  -webkit-animation: rotating-data-v-5a0a37a8 2s linear infinite;\n          animation: rotating-data-v-5a0a37a8 2s linear infinite;\n}\n", ""]);
+exports.push([module.i, "@-webkit-keyframes rotating-data-v-5a0a37a8 {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(360deg);\n}\n}\n@keyframes rotating-data-v-5a0a37a8 {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(360deg);\n}\n}\n.rotate[data-v-5a0a37a8] {\n  -webkit-animation: rotating-data-v-5a0a37a8 2s linear infinite;\n          animation: rotating-data-v-5a0a37a8 2s linear infinite;\n}\r\n", ""]);
 
 // exports
 
@@ -4096,7 +4094,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".hero[data-v-63fa73fa] {\n  height: calc(100vh - (0px + 0px));\n  background-image: url(\"/img/child.png\");\n}\n", ""]);
+exports.push([module.i, ".hero[data-v-63fa73fa] {\n  height: calc(100vh - (0px + 0px));\n  background-image: url(\"/img/child.png\");\n}\r\n", ""]);
 
 // exports
 
@@ -4153,7 +4151,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".outsted[data-v-24c992da] {\n  margin: -2em -2em 0px 0px;\n}\n", ""]);
+exports.push([module.i, ".outsted[data-v-24c992da] {\n  margin: -2em -2em 0px 0px;\n}\r\n", ""]);
 
 // exports
 
@@ -4172,7 +4170,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".hero[data-v-5610693f] {\n  height: calc(100vh - (90px + 0px));\n}\n@media (max-width: 764px) {\n.hero[data-v-5610693f] {\n    height: calc(100vh - (0px + 0px));\n}\n}\n", ""]);
+exports.push([module.i, ".hero[data-v-5610693f] {\n  height: calc(100vh - (90px + 0px));\n}\n@media (max-width: 764px) {\n.hero[data-v-5610693f] {\n    height: calc(100vh - (0px + 0px));\n}\n}\r\n", ""]);
 
 // exports
 
@@ -4191,7 +4189,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".slide-control > span[data-v-9fa89d90]:first-child {\n  background-color: #2a4365;\n}\n", ""]);
+exports.push([module.i, ".slide-control > span[data-v-9fa89d90]:first-child {\n  background-color: #2a4365;\n}\r\n", ""]);
 
 // exports
 
@@ -4210,7 +4208,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".stats[data-v-6d023ace] {\n  background-image: url(\"/img/image-1.jpg\");\n}\n", ""]);
+exports.push([module.i, ".stats[data-v-6d023ace] {\n  background-image: url(\"/img/image-1.jpg\");\n}\r\n", ""]);
 
 // exports
 
@@ -4267,7 +4265,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".bg-image[data-v-04c29797]{\n  background-image: url(\"/img/give-bg.svg\");\n  background-repeat: no-repeat;\n  background-size: cover;\n  background-attachment: fixed;\n}\n", ""]);
+exports.push([module.i, ".bg-image[data-v-04c29797]{\n  background-image: url(\"/img/give-bg.svg\");\n  background-repeat: no-repeat;\n  background-size: cover;\n  background-attachment: fixed;\n}\r\n", ""]);
 
 // exports
 
@@ -26653,56 +26651,52 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "w-screen min-h-screen bg-white flex flex-row" },
-    [
-      _c(
-        "div",
-        {
-          staticClass:
-            "w-full min-h-screen md:flex my-auto block justify-center items-center p-0 bg-blue-100 bg-opacity-25"
-        },
-        [
-          _c(
-            "div",
-            {
-              staticClass:
-                "w-screen h-screen md:w-full md:h-auto flex items-center justify-center rounded-md"
-            },
-            [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "w-full md:w-1/2 flex flex-col items-center justify-center"
-                },
-                [
-                  _c("router-link", { attrs: { to: "/" } }, [
-                    _c("img", {
-                      staticClass: "w-20 h-auto",
-                      attrs: { src: "/img/giveng-logo-light.svg", alt: "logo" }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "transition-all ease-linear duration-75 delay-75 p-6 bg-white rounded-md shadow-md hover:shadow-outline"
-                    },
-                    [_vm._t("default")],
-                    2
-                  )
-                ],
-                1
-              )
-            ]
-          )
-        ]
-      )
-    ]
-  )
+  return _c("div", { staticClass: "w-screen bg-white flex flex-row" }, [
+    _c(
+      "div",
+      {
+        staticClass:
+          "w-full md:flex my-auto block justify-center items-center p-0"
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "w-screen h-screen md:w-full md:h-auto flex items-center justify-center rounded-md"
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "w-full md:w-1/2 flex flex-col items-center justify-center"
+              },
+              [
+                _c("router-link", { attrs: { to: "/" } }, [
+                  _c("img", {
+                    staticClass: "w-20 h-auto",
+                    attrs: { src: "/img/giveng-logo-light.svg", alt: "logo" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "transition-all ease-linear duration-75 delay-75 p-6 bg-white rounded-md shadow-md hover:shadow-outline"
+                  },
+                  [_vm._t("default")],
+                  2
+                )
+              ],
+              1
+            )
+          ]
+        )
+      ]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

@@ -1,9 +1,7 @@
 <template>
-	<div class="w-screen min-h-screen bg-white flex flex-row">
+	<div class="w-screen bg-white flex flex-row">
 		<!-- <div class="w-1/2 hidden bg-gray-900 md:flex flex-col justify-between p-6"></div> -->
-		<div
-			class="w-full min-h-screen md:flex my-auto block justify-center items-center p-0 bg-blue-100 bg-opacity-25"
-		>
+		<div class="w-full md:flex my-auto block justify-center items-center p-0">
 			<div class="w-screen h-screen md:w-full md:h-auto flex items-center justify-center rounded-md">
 				<div class="w-full md:w-1/2 flex flex-col items-center justify-center">
 					<router-link to="/">

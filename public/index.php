@@ -55,6 +55,9 @@ $response = $kernel->handle(
     $request = Illuminate\Http\Request::capture()
 );
 
+$response->header('X-Runtime', microtime(true) - LARAVEL_START);
+$response->header('X-Memory-Usage', memory_get_usage().'byte');
 $response->send();
+
 
 $kernel->terminate($request, $response);
