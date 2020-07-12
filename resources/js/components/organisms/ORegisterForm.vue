@@ -113,7 +113,7 @@ export default {
 				.then(async result => {
 					await this.setRegisteredUser(this.registerForm);
 					try {
-						let e = this.loginUser();
+						let e = this.loginUser(this.registerForm);
 						console.log(e);
 					} catch (e) {
 						console.log(e);

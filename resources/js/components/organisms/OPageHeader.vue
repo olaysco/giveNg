@@ -13,17 +13,36 @@
 			<li class="mr-6 p-1">
 				<router-link to="/education" class="text-gray-500 text-xs hover:text-blue-300">Education</router-link>
 			</li>
-			<li class="mr-6 p-1">
+			<li class="mr-6 p-1" v-if="!authUser">
 				<router-link
 					to="/login"
 					class="text-white text-sm bg-blue-500 py-2 px-6 rounded-full hover:bg-white hover:text-blue-500 hover:border-blue-500 font-100"
 				>Login</router-link>
 			</li>
+			<li v-else>
+				<button
+					@click="logout"
+					class="text-white text-sm bg-blue-500 py-2 px-6 rounded-full hover:bg-white hover:text-blue-500 hover:border-blue-500 font-100"
+				>Logout</button>
+			</li>
 		</ul>
 	</div>
 </template>
 <script>
-export default {};
+import { mapState, mapActions } from "vuex";
+export default {
+	computed: {
+		...mapState({
+			authUser: state => state.authStore.authUser
+		})
+	},
+	methods: {
+		async logout() {
+			await this.$store.dispatch("logoutUser");
+			window.location.href = "/";
+		}
+	}
+};
 </script>
 <style scoped>
 </style>
