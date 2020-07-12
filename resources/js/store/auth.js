@@ -3,7 +3,7 @@
 const authStore = {
     state: {
         registeredUser: null,
-        authUser: null
+        authUser: user
     },
     mutations: {
         setRegisteredUser(state, user) {

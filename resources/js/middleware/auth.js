@@ -10,10 +10,11 @@
  */
 function authMiddleware(to, from, next, store)
 {
+    console.log(store.state.authStore.authUser);
     if (to.path === "/login" && isLoggedIn(store)) {
         return next({path: "/profile"})
     }
-    if (!to.meta.guest && isLoggedIn(store)) {
+    if (!to.meta.guest && !isLoggedIn(store)) {
         return next({path: "/login"})
     }
     return next()

@@ -13,17 +13,23 @@
 			<li class="mr-6 p-1">
 				<router-link to="/education" class="text-gray-500 text-xs hover:text-blue-300">Education</router-link>
 			</li>
-			<li class="mr-6 p-1" v-if="!authUser">
+			<li class="mr-6 p-1" v-if="authUser && authUser.email">
+				<button
+					v-if="inProfile"
+					@click="logout"
+					class="text-white text-sm bg-blue-500 py-2 px-6 rounded-full hover:bg-white hover:text-blue-500 hover:border-blue-500 font-100"
+				>Logout</button>
+				<router-link
+					v-else
+					to="/profile"
+					class="text-white text-sm bg-blue-500 py-2 px-6 rounded-full hover:bg-white hover:text-blue-500 hover:border-blue-500 font-100"
+				>Profile</router-link>
+			</li>
+			<li v-else>
 				<router-link
 					to="/login"
 					class="text-white text-sm bg-blue-500 py-2 px-6 rounded-full hover:bg-white hover:text-blue-500 hover:border-blue-500 font-100"
 				>Login</router-link>
-			</li>
-			<li v-else>
-				<button
-					@click="logout"
-					class="text-white text-sm bg-blue-500 py-2 px-6 rounded-full hover:bg-white hover:text-blue-500 hover:border-blue-500 font-100"
-				>Logout</button>
 			</li>
 		</ul>
 	</div>
@@ -34,7 +40,10 @@ export default {
 	computed: {
 		...mapState({
 			authUser: state => state.authStore.authUser
-		})
+		}),
+		inProfile() {
+			return this.$route.path === "/profile";
+		}
 	},
 	methods: {
 		async logout() {

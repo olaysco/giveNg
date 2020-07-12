@@ -24,11 +24,11 @@
         </style>
             @guest
     <script>
-        window.user = null
+        let user = null
     </script>
     @else
 <script>
-        window.user = {!! Auth::user() !!}
+        let user = {!! Auth::user() !!}
     </script>
     @endguest
     </head>

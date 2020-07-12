@@ -76,9 +76,7 @@ export default {
 					this.$emit("loginSuccess");
 				})
 				.catch(err => {
-					alert("couldn't log you in");
 					this.loginForm = err;
-					console.log(err.response);
 				});
 		}
 	}

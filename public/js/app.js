@@ -2076,10 +2076,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js"));
-
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/asyncToGenerator */ "./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/asyncToGenerator.js"));
-
 var _objectSpread2 = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/objectSpread2 */ "./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/objectSpread2.js"));
 
 var _OPageHeader = _interopRequireDefault(__webpack_require__(/*! ./organisms/OPageHeader */ "./resources/js/components/organisms/OPageHeader.vue"));
@@ -2130,26 +2126,7 @@ var _default = {
     afterEnter: function afterEnter(element) {
       element.style.height = "auto";
     }
-  }),
-  beforeMount: function beforeMount() {
-    var _this = this;
-
-    return (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee() {
-      return _regenerator["default"].wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return _this.getUser();
-
-            case 2:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }))();
-  }
+  })
 };
 exports["default"] = _default;
 
@@ -3224,9 +3201,7 @@ var _default = {
 
         _this.$emit("loginSuccess");
       })["catch"](function (err) {
-        alert("couldn't log you in");
         _this.loginForm = err;
-        console.log(err.response);
       });
     }
   })
@@ -3358,12 +3333,22 @@ var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.j
 //
 //
 //
+//
+//
+//
+//
+//
+//
 var _default = {
-  computed: (0, _objectSpread2["default"])({}, (0, _vuex.mapState)({
+  computed: (0, _objectSpread2["default"])((0, _objectSpread2["default"])({}, (0, _vuex.mapState)({
     authUser: function authUser(state) {
       return state.authStore.authUser;
     }
-  })),
+  })), {}, {
+    inProfile: function inProfile() {
+      return this.$route.path === "/profile";
+    }
+  }),
   methods: {
     logout: function logout() {
       var _this = this;
@@ -4022,7 +4007,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".fade-enter-active[data-v-f9a0fcb4],\r\n.fade-leave-active[data-v-f9a0fcb4] {\n  transition-duration: 0.3s;\n  transition-property: opacity;\n  transition-timing-function: ease;\n}\n.fade-enter[data-v-f9a0fcb4],\r\n.fade-leave-active[data-v-f9a0fcb4] {\n  opacity: 0;\n}\r\n", ""]);
+exports.push([module.i, ".fade-enter-active[data-v-f9a0fcb4],\n.fade-leave-active[data-v-f9a0fcb4] {\n  transition-duration: 0.3s;\n  transition-property: opacity;\n  transition-timing-function: ease;\n}\n.fade-enter[data-v-f9a0fcb4],\n.fade-leave-active[data-v-f9a0fcb4] {\n  opacity: 0;\n}\n", ""]);
 
 // exports
 
@@ -26380,10 +26365,35 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        !_vm.authUser
+        _vm.authUser && _vm.authUser.email
           ? _c(
               "li",
               { staticClass: "mr-6 p-1" },
+              [
+                _vm.inProfile
+                  ? _c(
+                      "button",
+                      {
+                        staticClass:
+                          "text-white text-sm bg-blue-500 py-2 px-6 rounded-full hover:bg-white hover:text-blue-500 hover:border-blue-500 font-100",
+                        on: { click: _vm.logout }
+                      },
+                      [_vm._v("Logout")]
+                    )
+                  : _c(
+                      "router-link",
+                      {
+                        staticClass:
+                          "text-white text-sm bg-blue-500 py-2 px-6 rounded-full hover:bg-white hover:text-blue-500 hover:border-blue-500 font-100",
+                        attrs: { to: "/profile" }
+                      },
+                      [_vm._v("Profile")]
+                    )
+              ],
+              1
+            )
+          : _c(
+              "li",
               [
                 _c(
                   "router-link",
@@ -26397,17 +26407,6 @@ var render = function() {
               ],
               1
             )
-          : _c("li", [
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "text-white text-sm bg-blue-500 py-2 px-6 rounded-full hover:bg-white hover:text-blue-500 hover:border-blue-500 font-100",
-                  on: { click: _vm.logout }
-                },
-                [_vm._v("Logout")]
-              )
-            ])
       ])
     ]
   )
@@ -47972,6 +47971,9 @@ window.addEventListener('load', function () {
   new _vue["default"]({
     router: _routes["default"],
     store: _store["default"],
+    created: function created() {
+      user = undefined;
+    },
     el: "#main",
     render: function render(h) {
       return h(_app["default"]);
@@ -50054,13 +50056,15 @@ exports.authMiddleware = authMiddleware;
  * and redirect authenticated user from login to profile
  */
 function authMiddleware(to, from, next, store) {
+  console.log(store.state.authStore.authUser);
+
   if (to.path === "/login" && isLoggedIn(store)) {
     return next({
       path: "/profile"
     });
   }
 
-  if (!to.meta.guest && isLoggedIn(store)) {
+  if (!to.meta.guest && !isLoggedIn(store)) {
     return next({
       path: "/login"
     });
@@ -50909,7 +50913,7 @@ exports["default"] = void 0;
 var authStore = {
   state: {
     registeredUser: null,
-    authUser: null
+    authUser: user
   },
   mutations: {
     setRegisteredUser: function setRegisteredUser(state, user) {
