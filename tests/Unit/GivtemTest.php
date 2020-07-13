@@ -31,14 +31,13 @@ class GivtemTest extends TestCase
     {
         $allGivetemsBefore = Givetem::all()->count();
         Sanctum::actingAs(
-            factory(User::class)->create(),
-            ['view-tasks']
+            factory(User::class)->create()
         );
         $givetem = factory(Givetem::class)->make();
         $response = $this->postJson('api/givetem', $givetem->toArray());
         $allGivetemsAfter = Givetem::all()->count();
         $response->assertSuccessful();
-        $this->assertGreaterThan($allGivetemsAfter, $allGivetemsBefore);
+        $this->assertGreaterThan($allGivetemsBefore, $allGivetemsAfter);
     }
 
     /**

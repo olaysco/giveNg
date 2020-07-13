@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Givetem;
+use App\Http\Requests\GivetemStoreRequest;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class GivetemController extends Controller
 {
@@ -23,8 +25,10 @@ class GivetemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GivetemStoreRequest $request)
     {
+        $givetem = Givetem::create($request->all());
+        return new Response($givetem, 201);
     }
 
     /**

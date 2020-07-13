@@ -13,7 +13,7 @@ class GivetemStoreRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,14 @@ class GivetemStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title'     => 'required',
+            'image_url' => 'required',
+            'caption'   => 'required',
+            'rating'    => 'required|integer',
+            'available' => 'required|boolean',
+            'pickup_location'   => 'required',
+            'info'              => 'required',
+            'tags'              => 'required',
         ];
     }
 }
