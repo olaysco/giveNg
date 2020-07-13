@@ -3358,13 +3358,11 @@ var _default = {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
-                return _this.$store.dispatch("logoutUser");
+                _this.$store.dispatch("logoutUser").then(function (e) {
+                  window.location.href = "/";
+                });
 
-              case 2:
-                window.location.href = "/";
-
-              case 3:
+              case 1:
               case "end":
                 return _context.stop();
             }
@@ -3394,10 +3392,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = void 0;
-
-var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js"));
-
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/asyncToGenerator */ "./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/asyncToGenerator.js"));
 
 var _objectSpread2 = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/objectSpread2 */ "./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/objectSpread2.js"));
 
@@ -3503,42 +3497,22 @@ var _default = {
       }));
     }
   },
-  methods: (0, _objectSpread2["default"])((0, _objectSpread2["default"])((0, _objectSpread2["default"])({}, (0, _vuex.mapMutations)(["setRegisteredUser"])), (0, _vuex.mapActions)(["loginUser"])), {}, {
+  methods: (0, _objectSpread2["default"])((0, _objectSpread2["default"])((0, _objectSpread2["default"])({}, (0, _vuex.mapMutations)(["setAuthUser"])), (0, _vuex.mapActions)(["loginUser"])), {}, {
     register: function register() {
       var _this = this;
 
-      this.registerForm.post("/api/register").then( /*#__PURE__*/function () {
-        var _ref = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(result) {
-          var e;
-          return _regenerator["default"].wrap(function _callee$(_context) {
-            while (1) {
-              switch (_context.prev = _context.next) {
-                case 0:
-                  _context.next = 2;
-                  return _this.setRegisteredUser(_this.registerForm);
+      this.registerForm.post("/api/register").then(function (result) {
+        _this.setAuthUser(result.data);
 
-                case 2:
-                  try {
-                    e = _this.loginUser(_this.registerForm);
-                    console.log(e);
-                  } catch (e) {
-                    console.log(e);
-                  }
+        _this.$emit("registerSuccess"); // try {
+        // 	let res = await this.loginUser(this.registerForm);
+        // 	console.log(res);
+        // 	// this.$emit("registerSuccess");
+        // } catch (e) {
+        // 	console.log(e);
+        // }
 
-                  _this.$emit("registerSuccess");
-
-                case 4:
-                case "end":
-                  return _context.stop();
-              }
-            }
-          }, _callee);
-        }));
-
-        return function (_x) {
-          return _ref.apply(this, arguments);
-        };
-      }())["catch"](function (err) {
+      })["catch"](function (err) {
         console.log(err);
       });
     }
@@ -3676,8 +3650,6 @@ var _default = {
   },
   methods: {
     handleRegisterSuccess: function handleRegisterSuccess() {
-      //alert and redirect
-      alert("success");
       this.$router.push("/profile");
     }
   }
@@ -3967,9 +3939,6 @@ var _default = {
     user: function user() {
       return this.$store.state.authStore.authUser;
     }
-  },
-  mounted: function mounted() {
-    console.log(this.user);
   }
 };
 exports["default"] = _default;
@@ -50056,9 +50025,7 @@ exports.authMiddleware = authMiddleware;
  * and redirect authenticated user from login to profile
  */
 function authMiddleware(to, from, next, store) {
-  console.log(store.state.authStore.authUser);
-
-  if (to.path === "/login" && isLoggedIn(store)) {
+  if ((to.path === "/login" || to.path === "/register") && isLoggedIn(store)) {
     return next({
       path: "/profile"
     });
@@ -50924,18 +50891,11 @@ var authStore = {
     }
   },
   actions: {
-    registerUser: function registerUser(_ref, user) {
-      var dispatch = _ref.dispatch,
-          state = _ref.state;
-      state.registeredUser = user;
-      console.log(dispatch);
-    },
-    loginUser: function loginUser(_ref2, form) {
-      var commit = _ref2.commit;
+    loginUser: function loginUser(_ref, form) {
+      var commit = _ref.commit;
       return new Promise(function (resolve, reject) {
-        axios.get('/sanctum/csrf-cookie').then(function (response) {
-          var user = {};
-          form.post('/api/login').then(function (response) {
+        axios.get("/sanctum/csrf-cookie").then(function (response) {
+          form.post("/api/login").then(function (response) {
             commit("setAuthUser", response.data);
             return resolve(form);
           })["catch"](function (error) {
@@ -50945,12 +50905,12 @@ var authStore = {
       });
     },
     logoutUser: function logoutUser() {
-      axios.post('/api/logout');
+      axios.post("/api/logout");
     },
-    getUser: function getUser(_ref3) {
-      var commit = _ref3.commit;
-      axios.get("/sanctum/csrf-cookie").then(function (response) {
-        axios.get("/api/user").then(function (res) {
+    getUser: function getUser(_ref2) {
+      var commit = _ref2.commit;
+      return axios.get("/sanctum/csrf-cookie").then(function (response) {
+        return axios.get("/api/user").then(function (res) {
           commit("setAuthUser", res.data);
         })["catch"](function (err) {
           console.log(err);

@@ -47,8 +47,9 @@ export default {
 	},
 	methods: {
 		async logout() {
-			await this.$store.dispatch("logoutUser");
-			window.location.href = "/";
+			this.$store.dispatch("logoutUser").then(e => {
+				window.location.href = "/";
+			});
 		}
 	}
 };
