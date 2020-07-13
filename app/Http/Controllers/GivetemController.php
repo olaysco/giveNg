@@ -16,7 +16,7 @@ class GivetemController extends Controller
      */
     public function index()
     {
-        //
+        return new Response(Givetem::all(), 200);
     }
 
     /**
@@ -32,7 +32,7 @@ class GivetemController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update a specific givetem resource
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Givetem  $givetem
@@ -44,13 +44,12 @@ class GivetemController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove a specofoc givetem
      *
      * @param  \App\Givetem  $givetem
      * @return \Illuminate\Http\Response
      */
     public function destroy(Givetem $givetem)
     {
-        //
     }
 }

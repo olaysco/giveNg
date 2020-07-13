@@ -11,6 +11,10 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('givetem', "GivetemController@store");
 });
 
+//User authentication routes
 Route::post('login', 'Auth\LoginController@login');
 Route::post('register', 'Auth\RegisterController@register');
 Route::post('logout', 'Auth\LoginController@logout');
+
+//general routes that do not require authentication
+Route::get('/givetems', "GivetemController@index");

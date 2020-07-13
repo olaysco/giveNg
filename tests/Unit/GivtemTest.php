@@ -52,4 +52,17 @@ class GivtemTest extends TestCase
         $response = $this->postJson('api/givetem', $givetem->toArray());
         $response->assertUnauthorized();
     }
+
+    /**
+     * Test all givetems in the db
+     * are retreived successfully
+     *
+     * @return void
+     */
+    public function testAllGivetemsRetrievedSuccessfully()
+    {
+        $allGivetem = Givetem::all();
+        $response = $this->getJson('/api/givetems');
+        $response->assertExactJson($allGivetem->toArray());
+    }
 }
