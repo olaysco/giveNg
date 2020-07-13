@@ -65,4 +65,41 @@ class GivtemTest extends TestCase
         $response = $this->getJson('/api/givetems');
         $response->assertExactJson($allGivetem->toArray());
     }
+
+    /**
+     * Test givetm can be updated
+     * by its creator (i.e user)
+     *
+     * @return void
+     */
+    public function testGivetemUpdateByItsCreator()
+    {
+        Sanctum::actingAs(
+            factory(User::class)->create()
+        );
+        $givetem = factory(Givetem::class)->make();
+        $response = $this->postJson('api/givetem', $givetem->toArray());
+        $givetem->rating = 0;
+        $response = $this->postJson("api/givetem/{$givetem->id}", $givetem->toArray());
+        $response->assertSuccessful();
+        $response->assertJsonPath("rating", $givetem->rating);
+    }
+
+    /**
+     * Test givetm cannot be updated
+     * by unathorized user
+     *
+     * @return void
+     */
+    public function testGivetemCannotUpdateByInvalidUser()
+    {
+        Sanctum::actingAs(
+            factory(User::class)->create()
+        );
+        $givetem = factory(Givetem::class)->make();
+        $response = $this->postJson('api/givetem', $givetem->toArray());
+        $givetem->user_id = 0;
+        $updateResponse = $this->patchJson("api/givetem/update/{$givetem->id}", $givetem->toArray());
+        $updateResponse->assertStatus(403);
+    }
 }

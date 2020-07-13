@@ -6,6 +6,8 @@ use App\Givetem;
 use App\Http\Requests\GivetemStoreRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class GivetemController extends Controller
 {
@@ -27,7 +29,9 @@ class GivetemController extends Controller
      */
     public function store(GivetemStoreRequest $request)
     {
-        $givetem = Givetem::create($request->all());
+        $givetem = Givetem::create($request->all(), [
+            'user_id' => Auth::user()
+        ]);
         return new Response($givetem, 201);
     }
 
@@ -40,16 +44,22 @@ class GivetemController extends Controller
      */
     public function update(Request $request, Givetem $givetem)
     {
-        //
+        $updatedGivetem = $givetem->update($request->all());
+        return new Response($updatedGivetem, 200);
     }
 
     /**
-     * Remove a specofoc givetem
+     * Remove a specific givetem
      *
      * @param  \App\Givetem  $givetem
      * @return \Illuminate\Http\Response
      */
     public function destroy(Givetem $givetem)
     {
+        if ($givetem->delete()) {
+            return new Response('', 204);
+        } else {
+            return new Response(['msg' => 'unable to delete resource'], 500);
+        }
     }
 }
