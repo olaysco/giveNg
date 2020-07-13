@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Givetem;
+use App\Http\Requests\GivetemStoreRequest;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class GivetemController extends Controller
 {
@@ -14,54 +18,25 @@ class GivetemController extends Controller
      */
     public function index()
     {
-        //
+        return new Response(Givetem::all(), 200);
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * Store a newly created givetem in db.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GivetemStoreRequest $request)
     {
-        //
+        $givetem = Givetem::create($request->all(), [
+            'user_id' => Auth::user()
+        ]);
+        return new Response($givetem, 201);
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Givetem  $givetem
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Givetem $givetem)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Givetem  $givetem
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Givetem $givetem)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
+     * Update a specific givetem resource
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Givetem  $givetem
@@ -69,17 +44,22 @@ class GivetemController extends Controller
      */
     public function update(Request $request, Givetem $givetem)
     {
-        //
+        $updatedGivetem = $givetem->update($request->all());
+        return new Response($updatedGivetem, 200);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove a specific givetem
      *
      * @param  \App\Givetem  $givetem
      * @return \Illuminate\Http\Response
      */
     public function destroy(Givetem $givetem)
     {
-        //
+        if ($givetem->delete()) {
+            return new Response('', 204);
+        } else {
+            return new Response(['msg' => 'unable to delete resource'], 500);
+        }
     }
 }

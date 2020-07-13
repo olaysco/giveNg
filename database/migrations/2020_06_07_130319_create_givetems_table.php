@@ -18,8 +18,8 @@ class CreateGivetemsTable extends Migration
             $table->string('title');
             $table->string('image_url');
             $table->string('caption');
-            $table->string('rating');
-            $table->unsignedBigInteger('category_id');
+            $table->integer('rating')->default(0);
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->boolean('available');
             $table->string('pickup_location');
