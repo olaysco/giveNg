@@ -2076,10 +2076,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js"));
-
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/asyncToGenerator */ "./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/asyncToGenerator.js"));
-
 var _objectSpread2 = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/objectSpread2 */ "./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/objectSpread2.js"));
 
 var _OPageHeader = _interopRequireDefault(__webpack_require__(/*! ./organisms/OPageHeader */ "./resources/js/components/organisms/OPageHeader.vue"));
@@ -2130,26 +2126,7 @@ var _default = {
     afterEnter: function afterEnter(element) {
       element.style.height = "auto";
     }
-  }),
-  beforeMount: function beforeMount() {
-    var _this = this;
-
-    return (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee() {
-      return _regenerator["default"].wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return _this.getUser();
-
-            case 2:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }))();
-  }
+  })
 };
 exports["default"] = _default;
 
@@ -3147,10 +3124,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js"));
-
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/asyncToGenerator */ "./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/asyncToGenerator.js"));
-
 var _objectSpread2 = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/objectSpread2 */ "./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/objectSpread2.js"));
 
 var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
@@ -3219,38 +3192,16 @@ var _default = {
       };
     }
   },
-  methods: (0, _objectSpread2["default"])((0, _objectSpread2["default"])({}, (0, _vuex.mapMutations)(["setCurrentAuthUser"])), {}, {
+  methods: (0, _objectSpread2["default"])((0, _objectSpread2["default"])((0, _objectSpread2["default"])({}, (0, _vuex.mapMutations)(["setCurrentAuthUser"])), (0, _vuex.mapActions)(["loginUser"])), {}, {
     login: function login() {
       var _this = this;
 
-      this.loginForm.post("/api/login").then( /*#__PURE__*/function () {
-        var _ref = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(result) {
-          return _regenerator["default"].wrap(function _callee$(_context) {
-            while (1) {
-              switch (_context.prev = _context.next) {
-                case 0:
-                  _this.$emit("loginSuccess");
+      this.loginUser(this.loginForm).then(function (response) {
+        _this.loginForm = response;
 
-                case 1:
-                case "end":
-                  return _context.stop();
-              }
-            }
-          }, _callee);
-        }));
-
-        return function (_x) {
-          return _ref.apply(this, arguments);
-        };
-      }())["catch"](function (err) {
-        if (err.response.data.message == "Your email address is not verified.") {
-          window.location = "/verify";
-          return;
-        } else {
-          console.log(err.response.data.message);
-          _this.formValidated = false;
-          _this.authValid = false;
-        }
+        _this.$emit("loginSuccess");
+      })["catch"](function (err) {
+        _this.loginForm = err;
       });
     }
   })
@@ -3337,10 +3288,21 @@ exports["default"] = _default;
 "use strict";
 
 
+var _interopRequireDefault = __webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/interopRequireDefault */ "./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = void 0;
+
+var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js"));
+
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/asyncToGenerator */ "./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/asyncToGenerator.js"));
+
+var _objectSpread2 = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/objectSpread2 */ "./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/objectSpread2.js"));
+
+var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+
 //
 //
 //
@@ -3365,7 +3327,51 @@ exports["default"] = void 0;
 //
 //
 //
-var _default = {};
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  computed: (0, _objectSpread2["default"])((0, _objectSpread2["default"])({}, (0, _vuex.mapState)({
+    authUser: function authUser(state) {
+      return state.authStore.authUser;
+    }
+  })), {}, {
+    inProfile: function inProfile() {
+      return this.$route.path === "/profile";
+    }
+  }),
+  methods: {
+    logout: function logout() {
+      var _this = this;
+
+      return (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee() {
+        return _regenerator["default"].wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _this.$store.dispatch("logoutUser").then(function (e) {
+                  window.location.href = "/";
+                });
+
+              case 1:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    }
+  }
+};
 exports["default"] = _default;
 
 /***/ }),
@@ -3386,10 +3392,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = void 0;
-
-var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js"));
-
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/asyncToGenerator */ "./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/asyncToGenerator.js"));
 
 var _objectSpread2 = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/objectSpread2 */ "./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/objectSpread2.js"));
 
@@ -3495,42 +3497,22 @@ var _default = {
       }));
     }
   },
-  methods: (0, _objectSpread2["default"])((0, _objectSpread2["default"])((0, _objectSpread2["default"])({}, (0, _vuex.mapMutations)(["setRegisteredUser"])), (0, _vuex.mapActions)(["loginUser"])), {}, {
+  methods: (0, _objectSpread2["default"])((0, _objectSpread2["default"])((0, _objectSpread2["default"])({}, (0, _vuex.mapMutations)(["setAuthUser"])), (0, _vuex.mapActions)(["loginUser"])), {}, {
     register: function register() {
       var _this = this;
 
-      this.registerForm.post("/api/register").then( /*#__PURE__*/function () {
-        var _ref = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(result) {
-          var e;
-          return _regenerator["default"].wrap(function _callee$(_context) {
-            while (1) {
-              switch (_context.prev = _context.next) {
-                case 0:
-                  _context.next = 2;
-                  return _this.setRegisteredUser(_this.registerForm);
+      this.registerForm.post("/api/register").then(function (result) {
+        _this.setAuthUser(result.data);
 
-                case 2:
-                  try {
-                    e = _this.loginUser();
-                    console.log(e);
-                  } catch (e) {
-                    console.log(e);
-                  }
+        _this.$emit("registerSuccess"); // try {
+        // 	let res = await this.loginUser(this.registerForm);
+        // 	console.log(res);
+        // 	// this.$emit("registerSuccess");
+        // } catch (e) {
+        // 	console.log(e);
+        // }
 
-                  _this.$emit("registerSuccess");
-
-                case 4:
-                case "end":
-                  return _context.stop();
-              }
-            }
-          }, _callee);
-        }));
-
-        return function (_x) {
-          return _ref.apply(this, arguments);
-        };
-      }())["catch"](function (err) {
+      })["catch"](function (err) {
         console.log(err);
       });
     }
@@ -3559,8 +3541,6 @@ exports["default"] = void 0;
 
 var _vueStyledComponents = _interopRequireDefault(__webpack_require__(/*! vue-styled-components */ "./node_modules/vue-styled-components/dist/vue-styled-components.es.js"));
 
-//
-//
 //
 //
 //
@@ -3624,7 +3604,7 @@ var _default = {
   computed: {},
   methods: {
     handleLoginSuccess: function handleLoginSuccess() {
-      console.log("success");
+      this.$router.push("/profile");
     }
   }
 };
@@ -3670,8 +3650,6 @@ var _default = {
   },
   methods: {
     handleRegisterSuccess: function handleRegisterSuccess() {
-      //alert and redirect
-      alert("success");
       this.$router.push("/profile");
     }
   }
@@ -3961,9 +3939,6 @@ var _default = {
     user: function user() {
       return this.$store.state.authStore.authUser;
     }
-  },
-  mounted: function mounted() {
-    console.log(this.user);
   }
 };
 exports["default"] = _default;
@@ -4058,7 +4033,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "@-webkit-keyframes rotating-data-v-5a0a37a8 {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(360deg);\n}\n}\n@keyframes rotating-data-v-5a0a37a8 {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(360deg);\n}\n}\n.rotate[data-v-5a0a37a8] {\n  -webkit-animation: rotating-data-v-5a0a37a8 2s linear infinite;\n          animation: rotating-data-v-5a0a37a8 2s linear infinite;\n}\n", ""]);
+exports.push([module.i, "@-webkit-keyframes rotating-data-v-5a0a37a8 {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(360deg);\n}\n}\n@keyframes rotating-data-v-5a0a37a8 {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(360deg);\n}\n}\n.rotate[data-v-5a0a37a8] {\n  -webkit-animation: rotating-data-v-5a0a37a8 2s linear infinite;\n          animation: rotating-data-v-5a0a37a8 2s linear infinite;\n}\r\n", ""]);
 
 // exports
 
@@ -4096,7 +4071,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".hero[data-v-63fa73fa] {\n  height: calc(100vh - (0px + 0px));\n  background-image: url(\"/img/child.png\");\n}\n", ""]);
+exports.push([module.i, ".hero[data-v-63fa73fa] {\n  height: calc(100vh - (0px + 0px));\n  background-image: url(\"/img/child.png\");\n}\r\n", ""]);
 
 // exports
 
@@ -4153,7 +4128,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".outsted[data-v-24c992da] {\n  margin: -2em -2em 0px 0px;\n}\n", ""]);
+exports.push([module.i, ".outsted[data-v-24c992da] {\n  margin: -2em -2em 0px 0px;\n}\r\n", ""]);
 
 // exports
 
@@ -4172,7 +4147,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".hero[data-v-5610693f] {\n  height: calc(100vh - (90px + 0px));\n}\n@media (max-width: 764px) {\n.hero[data-v-5610693f] {\n    height: calc(100vh - (0px + 0px));\n}\n}\n", ""]);
+exports.push([module.i, ".hero[data-v-5610693f] {\n  height: calc(100vh - (90px + 0px));\n}\n@media (max-width: 764px) {\n.hero[data-v-5610693f] {\n    height: calc(100vh - (0px + 0px));\n}\n}\r\n", ""]);
 
 // exports
 
@@ -4191,7 +4166,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".slide-control > span[data-v-9fa89d90]:first-child {\n  background-color: #2a4365;\n}\n", ""]);
+exports.push([module.i, ".slide-control > span[data-v-9fa89d90]:first-child {\n  background-color: #2a4365;\n}\r\n", ""]);
 
 // exports
 
@@ -4210,7 +4185,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".stats[data-v-6d023ace] {\n  background-image: url(\"/img/image-1.jpg\");\n}\n", ""]);
+exports.push([module.i, ".stats[data-v-6d023ace] {\n  background-image: url(\"/img/image-1.jpg\");\n}\r\n", ""]);
 
 // exports
 
@@ -4267,7 +4242,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".bg-image[data-v-04c29797]{\n  background-image: url(\"/img/give-bg.svg\");\n  background-repeat: no-repeat;\n  background-size: cover;\n  background-attachment: fixed;\n}\n", ""]);
+exports.push([module.i, ".bg-image[data-v-04c29797]{\n  background-image: url(\"/img/give-bg.svg\");\n  background-repeat: no-repeat;\n  background-size: cover;\n  background-attachment: fixed;\n}\r\n", ""]);
 
 // exports
 
@@ -4286,7 +4261,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".pt-fill[data-v-14db40df] {\n  background-color: #bee3f8;\n  background-image: url(\"data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23a5d1ea' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E\");\n}\r\n", ""]);
+exports.push([module.i, ".pt-fill[data-v-14db40df] {\n  background-color: #bee3f8;\n  background-image: url(\"data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23a5d1ea' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E\");\n}\n", ""]);
 
 // exports
 
@@ -26359,22 +26334,48 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _c(
-          "li",
-          { staticClass: "mr-6 p-1" },
-          [
-            _c(
-              "router-link",
-              {
-                staticClass:
-                  "text-white text-sm bg-blue-500 py-2 px-6 rounded-full hover:bg-white hover:text-blue-500 hover:border-blue-500 font-100",
-                attrs: { to: "/login" }
-              },
-              [_vm._v("Login")]
+        _vm.authUser && _vm.authUser.email
+          ? _c(
+              "li",
+              { staticClass: "mr-6 p-1" },
+              [
+                _vm.inProfile
+                  ? _c(
+                      "button",
+                      {
+                        staticClass:
+                          "text-white text-sm bg-blue-500 py-2 px-6 rounded-full hover:bg-white hover:text-blue-500 hover:border-blue-500 font-100",
+                        on: { click: _vm.logout }
+                      },
+                      [_vm._v("Logout")]
+                    )
+                  : _c(
+                      "router-link",
+                      {
+                        staticClass:
+                          "text-white text-sm bg-blue-500 py-2 px-6 rounded-full hover:bg-white hover:text-blue-500 hover:border-blue-500 font-100",
+                        attrs: { to: "/profile" }
+                      },
+                      [_vm._v("Profile")]
+                    )
+              ],
+              1
             )
-          ],
-          1
-        )
+          : _c(
+              "li",
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass:
+                      "text-white text-sm bg-blue-500 py-2 px-6 rounded-full hover:bg-white hover:text-blue-500 hover:border-blue-500 font-100",
+                    attrs: { to: "/login" }
+                  },
+                  [_vm._v("Login")]
+                )
+              ],
+              1
+            )
       ])
     ]
   )
@@ -26653,56 +26654,52 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "w-screen min-h-screen bg-white flex flex-row" },
-    [
-      _c(
-        "div",
-        {
-          staticClass:
-            "w-full min-h-screen md:flex my-auto block justify-center items-center p-0 bg-blue-100 bg-opacity-25"
-        },
-        [
-          _c(
-            "div",
-            {
-              staticClass:
-                "w-screen h-screen md:w-full md:h-auto flex items-center justify-center rounded-md"
-            },
-            [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "w-full md:w-1/2 flex flex-col items-center justify-center"
-                },
-                [
-                  _c("router-link", { attrs: { to: "/" } }, [
-                    _c("img", {
-                      staticClass: "w-20 h-auto",
-                      attrs: { src: "/img/giveng-logo-light.svg", alt: "logo" }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "transition-all ease-linear duration-75 delay-75 p-6 bg-white rounded-md shadow-md hover:shadow-outline"
-                    },
-                    [_vm._t("default")],
-                    2
-                  )
-                ],
-                1
-              )
-            ]
-          )
-        ]
-      )
-    ]
-  )
+  return _c("div", { staticClass: "w-screen bg-white flex flex-row" }, [
+    _c(
+      "div",
+      {
+        staticClass:
+          "w-full md:flex my-auto block justify-center items-center p-0"
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "w-screen h-screen md:w-full md:h-auto flex items-center justify-center rounded-md"
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "w-full md:w-1/2 flex flex-col items-center justify-center"
+              },
+              [
+                _c("router-link", { attrs: { to: "/" } }, [
+                  _c("img", {
+                    staticClass: "w-20 h-auto",
+                    attrs: { src: "/img/giveng-logo-light.svg", alt: "logo" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "transition-all ease-linear duration-75 delay-75 p-6 bg-white rounded-md shadow-md hover:shadow-outline"
+                  },
+                  [_vm._t("default")],
+                  2
+                )
+              ],
+              1
+            )
+          ]
+        )
+      ]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -27032,9 +27029,20 @@ var render = function() {
                         1
                       ),
                       _vm._v(" "),
-                      _vm._m(0),
+                      _c("div", [
+                        _vm.user
+                          ? _c(
+                              "h3",
+                              {
+                                staticClass:
+                                  "text-center text-2xl text-blue-900 font-bold"
+                              },
+                              [_vm._v(_vm._s(_vm.user.name))]
+                            )
+                          : _vm._e()
+                      ]),
                       _vm._v(" "),
-                      _vm._m(1)
+                      _vm._m(0)
                     ]
                   )
                 ]
@@ -27047,18 +27055,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "h3",
-        { staticClass: "text-center text-2xl text-blue-900 font-bold" },
-        [_vm._v("Olayiwola Odunsi")]
-      )
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -47944,6 +47940,9 @@ window.addEventListener('load', function () {
   new _vue["default"]({
     router: _routes["default"],
     store: _store["default"],
+    created: function created() {
+      user = undefined;
+    },
     el: "#main",
     render: function render(h) {
       return h(_app["default"]);
@@ -50000,6 +49999,53 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/middleware/auth.js":
+/*!*****************************************!*\
+  !*** ./resources/js/middleware/auth.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.authMiddleware = authMiddleware;
+
+/**
+ * Auth middleware
+ * @param to
+ * @param from
+ * @param next
+ * @description prevent unathenticated user from
+ * accessing protected page
+ * and redirects back to login
+ * and redirect authenticated user from login to profile
+ */
+function authMiddleware(to, from, next, store) {
+  if ((to.path === "/login" || to.path === "/register") && isLoggedIn(store)) {
+    return next({
+      path: "/profile"
+    });
+  }
+
+  if (!to.meta.guest && !isLoggedIn(store)) {
+    return next({
+      path: "/login"
+    });
+  }
+
+  return next();
+}
+
+function isLoggedIn(store) {
+  return store.state.authStore.authUser && store.state.authStore.authUser.email;
+}
+
+/***/ }),
+
 /***/ "./resources/js/pages/Auth/Base.vue":
 /*!******************************************!*\
   !*** ./resources/js/pages/Auth/Base.vue ***!
@@ -50757,23 +50803,42 @@ var _Register = _interopRequireDefault(__webpack_require__(/*! ../pages/Auth/Reg
 
 var _SocialAuth = _interopRequireDefault(__webpack_require__(/*! ../pages/Auth/SocialAuth.vue */ "./resources/js/pages/Auth/SocialAuth.vue"));
 
+var _auth = __webpack_require__(/*! ../middleware/auth */ "./resources/js/middleware/auth.js");
+
+var _store = _interopRequireDefault(__webpack_require__(/*! ../store */ "./resources/js/store/index.js"));
+
 _vue["default"].use(_vueRouter["default"]);
 
 var routes = [{
   path: "/",
-  component: _HomePage2["default"]
+  component: _HomePage2["default"],
+  meta: {
+    guest: true
+  }
 }, {
   path: "/givetem/:id?",
-  component: _GivetemPage["default"]
+  component: _GivetemPage["default"],
+  meta: {
+    guest: true
+  }
 }, {
   path: "/education",
-  component: _HomePage["default"]
+  component: _HomePage["default"],
+  meta: {
+    guest: true
+  }
 }, {
   path: "/register",
-  component: _Register["default"]
+  component: _Register["default"],
+  meta: {
+    guest: true
+  }
 }, {
   path: "/login",
-  component: _Login["default"]
+  component: _Login["default"],
+  meta: {
+    guest: true
+  }
 }, {
   path: "/verify",
   component: _Verify["default"]
@@ -50784,12 +50849,16 @@ var routes = [{
   path: '/auth/:provider/callback',
   component: _SocialAuth["default"]
 }];
-
-var _default = new _vueRouter["default"]({
+var router = new _vueRouter["default"]({
   routes: routes,
   mode: "history"
 });
+router.beforeEach(function (to, from, next) {
+  var auth = __webpack_require__(/*! ../middleware/auth */ "./resources/js/middleware/auth.js");
 
+  (0, _auth.authMiddleware)(to, from, next, _store["default"]);
+});
+var _default = router;
 exports["default"] = _default;
 
 /***/ }),
@@ -50809,43 +50878,40 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 var authStore = {
-  namespaced: false,
   state: {
     registeredUser: null,
-    authUser: null
+    authUser: user
   },
   mutations: {
     setRegisteredUser: function setRegisteredUser(state, user) {
       state.registeredUser = user;
     },
-    setCurrentAuthUser: function setCurrentAuthUser(state, user) {
+    setAuthUser: function setAuthUser(state, user) {
       state.authUser = user;
     }
   },
   actions: {
-    registerUser: function registerUser(_ref, user) {
-      var dispatch = _ref.dispatch,
-          state = _ref.state;
-      state.registeredUser = user;
-      console.log(dispatch);
-    },
-    loginUser: function loginUser(_ref2) {
-      var state = _ref2.state;
+    loginUser: function loginUser(_ref, form) {
+      var commit = _ref.commit;
       return new Promise(function (resolve, reject) {
-        axios.get('/sanctum/csrf-cookie').then(function (response) {
-          axios.post('/login', state.registeredUser).then(function (response) {
-            return resolve(response);
+        axios.get("/sanctum/csrf-cookie").then(function (response) {
+          form.post("/api/login").then(function (response) {
+            commit("setAuthUser", response.data);
+            return resolve(form);
           })["catch"](function (error) {
-            return reject(error);
-          }); // credentials didn't match
+            return reject(form);
+          });
         });
       });
     },
-    getUser: function getUser(_ref3) {
-      var commit = _ref3.commit;
-      axios.get("/sanctum/csrf-cookie").then(function (response) {
-        axios.get("/api/user").then(function (res) {
-          commit("setCurrentAuthUser", res.data);
+    logoutUser: function logoutUser() {
+      axios.post("/api/logout");
+    },
+    getUser: function getUser(_ref2) {
+      var commit = _ref2.commit;
+      return axios.get("/sanctum/csrf-cookie").then(function (response) {
+        return axios.get("/api/user").then(function (res) {
+          commit("setAuthUser", res.data);
         })["catch"](function (err) {
           console.log(err);
         });

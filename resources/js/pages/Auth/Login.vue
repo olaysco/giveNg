@@ -18,7 +18,7 @@ export default {
 	computed: {},
 	methods: {
 		handleLoginSuccess() {
-			console.log("success");
+			this.$router.push("/profile");
 		}
 	}
 };

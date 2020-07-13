@@ -25,7 +25,10 @@ window.addEventListener('load', function () {
     new Vue({
         router,
         store,
+        created() {
+            user = undefined;
+        },
         el: "#main",
-        render: h => h(MainApp),
+        render: h => h(MainApp)
     })
 });

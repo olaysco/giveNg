@@ -105,20 +105,21 @@ export default {
 		}
 	},
 	methods: {
-		...mapMutations(["setRegisteredUser"]),
+		...mapMutations(["setAuthUser"]),
 		...mapActions(["loginUser"]),
 		register() {
 			this.registerForm
 				.post("/api/register")
-				.then(async result => {
-					await this.setRegisteredUser(this.registerForm);
-					try {
-						let e = this.loginUser();
-						console.log(e);
-					} catch (e) {
-						console.log(e);
-					}
+				.then(result => {
+					this.setAuthUser(result.data);
 					this.$emit("registerSuccess");
+					// try {
+					// 	let res = await this.loginUser(this.registerForm);
+					// 	console.log(res);
+					// 	// this.$emit("registerSuccess");
+					// } catch (e) {
+					// 	console.log(e);
+					// }
 				})
 				.catch(err => {
 					console.log(err);

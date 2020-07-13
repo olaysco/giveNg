@@ -15,7 +15,7 @@
 							<AAvatar class="absolute left-0 right-0 top-0 bottom-0 m-auto w-24 h-24" />
 						</div>
 						<div>
-							<h3 class="text-center text-2xl text-blue-900 font-bold">Olayiwola Odunsi</h3>
+							<h3 class="text-center text-2xl text-blue-900 font-bold" v-if="user">{{user.name}}</h3>
 						</div>
 						<div class="grid grid-cols-2 text-center text-gray-500 text-sm mt-8">
 							<div>
@@ -53,9 +53,6 @@ export default {
 		user() {
 			return this.$store.state.authStore.authUser;
 		}
-	},
-	mounted() {
-		console.log(this.user);
 	}
 };
 </script>

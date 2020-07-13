@@ -46,7 +46,7 @@
 	</div>
 </template>
 <script>
-import { mapMutations } from "vuex";
+import { mapMutations, mapActions } from "vuex";
 export default {
 	data() {
 		return {
@@ -68,23 +68,15 @@ export default {
 	},
 	methods: {
 		...mapMutations(["setCurrentAuthUser"]),
+		...mapActions(["loginUser"]),
 		login() {
-			this.loginForm
-				.post("/api/login")
-				.then(async result => {
+			this.loginUser(this.loginForm)
+				.then(response => {
+					this.loginForm = response;
 					this.$emit("loginSuccess");
 				})
 				.catch(err => {
-					if (
-						err.response.data.message == "Your email address is not verified."
-					) {
-						window.location = "/verify";
-						return;
-					} else {
-						console.log(err.response.data.message);
-						this.formValidated = false;
-						this.authValid = false;
-					}
+					this.loginForm = err;
 				});
 		}
 	}

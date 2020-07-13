@@ -43,9 +43,6 @@ export default {
 		afterEnter(element) {
 			element.style.height = "auto";
 		}
-	},
-	async beforeMount() {
-		await this.getUser();
 	}
 };
 </script>

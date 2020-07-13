@@ -17,8 +17,6 @@ export default {
 	},
 	methods: {
 		handleRegisterSuccess() {
-			//alert and redirect
-			alert("success");
 			this.$router.push("/profile");
 		}
 	}

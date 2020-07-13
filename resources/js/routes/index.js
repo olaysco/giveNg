@@ -1,4 +1,4 @@
-import router from "vue-router";
+import VRouter from "vue-router";
 import vue from "vue";
 import EducationHomePage from "../pages/Education/HomePage.vue";
 import HomePage from "../pages/HomePage.vue";
@@ -8,27 +8,44 @@ import Login from "../pages/Auth/Login.vue";
 import Profile from "../pages/ProfilePage.vue";
 import Register from "../pages/Auth/Register.vue";
 import SocialAuth from "../pages/Auth/SocialAuth.vue";
-vue.use(router)
+import { authMiddleware } from "../middleware/auth";
+import store from "../store";
+vue.use(VRouter)
 
 const routes = [{
         path: "/",
-        component: HomePage
+        component: HomePage,
+        meta: {
+                guest: true
+            }
     },
     {
         path: "/givetem/:id?",
-        component: GivetemPage
+        component: GivetemPage,
+        meta: {
+            guest: true
+        }
     },
     {
         path: "/education",
-        component: EducationHomePage
+        component: EducationHomePage,
+        meta: {
+            guest: true
+        }
     }
     ,{
         path: "/register",
-        component: Register
+        component: Register,
+        meta: {
+            guest: true
+        }
     }
     ,{
         path: "/login",
-        component: Login
+        component: Login,
+        meta: {
+            guest: true
+        }
     }
     ,{
         path: "/verify",
@@ -44,7 +61,14 @@ const routes = [{
     },
 ]
 
-export default new router({
+const router = new VRouter({
     routes,
     mode: "history"
-})
+});
+
+router.beforeEach((to, from, next) => {
+    const auth = require('../middleware/auth');
+    authMiddleware(to, from, next, store);
+});
+
+export default router;
