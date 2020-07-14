@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
-    static $HOME = "/welcome";
+    const HOME = "/welcome";
     /**
      * This namespace is applied to your controller routes.
      *

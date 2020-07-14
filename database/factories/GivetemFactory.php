@@ -13,7 +13,6 @@ $factory->define(Givetem::class, function (Faker $faker) {
         'rating'    => 3,
         'available' => [true, false][rand(0, 1)],
         'category_id'  => 2,
-        'user_id'      => 1,
         'pickup_location'   => 'Lagos',
         'info'              => 'Illum consectetur excepturi cupiditate dolorem accusamus libero magni quia.',
         'tags'              => 'kil. lop, sam',

@@ -29,9 +29,9 @@ class GivetemController extends Controller
      */
     public function store(GivetemStoreRequest $request)
     {
-        $givetem = Givetem::create($request->all(), [
-            'user_id' => Auth::user()
-        ]);
+        $givetem = Givetem::create(array_merge($request->all(), [
+            'user_id' => Auth::user()->id
+        ]));
         return new Response($givetem, 201);
     }
 

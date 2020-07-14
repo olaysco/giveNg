@@ -22,11 +22,11 @@ class GivetemPolicy
 
     public function update(User $user, Givetem $givetem)
     {
-        return false;
+        return $user->id == $givetem->user_id;
     }
 
     public function delete(User $user, Givetem $givetem)
     {
-        return false;
+        return $user->id == $givetem->user_id;
     }
 }

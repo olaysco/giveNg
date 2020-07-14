@@ -8,8 +8,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
-    Route::patch('givetem/{id}', "GivetemController@update")->middleware('can:update,givetem');
-    Route::delete('givetem/{id}', "GivetemController@destroy")->middleware('can:delete,givetem');
+    Route::patch('givetem/{givetem}', "GivetemController@update")->middleware('can:update,givetem');
+    Route::delete('givetem/{givetem}', "GivetemController@destroy")->middleware('can:delete,givetem');
     Route::post('givetem', "GivetemController@store");
 });
 

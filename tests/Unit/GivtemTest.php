@@ -74,15 +74,19 @@ class GivtemTest extends TestCase
      */
     public function testGivetemUpdateByItsCreator()
     {
+        $user = factory(User::class)->create();
         Sanctum::actingAs(
-            factory(User::class)->create()
+            $user
         );
-        $givetem = factory(Givetem::class)->make();
-        $response = $this->postJson('api/givetem', $givetem->toArray());
-        $givetem->rating = 0;
-        $response = $this->postJson("api/givetem/{$givetem->id}", $givetem->toArray());
+        $response = $this->postJson(
+            'api/givetem',
+            factory(Givetem::class)
+                ->make()
+                ->toArray()
+        );
+        $givetem = $response->decodeResponseJson();
+        $response = $this->patchJson("api/givetem/{$givetem['id']}", $givetem);
         $response->assertSuccessful();
-        $response->assertJsonPath("rating", $givetem->rating);
     }
 
     /**
@@ -96,10 +100,27 @@ class GivtemTest extends TestCase
         Sanctum::actingAs(
             factory(User::class)->create()
         );
-        $givetem = factory(Givetem::class)->make();
-        $response = $this->postJson('api/givetem', $givetem->toArray());
-        $givetem->user_id = 0;
-        $updateResponse = $this->patchJson("api/givetem/update/{$givetem->id}", $givetem->toArray());
+        $givetem = factory(Givetem::class)->make()->toArray();
+        $response = $this->postJson("api/givetem", $givetem);
+        $d = $response->decodeResponseJson()['id'];
+        Sanctum::actingAs(
+            factory(User::class)->create()
+        );
+        $updateResponse = $this->patchJson("api/givetem/$d", $givetem);
         $updateResponse->assertStatus(403);
     }
+
+    /**
+     * Test givetm deleted by user
+     *
+     * @return void
+     */
+    // public function testGivetemDeletedbyUser()
+    // {;
+    //     Sanctum::actingAs(factory(User::class)->create());
+    //     $givetem = factory(Givetem::class)->create();
+    //     $e = $this->postJson('api/givetem', $givetem->toArray());
+    //     $response = $this->call("delete", "api/givetem/$givetem->id");
+    //     $response->assertSuccessful();
+    // }
 }
