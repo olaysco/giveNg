@@ -34,13 +34,43 @@
 					<has-error :form="givetemForm" field="caption"></has-error>
 					<AFormHelp>Tips: it should be a single sentence</AFormHelp>
 				</div>
+				<div class="mt-6 relative">
+					<label class="block text-blue-900 text-xs mb-2 font-bold">Givetem Image</label>
+					<MImageUpload
+						:showDesc="false"
+						v-model="givetemForm.image"
+						:placeholder="'Givetem Image'"
+						:name="'shot 1'"
+						id="image1"
+						v-slot="slotProps"
+						class="mr-1"
+						key="banner"
+					>
+						<div
+							class="w-48 h-32 border rounded-md hover:border-blue-700 flex justify-center items-center cursor-pointer"
+							@click="slotProps.clickUpload"
+							:style="{ backgroundImage: 'url(' + givetemForm.image.data.replace(/(\r\n|\n|\r)/gm, '') + ')'}"
+						>
+							<IImageArea
+								fill="#2b6cb0"
+								width="48"
+								height="48"
+								v-show="givetemForm.image.data === '' || givetemForm.image.data === '/storage/'  "
+							/>
+						</div>
+					</MImageUpload>
+					<has-error :form="givetemForm" field="caption"></has-error>
+					<AFormHelp>Tips: Choose clear image</AFormHelp>
+				</div>
 			</div>
 		</div>
 	</MBaseModal>
 </template>
 <script>
 import MBaseModal from "../molecules/MBaseModal";
+import MImageUpload from "../molecules/MImageUpload";
 import AFormHelp from "../atoms/AFormHelp";
+import IImageArea from "../icons/IImageArea";
 export default {
 	props: {
 		visible: {
@@ -52,7 +82,9 @@ export default {
 		return {
 			givetemForm: new Form({
 				title: "",
-				image: "",
+				image: {
+					data: ""
+				},
 				caption: "",
 				available: "",
 				category: "",
@@ -64,7 +96,9 @@ export default {
 	},
 	components: {
 		MBaseModal,
-		AFormHelp
+		MImageUpload,
+		AFormHelp,
+		IImageArea
 	},
 	methods: {
 		doClose() {
