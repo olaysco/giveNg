@@ -97,9 +97,7 @@ class GivtemTest extends TestCase
      */
     public function testGivetemCannotUpdateByInvalidUser()
     {
-        Sanctum::actingAs(
-            factory(User::class)->create()
-        );
+        Sanctum::actingAs(factory(User::class)->create());
         $givetem = factory(Givetem::class)->make()->toArray();
         $response = $this->postJson("api/givetem", $givetem);
         $d = $response->decodeResponseJson()['id'];
@@ -115,12 +113,15 @@ class GivtemTest extends TestCase
      *
      * @return void
      */
-    // public function testGivetemDeletedbyUser()
-    // {;
-    //     Sanctum::actingAs(factory(User::class)->create());
-    //     $givetem = factory(Givetem::class)->create();
-    //     $e = $this->postJson('api/givetem', $givetem->toArray());
-    //     $response = $this->call("delete", "api/givetem/$givetem->id");
-    //     $response->assertSuccessful();
-    // }
+    public function testGivetemDeletedbyUser()
+    {;
+        $user = factory(User::class)->create();
+        Sanctum::actingAs($user);
+        $givetem = factory(Givetem::class)->create([
+            'user_id' => $user->id
+        ]);
+        $e = $this->postJson('api/givetem', $givetem->toArray());
+        $response = $this->call("delete", "api/givetem/$givetem->id");
+        $response->assertSuccessful();
+    }
 }

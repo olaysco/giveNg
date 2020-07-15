@@ -1,5 +1,5 @@
 <template>
-	<div class="bg-image">
+	<div class="main">
 		<page-header></page-header>
 		<transition
 			name="fade"
@@ -16,9 +16,11 @@
 <script>
 import PageHeader from "./organisms/OPageHeader";
 import PageFooter from "./organisms/OPageFooter";
+import AnimationMixin from "../mixins/animation";
 import { mapActions } from "vuex";
 export default {
 	name: "MainApp",
+	mixins: [AnimationMixin],
 	components: {
 		PageHeader,
 		PageFooter
@@ -29,20 +31,7 @@ export default {
 		};
 	},
 	methods: {
-		...mapActions(["getUser"]),
-		beforeLeave(element) {
-			this.prevHeight = getComputedStyle(element).height;
-		},
-		enter(element) {
-			const { height } = getComputedStyle(element);
-			element.style.height = this.prevHeight;
-			setTimeout(() => {
-				element.style.height = height;
-			});
-		},
-		afterEnter(element) {
-			element.style.height = "auto";
-		}
+		...mapActions(["getUser"])
 	}
 };
 </script>
@@ -57,5 +46,11 @@ export default {
 .fade-enter,
 .fade-leave-active {
 	opacity: 0;
+}
+.main {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	justify-content: space-between;
 }
 </style>

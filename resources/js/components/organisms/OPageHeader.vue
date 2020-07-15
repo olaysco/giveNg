@@ -1,8 +1,8 @@
 <template>
-	<div class="flex justify-between items-center py-1 bg-transparent w-full z-20">
+	<div class="flex justify-between items-center py-1 bg-blue-900 w-full z-20">
 		<div class="flex-shrink-0 ml-10 cursor-pointer">
 			<router-link to="/">
-				<img class="w-20 h-auto" src="/img/giveng-logo-light.svg" alt="logo" />
+				<img class="w-16 h-auto" src="/img/giveng-logo-light.svg" alt="logo" />
 			</router-link>
 		</div>
 		<i class="fas fa-bars fa-2x visible md:invisible mr-10 md:mr-0 text-blue-200 cursor-pointer"></i>
@@ -14,22 +14,11 @@
 				<router-link to="/education" class="text-gray-500 text-xs hover:text-blue-300">Education</router-link>
 			</li>
 			<li class="mr-6 p-1" v-if="authUser && authUser.email">
-				<button
-					v-if="inProfile"
-					@click="logout"
-					class="text-white text-sm bg-blue-500 py-2 px-6 rounded-full hover:bg-white hover:text-blue-500 hover:border-blue-500 font-100"
-				>Logout</button>
-				<router-link
-					v-else
-					to="/profile"
-					class="text-white text-sm bg-blue-500 py-2 px-6 rounded-full hover:bg-white hover:text-blue-500 hover:border-blue-500 font-100"
-				>Profile</router-link>
+				<button v-if="inProfile" @click="logout" class="btn">Logout</button>
+				<router-link v-else to="/profile" class="btn">Profile</router-link>
 			</li>
 			<li v-else>
-				<router-link
-					to="/login"
-					class="text-white text-sm bg-blue-500 py-2 px-6 rounded-full hover:bg-white hover:text-blue-500 hover:border-blue-500 font-100"
-				>Login</router-link>
+				<router-link to="/login" class="btn">Login</router-link>
 			</li>
 		</ul>
 	</div>

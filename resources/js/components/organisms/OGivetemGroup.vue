@@ -1,6 +1,6 @@
 <template>
 	<div
-		:class="[!loading?'givetem-group p-8 grid sm:grid-cols-1 md:grid-cols-3 xl:grid-cols-4 grid-flow-row': 'flex justify-center']"
+		:class="[!loading?'givetem-group p-8 grid sm:grid-cols-1 md:grid-cols-3 xl:grid-cols-4 grid-flow-row': 'flex justify-center', 'mt-8']"
 	>
 		<a-loader v-if="loading">
 			<span class="text-xs text-center text-gray-500">fetching ...</span>

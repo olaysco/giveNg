@@ -4,6 +4,7 @@
 @tailwind components;
 
 @import "./variables";
+@import "./animations";
 ::root {
     --primay-color: #4299e1;
     --text-color: #ffffff;
@@ -13,9 +14,6 @@
 }
 html {
     scroll-behavior: smooth;
-}
-body {
-    font-family: $font-family-inter;
 }
 .w-128 {
     width: 32rem;
@@ -36,13 +34,13 @@ body {
     }
 }
 .btn {
-    @apply text-white text-sm bg-blue-500 py-2 px-6 rounded-full border inline-block transition-all ease-linear duration-75 delay-75;
+    @apply text-white text-xs bg-blue-500 py-2 px-4 rounded-full inline-block transition-all ease-linear duration-75 delay-75;
 }
 .btn:hover {
     @apply bg-white border-blue-500 text-blue-500;
 }
 .btn-outline {
-    @apply text-blue-900 text-sm bg-white py-2 px-6 rounded-full border inline-block transition-all ease-linear duration-75 delay-75;
+    @apply text-blue-900 text-xs bg-white py-2 px-6 rounded-full border inline-block transition-all ease-linear duration-75 delay-75;
 }
 .btn-outline:hover,
 .btn-outline:focus {

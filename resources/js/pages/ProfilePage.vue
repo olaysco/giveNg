@@ -22,14 +22,15 @@
 								<h3>Given out</h3>
 								<p>0</p>
 								<p class="mt-2">
-									<a href="http://" class="text-xs btn-outline">Post a givetem</a>
+									<!-- <router-link to="/profile/post" class="btn border">Post a givetem</router-link> -->
+									<a href="#" @click="doShowPostGivetem" class="btn border">Post a givetem</a>
 								</p>
 							</div>
 							<div>
 								<h3>Received</h3>
 								<p>0</p>
 								<p class="mt-2">
-									<a href="http://" class="text-xs btn">Search for givetems</a>
+									<a href="http://" class="btn-outline border">Search for givetems</a>
 								</p>
 							</div>
 						</div>
@@ -37,21 +38,34 @@
 				</div>
 			</div>
 		</div>
+		<OPostGivetemModal :visible="showPostGivetem" @close="handlePostgivetemClose" />
 	</div>
 </template>
 <script>
 import { mapState } from "vuex";
+import OPostGivetemModal from "../components/organisms/OPostGivetemModal";
 import AAvatar from "../components/atoms/AAvatar";
 export default {
 	components: {
-		AAvatar
+		AAvatar,
+		OPostGivetemModal
 	},
 	data() {
-		return {};
+		return {
+			showPostGivetem: true
+		};
 	},
 	computed: {
 		user() {
 			return this.$store.state.authStore.authUser;
+		}
+	},
+	methods: {
+		doShowPostGivetem() {
+			this.showPostGivetem = true;
+		},
+		handlePostgivetemClose() {
+			this.showPostGivetem = false;
 		}
 	}
 };

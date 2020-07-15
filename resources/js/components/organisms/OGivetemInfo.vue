@@ -29,7 +29,7 @@
 	</div>
 </template>
 <script>
-import tag from "@mdi/svg/svg/tag-multiple.svg";
+import tag from "../icons/tag";
 export default {
 	components: {
 		tag
