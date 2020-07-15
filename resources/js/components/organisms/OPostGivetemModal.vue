@@ -62,6 +62,20 @@
 					<has-error :form="givetemForm" field="caption"></has-error>
 					<AFormHelp>Tips: Choose clear image</AFormHelp>
 				</div>
+				<div class="mt-6 relative">
+					<label class="block text-blue-900 text-xs mb-2 font-bold">Givetem Caption</label>
+					<Places
+						class="input"
+						placeholder="Givetem pickup location"
+						type="text"
+						v-model="givetemForm.pickup_location.label"
+						@change="val => { givetemForm.pickup_location.data = val }"
+						:options="options"
+						:class="{ 'is-invalid':givetemForm.errors.has('caption') }"
+					/>
+					<has-error :form="givetemForm" field="pickup_location"></has-error>
+					<AFormHelp>Tips: pickup location</AFormHelp>
+				</div>
 			</div>
 		</div>
 	</MBaseModal>
@@ -71,6 +85,7 @@ import MBaseModal from "../molecules/MBaseModal";
 import MImageUpload from "../molecules/MImageUpload";
 import AFormHelp from "../atoms/AFormHelp";
 import IImageArea from "../icons/IImageArea";
+import Places from "vue-places";
 export default {
 	props: {
 		visible: {
@@ -88,17 +103,26 @@ export default {
 				caption: "",
 				available: "",
 				category: "",
-				pickup_location: "",
+				pickup_location: {
+					label: null,
+					data: {}
+				},
 				info: "",
 				tags: ""
-			})
+			}),
+			options: {
+				appId: process.env.MIX_ALGOLIA_APP_ID,
+				apiKey: process.env.MIX_ALGOLIA_SEARCH_KEY,
+				countries: ["NG"]
+			}
 		};
 	},
 	components: {
 		MBaseModal,
 		MImageUpload,
 		AFormHelp,
-		IImageArea
+		IImageArea,
+		Places
 	},
 	methods: {
 		doClose() {
