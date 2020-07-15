@@ -27070,7 +27070,7 @@ var render = function() {
         _c("div", { staticClass: "px-8 py-8 flex flex-col items-center" }, [
           _c("div", { staticClass: "flex justify-between w-full" }, [
             _c("h4", { staticClass: "font-bold text-2xl text-blue-900" }, [
-              _vm._v("Create new Givetem")
+              _vm._v("Create Givetem")
             ]),
             _vm._v(" "),
             _c(

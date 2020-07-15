@@ -2,7 +2,7 @@
 	<MBaseModal v-if="visible">
 		<div class="px-8 py-8 flex flex-col items-center">
 			<div class="flex justify-between w-full">
-				<h4 class="font-bold text-2xl text-blue-900">Create new Givetem</h4>
+				<h4 class="font-bold text-2xl text-blue-900">Create Givetem</h4>
 				<a
 					href="#"
 					class="bg-gray-400 grid h-10 items-center justify-center rounded-md text-gray-800 text-xs w-10"
