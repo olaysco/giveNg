@@ -45,6 +45,6 @@ export default {
 </script>
 <style scoped>
 .page-header {
-	width: 97vh;
+	width: 97vw;
 }
 </style>
