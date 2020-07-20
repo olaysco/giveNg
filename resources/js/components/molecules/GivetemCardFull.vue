@@ -15,14 +15,17 @@
 			<div class="__head-img">
 				<img :src="`/img/${givetem.image}`" alt="free bag" aria-label="bag image" />
 			</div>
-			<div class="__head-action">
-				<a-button class="w-full" @click="gotoPage(givetem.id)">Get Item</a-button>
-			</div>
 		</div>
 		<div class="__body">
 			<div class="__body-about">
 				<span class="__body-about-title">{{givetem.title}}</span>
 				<span class="__body-about-giver">by {{givetem.giver}}</span>
+			</div>
+			<div class="__body-desc">
+				<span>{{givetem.desc}}</span>
+			</div>
+			<div class="__body-action">
+				<a-button class="w-full" @click="gotoPage(givetem.id)">Get Item</a-button>
 			</div>
 		</div>
 	</div>
@@ -61,19 +64,9 @@ export default {
 	transition: all 0.4s ease-in-out 5s;
 	box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 14px 0px;
 	@apply h-auto bg-white rounded-md relative;
-	width: 200px;
-	& .__head {
-		@apply relative;
-		.__head-action {
-			@apply absolute bottom-0 w-full p-1 hidden;
-			transition: all 4s ease-in-out 100s;
-			button {
-				border-radius: 0.25rem;
-			}
-		}
-	}
+	width: 280px;
 	& .__body {
-		@apply p-6 flex flex-col justify-between text-sm;
+		@apply h-64 p-6 flex flex-col justify-between text-sm;
 		& .__body-about {
 			@apply flex flex-col;
 			& .__body-about-title {
@@ -83,16 +76,6 @@ export default {
 		& .__body-action {
 			@apply flex justify-center;
 		}
-	}
-	&:hover {
-		.__head-action {
-			display: inline;
-		}
-	}
-}
-@media (max-width: 500px) {
-	.givetem-card {
-		width: 128px;
 	}
 }
 </style>

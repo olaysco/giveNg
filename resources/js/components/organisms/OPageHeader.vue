@@ -1,5 +1,5 @@
 <template>
-	<div class="flex justify-between items-center py-1 bg-blue-900 w-full z-20">
+	<div class="page-header flex justify-between items-center py-1 fixed w-full z-20">
 		<div class="flex-shrink-0 ml-10 cursor-pointer">
 			<router-link to="/">
 				<img class="w-16 h-auto" src="/img/giveng-logo-light.svg" alt="logo" />
@@ -10,7 +10,7 @@
 			<!-- <li class="mr-6 p-1">
                 <a href="#impacts" class="text-gray-500 hover:text-blue-300">Our impacts</a>
 			</li>-->
-			<li class="mr-6 p-1">
+			<li class="mr-6 p-1 hidden md:inline">
 				<router-link to="/education" class="text-gray-500 text-xs hover:text-blue-300">Education</router-link>
 			</li>
 			<li class="mr-6 p-1" v-if="authUser && authUser.email">
@@ -44,4 +44,7 @@ export default {
 };
 </script>
 <style scoped>
+.page-header {
+	width: 97vh;
+}
 </style>

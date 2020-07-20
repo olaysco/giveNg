@@ -52,5 +52,6 @@ export default {
 	min-height: 100vh;
 	flex-direction: column;
 	justify-content: space-between;
+	position: relative;
 }
 </style>
