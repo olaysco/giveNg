@@ -5,7 +5,7 @@
 				<div
 					class="text-2xl md:text-3xl text-white font-bold w-4/5 text-center mb-5 animate__animated animate__fadeIn animate__delay-2s animate__slow"
 				>
-					<span class>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span>
+					<span class>Lorem ipsum dolor, sit amet consectetur adipisicing poli</span>
 				</div>
 				<div class="w-full flex justify-center mt-4">
 					<div class="w-11/12 md:w-4/5 relative">
