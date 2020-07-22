@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-image">
+    <div class="bg-image" nativeOnScroll='handleScrol'>
         <home-hero></home-Hero>
         <givetem-group />
     </div>
@@ -11,6 +11,14 @@ export default {
     components: {
         HomeHero,
         GivetemGroup
+    },
+    methods: {
+        handleScrol() {
+            console.log('handles sic')
+        }
+    },
+    mounted(){
+        window.addEventListener('scroll', this.handleScrol);
     }
 }
 </script>

@@ -60,7 +60,7 @@ export default {
 .givetem-card {
 	transition: all 0.4s ease-in-out 5s;
 	box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 14px 0px;
-	@apply h-auto bg-white rounded-md relative;
+	@apply h-auto bg-white rounded-md relative cursor-pointer;
 	width: 200px;
 	& .__head {
 		@apply relative;
@@ -78,6 +78,9 @@ export default {
 			@apply flex flex-col;
 			& .__body-about-title {
 				@apply font-semibold;
+			}
+			& .__body-about-giver {
+				@apply text-gray-600;
 			}
 		}
 		& .__body-action {

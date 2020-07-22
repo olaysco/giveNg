@@ -1,7 +1,8 @@
 <template>
 	<div class="__givetem-info pb-8">
-		<div class="h-64 overflow-hidden">
-			<img class="w-full" src="/img/free-shoe.png" alt="free shoe image" />
+		<div class="h-64 overflow-hidden relative">
+			<APriceTag />
+			<img class="w-full" src="/img/free-bag.png" alt="free shoe image" />
 		</div>
 		<div class="__givetem-info-about my-5 flex px-8">
 			<div class="w-1/2 md:w-5/6">
@@ -30,9 +31,11 @@
 </template>
 <script>
 import tag from "../icons/tag";
+import APriceTag from "../atoms/APriceTag";
 export default {
 	components: {
-		tag
+		tag,
+		APriceTag
 	}
 };
 </script>

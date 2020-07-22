@@ -5,7 +5,7 @@
 				<div
 					class="text-2xl md:text-3xl text-white font-bold w-4/5 text-center mb-5 animate__animated animate__fadeIn animate__delay-2s animate__slow"
 				>
-					<span class>Lorem ipsum dolor, sit amet consectetur adipisicing poli</span>
+					<span class="text-shadow">Lorem ipsum dolor, sit amet consectetur adipisicing poli</span>
 				</div>
 				<div class="w-full flex justify-center mt-4">
 					<div class="w-11/12 md:w-4/5 relative">
@@ -22,6 +22,7 @@
 </template>
 <script>
 import magnify from "../icons/magnify";
+import inView from "../../utils/index";
 export default {
 	components: {
 		magnify
@@ -30,6 +31,10 @@ export default {
 </script>
 <style scoped>
 .hero {
+	background-image: url("/img/hero.svg");
+	background-repeat: no-repeat;
+	background-position: 2em bottom;
+	background-size: 60vh;
 	height: calc(85vh - (0px + 0px));
 }
 @media (max-width: 764px) {

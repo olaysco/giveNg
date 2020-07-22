@@ -8,11 +8,11 @@ export default {
 			element.style.height = this.prevHeight;
 			setTimeout(() => {
 				element.style.height = height;
-			});
+            });
         },
 		afterEnter(element) {
-			element.style.height = "auto";
-			scrollTo(document.getElementsByTagName("body")[0]);
+            element.style.height = "auto";
+            element.scrollIntoViewIfNeeded();
 		}
 	}
 }

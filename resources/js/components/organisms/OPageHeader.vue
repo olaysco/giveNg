@@ -11,7 +11,9 @@
                 <a href="#impacts" class="text-gray-500 hover:text-blue-300">Our impacts</a>
 			</li>-->
 			<li class="mr-6 p-1 hidden md:inline">
-				<router-link to="/education" class="text-gray-500 text-xs hover:text-blue-300">Education</router-link>
+				<router-link to="/education" class="text-white text-xs hover:text-blue-300">
+					<IBook class="inline mr-2 align-bottom" fill="#fff" />Education
+				</router-link>
 			</li>
 			<li class="mr-6 p-1" v-if="authUser && authUser.email">
 				<button v-if="inProfile" @click="logout" class="btn">Logout</button>
@@ -24,8 +26,12 @@
 	</div>
 </template>
 <script>
+import IBook from "../icons/IBook";
 import { mapState, mapActions } from "vuex";
 export default {
+	components: {
+		IBook
+	},
 	computed: {
 		...mapState({
 			authUser: state => state.authStore.authUser
