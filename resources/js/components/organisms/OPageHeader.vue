@@ -5,48 +5,15 @@
 				<img class="w-16 h-auto" src="/img/giveng-logo-light.svg" alt="logo" />
 			</router-link>
 		</div>
-		<i class="fas fa-bars fa-2x visible md:invisible mr-10 md:mr-0 text-blue-200 cursor-pointer"></i>
-		<ul class="md:flex mr-5 font-semibold">
-			<!-- <li class="mr-6 p-1">
-                <a href="#impacts" class="text-gray-500 hover:text-blue-300">Our impacts</a>
-			</li>-->
-			<li class="mr-6 p-1 hidden md:inline">
-				<router-link to="/education" class="text-white text-xs hover:text-blue-300">
-					<IBook class="inline mr-2 align-bottom" fill="#fff" />Education
-				</router-link>
-			</li>
-			<li class="mr-6 p-1" v-if="authUser && authUser.email">
-				<button v-if="inProfile" @click="logout" class="btn">Logout</button>
-				<router-link v-else to="/profile" class="btn">Profile</router-link>
-			</li>
-			<li v-else>
-				<router-link to="/login" class="btn">Login</router-link>
-			</li>
-		</ul>
+		<MMenu />
 	</div>
 </template>
 <script>
-import IBook from "../icons/IBook";
-import { mapState, mapActions } from "vuex";
+import MMenu from "../molecules/MMenu";
 export default {
 	components: {
-		IBook
+		MMenu,
 	},
-	computed: {
-		...mapState({
-			authUser: state => state.authStore.authUser
-		}),
-		inProfile() {
-			return this.$route.path === "/profile";
-		}
-	},
-	methods: {
-		async logout() {
-			this.$store.dispatch("logoutUser").then(e => {
-				window.location.href = "/";
-			});
-		}
-	}
 };
 </script>
 <style scoped>

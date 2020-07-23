@@ -23,16 +23,16 @@ export default {
 	mixins: [AnimationMixin],
 	components: {
 		PageHeader,
-		PageFooter
+		PageFooter,
 	},
 	data() {
 		return {
-			prevHeight: 0
+			prevHeight: 0,
 		};
 	},
 	methods: {
-		...mapActions(["getUser"])
-	}
+		...mapActions(["getUser"]),
+	},
 };
 </script>
 <style scoped>

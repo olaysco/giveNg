@@ -1,13 +1,16 @@
 <template>
 	<div>
-		<div class="flex w-100 hero bg-blue-900">
+		<div class="flex w-100 hero bg-blue-deep">
 			<div class="w-full flex flex-col items-center justify-center">
 				<div
 					class="text-2xl md:text-3xl text-white font-bold w-4/5 text-center mb-5 animate__animated animate__fadeIn animate__delay-2s animate__slow"
 				>
-					<span class="text-shadow">Lorem ipsum dolor, sit amet consectetur adipisicing poli</span>
+					<span class="text-shadow intro-text">Lorem ipsum dolor, sit amet consectetur adipisicing poli</span>
 				</div>
-				<div class="w-full flex justify-center mt-4">
+				<div
+					class="delay-100 duration-200 ease-in-out flex justify-center mt-4 transition-all w-full"
+					v-stick
+				>
 					<div class="w-11/12 md:w-4/5 relative">
 						<magnify class="absolute ml-4 mt-5" />
 						<input
@@ -23,10 +26,30 @@
 <script>
 import magnify from "../icons/magnify";
 import inView from "../../utils/index";
+import isInViewport from "../../utils/index";
 export default {
 	components: {
-		magnify
-	}
+		magnify,
+	},
+	directives: {
+		stick: {
+			bind: function (el, binding, opts) {
+				document.querySelector("body").addEventListener("scroll", function (e) {
+					if (!isInViewport(el.previousElementSibling)) {
+						/** if element is not in viewport
+						 *  and add the stick class if it doesnt
+						 *  have it
+						 **/
+						if (!el.classList.contains("stick"))
+							setTimeout(() => el.classList.add("stick"), 500);
+					} else {
+						if (el.classList.contains("stick"))
+							setTimeout(() => el.classList.remove("stick"), 500);
+					}
+				});
+			},
+		},
+	},
 };
 </script>
 <style scoped>
@@ -41,5 +64,11 @@ export default {
 	.hero {
 		height: calc(75vh - (0px + 0px));
 	}
+}
+.stick {
+	position: fixed;
+	top: 0;
+	z-index: 30;
+	width: 75vw;
 }
 </style>
