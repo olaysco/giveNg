@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="givetem-card ease-in delay-200 duration-200"
+		class="givetem-card ease-in delay-50 duration-50"
 		role="gridcell"
 		tabindex="0"
 		ref="givetem-card"
@@ -34,13 +34,13 @@ import isInViewPort from "../../utils";
 export default {
 	components: {
 		AButton,
-		ARate
+		ARate,
 	},
 	props: {
 		givetem: {
 			required: true,
-			type: Object
-		}
+			type: Object,
+		},
 	},
 	methods: {
 		addAnimate() {
@@ -52,8 +52,8 @@ export default {
 		gotoPage(id) {
 			console.log("clciked");
 			this.$router.push("/givetem/id");
-		}
-	}
+		},
+	},
 };
 </script>
 <style lang='scss' scoped>
@@ -61,7 +61,7 @@ export default {
 	transition: all 0.4s ease-in-out 5s;
 	box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 14px 0px;
 	@apply h-auto bg-white rounded-md relative cursor-pointer;
-	width: 200px;
+	width: 90%;
 	& .__head {
 		@apply relative;
 		.__head-action {
@@ -95,7 +95,7 @@ export default {
 }
 @media (max-width: 500px) {
 	.givetem-card {
-		width: 128px;
+		width: 90%;
 	}
 }
 </style>

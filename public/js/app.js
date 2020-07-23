@@ -10753,7 +10753,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".givetem-card[data-v-4bad5ade] {\n  transition: all 0.4s ease-in-out 5s;\n  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 14px 0px;\n  height: auto;\n  --bg-opacity: 1;\n  background-color: #fff;\n  background-color: rgba(255, 255, 255, var(--bg-opacity));\n  border-radius: 0.375rem;\n  position: relative;\n  cursor: pointer;\n  width: 200px;\n}\n.givetem-card .__head[data-v-4bad5ade] {\n  position: relative;\n}\n.givetem-card .__head .__head-action[data-v-4bad5ade] {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  padding: 0.25rem;\n  display: none;\n  transition: all 4s ease-in-out 100s;\n}\n.givetem-card .__head .__head-action button[data-v-4bad5ade] {\n  border-radius: 0.25rem;\n}\n.givetem-card .__body[data-v-4bad5ade] {\n  padding: 1.5rem;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  font-size: 0.875rem;\n}\n.givetem-card .__body .__body-about[data-v-4bad5ade] {\n  display: flex;\n  flex-direction: column;\n}\n.givetem-card .__body .__body-about .__body-about-title[data-v-4bad5ade] {\n  font-weight: 600;\n}\n.givetem-card .__body .__body-about .__body-about-giver[data-v-4bad5ade] {\n  --text-opacity: 1;\n  color: #718096;\n  color: rgba(113, 128, 150, var(--text-opacity));\n}\n.givetem-card .__body .__body-action[data-v-4bad5ade] {\n  display: flex;\n  justify-content: center;\n}\n.givetem-card:hover .__head-action[data-v-4bad5ade] {\n  display: inline;\n}\n@media (max-width: 500px) {\n.givetem-card[data-v-4bad5ade] {\n    width: 128px;\n}\n}", ""]);
+exports.push([module.i, ".givetem-card[data-v-4bad5ade] {\n  transition: all 0.4s ease-in-out 5s;\n  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 14px 0px;\n  height: auto;\n  --bg-opacity: 1;\n  background-color: #fff;\n  background-color: rgba(255, 255, 255, var(--bg-opacity));\n  border-radius: 0.375rem;\n  position: relative;\n  cursor: pointer;\n  width: 90%;\n}\n.givetem-card .__head[data-v-4bad5ade] {\n  position: relative;\n}\n.givetem-card .__head .__head-action[data-v-4bad5ade] {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  padding: 0.25rem;\n  display: none;\n  transition: all 4s ease-in-out 100s;\n}\n.givetem-card .__head .__head-action button[data-v-4bad5ade] {\n  border-radius: 0.25rem;\n}\n.givetem-card .__body[data-v-4bad5ade] {\n  padding: 1.5rem;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  font-size: 0.875rem;\n}\n.givetem-card .__body .__body-about[data-v-4bad5ade] {\n  display: flex;\n  flex-direction: column;\n}\n.givetem-card .__body .__body-about .__body-about-title[data-v-4bad5ade] {\n  font-weight: 600;\n}\n.givetem-card .__body .__body-about .__body-about-giver[data-v-4bad5ade] {\n  --text-opacity: 1;\n  color: #718096;\n  color: rgba(113, 128, 150, var(--text-opacity));\n}\n.givetem-card .__body .__body-action[data-v-4bad5ade] {\n  display: flex;\n  justify-content: center;\n}\n.givetem-card:hover .__head-action[data-v-4bad5ade] {\n  display: inline;\n}\n@media (max-width: 500px) {\n.givetem-card[data-v-4bad5ade] {\n    width: 90%;\n}\n}", ""]);
 
 // exports
 
@@ -36749,7 +36749,7 @@ var render = function() {
     "div",
     {
       ref: "givetem-card",
-      staticClass: "givetem-card ease-in delay-200 duration-200",
+      staticClass: "givetem-card ease-in delay-50 duration-50",
       attrs: { role: "gridcell", tabindex: "0" }
     },
     [
