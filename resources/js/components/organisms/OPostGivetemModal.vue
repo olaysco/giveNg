@@ -2,7 +2,7 @@
 	<MBaseModal v-if="visible">
 		<div class="px-8 py-8 flex flex-col items-center">
 			<div class="flex justify-between w-full">
-				<h4 class="font-bold text-2xl text-blue-900">Create Givetem</h4>
+				<h4 class="font-bold text-2xl text-blue-900 cursor-not-allowed">Create Givetem</h4>
 				<a
 					href="#"
 					class="bg-gray-400 grid h-10 items-center justify-center rounded-md text-gray-800 text-xs w-10"
@@ -76,59 +76,85 @@
 					<has-error :form="givetemForm" field="pickup_location"></has-error>
 					<AFormHelp>Tips: pickup location</AFormHelp>
 				</div>
+				<div class="mt-6 relative">
+					<label for="#infoInput" class="block text-blue-900 text-xs mb-2 font-bold"></label>
+					<textarea
+						class="input"
+						placeholder="Givetem full info .i.e a detailed info."
+						v-model="givetemForm.info"
+						:class="{ 'is-invalid':givetemForm.errors.has('info') }"
+						id
+						cols="30"
+						rows="10"
+					></textarea>
+					<AFormHelp>Tips: max of 2000 words</AFormHelp>
+				</div>
+				<div class="mt-6 relative">
+					<label for="#infoTag" class="block text-blue-900 text-xs mb-2 font-bold"></label>
+					<v-select taggable multiple label="title" :options="tags" placeholder="tag the givetem" />
+				</div>
 			</div>
 		</div>
 	</MBaseModal>
 </template>
 <script>
+import "vue-select/dist/vue-select.css";
 import MBaseModal from "../molecules/MBaseModal";
 import MImageUpload from "../molecules/MImageUpload";
 import AFormHelp from "../atoms/AFormHelp";
 import IImageArea from "../icons/IImageArea";
 import Places from "vue-places";
+import vSelect from "vue-select";
+import { mapState } from "vuex";
 export default {
 	props: {
 		visible: {
 			required: true,
-			type: Boolean
-		}
+			type: Boolean,
+		},
 	},
 	data() {
 		return {
 			givetemForm: new Form({
 				title: "",
 				image: {
-					data: ""
+					data: "",
 				},
 				caption: "",
 				available: "",
 				category: "",
 				pickup_location: {
 					label: null,
-					data: {}
+					data: {},
 				},
 				info: "",
-				tags: ""
+				tags: "",
 			}),
 			options: {
 				appId: process.env.MIX_ALGOLIA_APP_ID,
 				apiKey: process.env.MIX_ALGOLIA_SEARCH_KEY,
-				countries: ["NG"]
-			}
+				countries: ["NG"],
+			},
 		};
+	},
+	computed: {
+		tags() {
+			return this.$store.state.tags;
+		},
 	},
 	components: {
 		MBaseModal,
 		MImageUpload,
 		AFormHelp,
 		IImageArea,
-		Places
+		Places,
+		vSelect,
 	},
 	methods: {
 		doClose() {
 			this.$emit("close");
-		}
-	}
+		},
+	},
 };
 </script>
 <style scoped>
