@@ -20,10 +20,10 @@ export default {
 .bar3 {
 	width: 35px;
 	height: 5px;
-	background-color: #fff;
 	margin: 6px 0;
 	transition: 0.4s;
 	border-radius: 3em;
+	@apply bg-blue-500;
 }
 
 .clicked .bar1 {

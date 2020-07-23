@@ -4966,6 +4966,7 @@ html {
   transition-timing-function: linear;
   transition-duration: 75ms;
   transition-delay: 75ms;
+  text-align: center;
 }
 
 .btn:hover {
@@ -4999,6 +5000,7 @@ html {
   transition-timing-function: linear;
   transition-duration: 75ms;
   transition-delay: 75ms;
+  text-align: center;
 }
 
 .btn-outline:hover,
