@@ -10946,7 +10946,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".sidenav[data-v-3305796c] {\n  height: 100%;\n  width: 0;\n  position: fixed;\n  z-index: 50;\n  top: 0;\n  left: 0;\n  background-color: #0a1d35;\n  box-shadow: 2px 5px 4px 0px rgb(255 237 237 / 8%);\n  overflow-x: hidden;\n  padding-top: 60px;\n  transition: 0.5s;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n.sidenav a[data-v-3305796c] {\n  padding: 8px 8px 8px 32px;\n  text-decoration: none;\n  display: block;\n  transition: 0.3s;\n}\n.sidenav a.btn[data-v-3305796c] {\n  padding: 9px;\n  margin-top: 4px;\n}\n.sidenav li[data-v-3305796c]:hover {\n  background-color: #122e50;\n}\n\n/* When you mouse over the navigation links, change their color */\n.sidenav a[data-v-3305796c]:hover {\n  color: #f1f1f1;\n}\n@media screen and (max-height: 450px) {\n.sidenav[data-v-3305796c] {\n    padding-top: 15px;\n}\n.sidenav a[data-v-3305796c] {\n    font-size: 18px;\n}\n}\n.sidenav-open[data-v-3305796c] {\n  width: 250px;\n}\n", ""]);
+exports.push([module.i, ".sidenav[data-v-3305796c] {\n  height: 100%;\n  width: 0;\n  position: fixed;\n  z-index: 50;\n  top: 0;\n  left: 0;\n  background-color: #0a1d35;\n  box-shadow: 2px 5px 4px 0px rgb(255 237 237 / 8%);\n  overflow-x: hidden;\n  padding-top: 60px;\n  transition: 0.5s;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n.sidenav a[data-v-3305796c] {\n  padding: 8px 8px 8px 32px;\n  text-decoration: none;\n  display: block;\n  transition: 0.3s;\n}\n.sidenav btn[data-v-3305796c] {\n  padding: 9px;\n  margin-top: 4px;\n}\n.sidenav li[data-v-3305796c]:hover {\n  background-color: #122e50;\n}\n\n/* When you mouse over the navigation links, change their color */\n.sidenav a[data-v-3305796c]:hover {\n  color: #f1f1f1;\n}\n@media screen and (max-height: 450px) {\n.sidenav[data-v-3305796c] {\n    padding-top: 15px;\n}\n.sidenav a[data-v-3305796c] {\n    font-size: 18px;\n}\n}\n.sidenav-open[data-v-3305796c] {\n  width: 250px;\n}\n", ""]);
 
 // exports
 
@@ -37130,12 +37130,12 @@ var render = function() {
         _vm.authUser && _vm.authUser.email
           ? _c(
               "li",
-              { staticClass: "p-1" },
+              { staticClass: "p-1 flex justify-center" },
               [
                 _vm.inProfile
                   ? _c(
                       "button",
-                      { staticClass: "btn", on: { click: _vm.logout } },
+                      { staticClass: "btn w-3/4", on: { click: _vm.logout } },
                       [_vm._v("Logout")]
                     )
                   : _c(

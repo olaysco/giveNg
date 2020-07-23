@@ -11,8 +11,8 @@
 					<IBook class="inline mr-2 align-middle" fill="#fff" />Education
 				</router-link>
 			</li>
-			<li class="p-1" v-if="authUser && authUser.email">
-				<button v-if="inProfile" @click="logout" class="btn">Logout</button>
+			<li class="p-1 flex justify-center" v-if="authUser && authUser.email">
+				<button v-if="inProfile" @click="logout" class="btn w-3/4">Logout</button>
 				<router-link v-else to="/profile" class="text-white text-xs hover:text-blue-300">
 					<IAccount class="inline mr-2 align-middle" fill="#fff" />Profile
 				</router-link>
@@ -81,7 +81,7 @@ export default {
 	transition: 0.3s;
 }
 
-.sidenav a.btn {
+.sidenav btn {
 	padding: 9px;
 	margin-top: 4px;
 }
