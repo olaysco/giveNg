@@ -32,7 +32,10 @@
 				<router-link to="/forgot_password">Forgot Password?</router-link>
 			</span>
 			<div class="mt-6">
-				<button class="btn w-full">LOGIN</button>
+				<button class="btn w-full" :disabled="loginForm.busy">
+					<span v-if="!loginForm.busy">LOGIN</span>
+					<span v-else>busy....</span>
+				</button>
 			</div>
 			<div class="mt-4 text-center">
 				<span class="text-sm">
@@ -52,8 +55,8 @@ export default {
 		return {
 			loginForm: new Form({
 				email: "",
-				password: ""
-			})
+				password: "",
+			}),
 		};
 	},
 	computed: {
@@ -62,24 +65,24 @@ export default {
 				email: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
 					this.loginForm.email
 				),
-				password: this.loginForm.password.length >= 8
+				password: this.loginForm.password.length >= 8,
 			};
-		}
+		},
 	},
 	methods: {
 		...mapMutations(["setCurrentAuthUser"]),
 		...mapActions(["loginUser"]),
 		login() {
 			this.loginUser(this.loginForm)
-				.then(response => {
+				.then((response) => {
 					this.loginForm = response;
 					this.$emit("loginSuccess");
 				})
-				.catch(err => {
+				.catch((err) => {
 					this.loginForm = err;
 				});
-		}
-	}
+		},
+	},
 };
 </script>
 <style scoped>
