@@ -14,7 +14,7 @@
 					<div class="w-11/12 md:w-4/5 relative">
 						<magnify class="absolute ml-4 mt-5" />
 						<input
-							class="w-full px-4 py-2 h-16 rounded-full shadow-2xl text-xl pl-12"
+							class="w-full px-4 py-2 h-16 rounded-full shadow-2xl text-sm md:text-xl pl-12"
 							placeholder="Search for free givetem"
 						/>
 					</div>
@@ -70,5 +70,11 @@ export default {
 	top: 0;
 	z-index: 30;
 	width: 75vw;
+}
+@media (max-width: 764px) {
+	.stick {
+		left: 0;
+		width: 72vw;
+	}
 }
 </style>

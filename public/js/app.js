@@ -11038,7 +11038,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".hero[data-v-5610693f] {\n  background-image: url(\"/img/hero.svg\");\n  background-repeat: no-repeat;\n  background-position: 2em bottom;\n  background-size: 60vh;\n  height: calc(85vh - (0px + 0px));\n}\n@media (max-width: 764px) {\n.hero[data-v-5610693f] {\n    height: calc(75vh - (0px + 0px));\n}\n}\n.stick[data-v-5610693f] {\n  position: fixed;\n  top: 0;\n  z-index: 30;\n  width: 75vw;\n}\n", ""]);
+exports.push([module.i, ".hero[data-v-5610693f] {\n  background-image: url(\"/img/hero.svg\");\n  background-repeat: no-repeat;\n  background-position: 2em bottom;\n  background-size: 60vh;\n  height: calc(85vh - (0px + 0px));\n}\n@media (max-width: 764px) {\n.hero[data-v-5610693f] {\n    height: calc(75vh - (0px + 0px));\n}\n}\n.stick[data-v-5610693f] {\n  position: fixed;\n  top: 0;\n  z-index: 30;\n  width: 75vw;\n}\n@media (max-width: 764px) {\n.stick[data-v-5610693f] {\n    left: 0;\n    width: 72vw;\n}\n}\n", ""]);
 
 // exports
 
@@ -37763,7 +37763,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("input", {
                     staticClass:
-                      "w-full px-4 py-2 h-16 rounded-full shadow-2xl text-xl pl-12",
+                      "w-full px-4 py-2 h-16 rounded-full shadow-2xl text-sm md:text-xl pl-12",
                     attrs: { placeholder: "Search for free givetem" }
                   })
                 ],
