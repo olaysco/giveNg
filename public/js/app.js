@@ -9980,6 +9980,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
+var _objectSpread2 = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/objectSpread2 */ "./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/objectSpread2.js"));
+
 __webpack_require__(/*! vue-select/dist/vue-select.css */ "./node_modules/vue-select/dist/vue-select.css");
 
 var _MBaseModal = _interopRequireDefault(__webpack_require__(/*! ../molecules/MBaseModal */ "./resources/js/components/molecules/MBaseModal.vue"));
@@ -9996,6 +9998,26 @@ var _vueSelect2 = _interopRequireDefault(__webpack_require__(/*! vue-select */ "
 
 var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -10146,11 +10168,16 @@ var _default = {
     Places: _vuePlaces["default"],
     vSelect: _vueSelect2["default"]
   },
-  methods: {
+  methods: (0, _objectSpread2["default"])((0, _objectSpread2["default"])({}, (0, _vuex.mapActions)(["postGivetem"])), {}, {
     doClose: function doClose() {
       this.$emit("close");
+    },
+    handlePost: function handlePost() {
+      this.postGivetem(this.givetemForm).then(function () {
+        alert("givetem posted successfully");
+      })["catch"](function (form) {});
     }
-  }
+  })
 };
 exports["default"] = _default;
 
@@ -11160,6 +11187,25 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 // module
 exports.push([module.i, ".page-header[data-v-1aded4c2] {\n  width: 97vw;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/organisms/OPostGivetemModal.vue?vue&type=style&index=0&id=31df2008&scoped=true&lang=css&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/organisms/OPostGivetemModal.vue?vue&type=style&index=0&id=31df2008&scoped=true&lang=css& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".title[data-v-31df2008] {\n  font-variant: small-caps;\n}\n", ""]);
 
 // exports
 
@@ -34484,6 +34530,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/organisms/OPostGivetemModal.vue?vue&type=style&index=0&id=31df2008&scoped=true&lang=css&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/organisms/OPostGivetemModal.vue?vue&type=style&index=0&id=31df2008&scoped=true&lang=css& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./OPostGivetemModal.vue?vue&type=style&index=0&id=31df2008&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/organisms/OPostGivetemModal.vue?vue&type=style&index=0&id=31df2008&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Auth/Verify.vue?vue&type=style&index=0&id=322b3832&scoped=true&lang=css&":
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Auth/Verify.vue?vue&type=style&index=0&id=322b3832&scoped=true&lang=css& ***!
@@ -38451,318 +38527,367 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _vm.visible
     ? _c("MBaseModal", [
-        _c("div", { staticClass: "px-8 py-8 flex flex-col items-center" }, [
-          _c("div", { staticClass: "flex justify-between w-full" }, [
-            _c(
-              "h4",
-              {
-                staticClass:
-                  "font-bold text-2xl text-blue-900 cursor-not-allowed"
-              },
-              [_vm._v("Create Givetem")]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass:
-                  "bg-gray-400 grid h-10 items-center justify-center rounded-md text-gray-800 text-xs w-10",
-                attrs: { href: "#" },
-                on: { click: _vm.doClose }
-              },
-              [_vm._v("X")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "w-full md:w-3/5 mt-8" }, [
-            _c(
-              "div",
-              { staticClass: "mt-6 relative" },
-              [
-                _c("label", { staticClass: "label" }, [
-                  _vm._v("Givetem Title")
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.givetemForm.title,
-                      expression: "givetemForm.title"
-                    }
-                  ],
-                  staticClass: "input",
-                  class: { "is-invalid": _vm.givetemForm.errors.has("title") },
+        _c("form", { attrs: { action: "#" } }, [
+          _c("div", { staticClass: "px-8 py-8 flex flex-col items-center" }, [
+            _c("div", { staticClass: "flex justify-between w-full" }, [
+              _c(
+                "h4",
+                {
+                  staticClass:
+                    "font-bold text-2xl text-blue-900 cursor-not-allowed title"
+                },
+                [_vm._v("Create Givetem")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "bg-gray-400 grid h-10 items-center justify-center rounded-md shadow-lg text-gray-900 text-xs w-10 fixed right-0 mr-10",
                   attrs: {
-                    placeholder: "Givetem title e.g. Used IPhone 7",
-                    type: "title"
+                    href: "#",
+                    "aria-label": "modal close button",
+                    role: "button"
                   },
-                  domProps: { value: _vm.givetemForm.title },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.givetemForm, "title", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("has-error", {
-                  attrs: { form: _vm.givetemForm, field: "title" }
-                }),
-                _vm._v(" "),
-                _c("AFormHelp", [
-                  _vm._v("Tips: use short and very descriptive title")
-                ])
-              ],
-              1
-            ),
+                  on: { click: _vm.doClose }
+                },
+                [_vm._v("X")]
+              )
+            ]),
             _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "mt-6 relative" },
-              [
-                _c("label", { staticClass: "label" }, [
-                  _vm._v("Givetem Caption")
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.givetemForm.caption,
-                      expression: "givetemForm.caption"
-                    }
-                  ],
-                  staticClass: "input",
-                  class: {
-                    "is-invalid": _vm.givetemForm.errors.has("caption")
-                  },
-                  attrs: {
-                    placeholder:
-                      "Givetem caption e.g. IPhone used only for about a year.",
-                    type: "title"
-                  },
-                  domProps: { value: _vm.givetemForm.caption },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.givetemForm, "caption", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("has-error", {
-                  attrs: { form: _vm.givetemForm, field: "caption" }
-                }),
-                _vm._v(" "),
-                _c("AFormHelp", [
-                  _vm._v("Tips: it should be a single sentence")
-                ])
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "mt-6 relative" },
-              [
-                _c("label", { staticClass: "label" }, [
-                  _vm._v("Givetem Image")
-                ]),
-                _vm._v(" "),
-                _c("MImageUpload", {
-                  key: "banner",
-                  staticClass: "mr-1",
-                  attrs: {
-                    showDesc: false,
-                    placeholder: "Givetem Image",
-                    name: "shot 1",
-                    id: "image1"
-                  },
-                  scopedSlots: _vm._u(
-                    [
+            _c("div", { staticClass: "w-full md:w-3/5 mt-8" }, [
+              _c(
+                "div",
+                { staticClass: "mt-6 relative" },
+                [
+                  _c("label", { staticClass: "label" }, [
+                    _vm._v("Givetem Title")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
                       {
-                        key: "default",
-                        fn: function(slotProps) {
-                          return [
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "w-48 h-32 border rounded-md hover:border-blue-700 flex justify-center items-center cursor-pointer",
-                                style: {
-                                  backgroundImage:
-                                    "url(" +
-                                    _vm.givetemForm.image.data.replace(
-                                      /(\r\n|\n|\r)/gm,
-                                      ""
-                                    ) +
-                                    ")"
-                                },
-                                on: { click: slotProps.clickUpload }
-                              },
-                              [
-                                _c("IImageArea", {
-                                  directives: [
-                                    {
-                                      name: "show",
-                                      rawName: "v-show",
-                                      value:
-                                        _vm.givetemForm.image.data === "" ||
-                                        _vm.givetemForm.image.data ===
-                                          "/storage/",
-                                      expression:
-                                        "givetemForm.image.data === '' || givetemForm.image.data === '/storage/'  "
-                                    }
-                                  ],
-                                  attrs: {
-                                    fill: "#2b6cb0",
-                                    width: "48",
-                                    height: "48"
-                                  }
-                                })
-                              ],
-                              1
-                            )
-                          ]
-                        }
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.givetemForm.title,
+                        expression: "givetemForm.title"
                       }
                     ],
-                    null,
-                    false,
-                    937117224
-                  ),
-                  model: {
-                    value: _vm.givetemForm.image,
-                    callback: function($$v) {
-                      _vm.$set(_vm.givetemForm, "image", $$v)
+                    staticClass: "input",
+                    class: {
+                      "is-invalid": _vm.givetemForm.errors.has("title")
                     },
-                    expression: "givetemForm.image"
-                  }
-                }),
-                _vm._v(" "),
-                _c("has-error", {
-                  attrs: { form: _vm.givetemForm, field: "caption" }
-                }),
-                _vm._v(" "),
-                _c("AFormHelp", [_vm._v("Tips: Choose clear image")])
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "mt-6 relative" },
-              [
-                _c("label", { staticClass: "label" }, [
-                  _vm._v("Pickup location")
-                ]),
-                _vm._v(" "),
-                _c("Places", {
-                  staticClass: "input",
-                  class: {
-                    "is-invalid": _vm.givetemForm.errors.has("caption")
-                  },
-                  attrs: {
-                    placeholder: "Givetem pickup location",
-                    type: "text",
-                    options: _vm.options
-                  },
-                  on: {
-                    change: function(val) {
-                      _vm.givetemForm.pickup_location.data = val
-                    }
-                  },
-                  model: {
-                    value: _vm.givetemForm.pickup_location.label,
-                    callback: function($$v) {
-                      _vm.$set(_vm.givetemForm.pickup_location, "label", $$v)
+                    attrs: {
+                      placeholder: "Givetem title e.g. Used IPhone 7",
+                      type: "title"
                     },
-                    expression: "givetemForm.pickup_location.label"
-                  }
-                }),
-                _vm._v(" "),
-                _c("has-error", {
-                  attrs: { form: _vm.givetemForm, field: "pickup_location" }
-                }),
-                _vm._v(" "),
-                _c("AFormHelp", [_vm._v("Tips: pickup location")])
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "mt-6 relative" },
-              [
-                _c(
-                  "label",
-                  { staticClass: "label", attrs: { for: "#infoInput" } },
-                  [_vm._v("Givetem info")]
-                ),
-                _vm._v(" "),
-                _c("textarea", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.givetemForm.info,
-                      expression: "givetemForm.info"
-                    }
-                  ],
-                  staticClass: "input",
-                  class: { "is-invalid": _vm.givetemForm.errors.has("info") },
-                  attrs: {
-                    placeholder: "Givetem full info .i.e a detailed info.",
-                    id: "",
-                    cols: "30",
-                    rows: "10"
-                  },
-                  domProps: { value: _vm.givetemForm.info },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                    domProps: { value: _vm.givetemForm.title },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.givetemForm, "title", $event.target.value)
                       }
-                      _vm.$set(_vm.givetemForm, "info", $event.target.value)
                     }
-                  }
-                }),
-                _vm._v(" "),
-                _c("AFormHelp", [_vm._v("Tips: max of 2000 words")])
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "mt-6 relative" },
-              [
+                  }),
+                  _vm._v(" "),
+                  _c("has-error", {
+                    attrs: { form: _vm.givetemForm, field: "title" }
+                  }),
+                  _vm._v(" "),
+                  _c("AFormHelp", [
+                    _vm._v("Tips: use short and very descriptive title")
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "mt-6 relative" },
+                [
+                  _c("label", { staticClass: "label" }, [
+                    _vm._v("Givetem Caption")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.givetemForm.caption,
+                        expression: "givetemForm.caption"
+                      }
+                    ],
+                    staticClass: "input",
+                    class: {
+                      "is-invalid": _vm.givetemForm.errors.has("caption")
+                    },
+                    attrs: {
+                      placeholder:
+                        "Givetem caption e.g. IPhone used only for about a year.",
+                      type: "title"
+                    },
+                    domProps: { value: _vm.givetemForm.caption },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.givetemForm,
+                          "caption",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("has-error", {
+                    attrs: { form: _vm.givetemForm, field: "caption" }
+                  }),
+                  _vm._v(" "),
+                  _c("AFormHelp", [
+                    _vm._v("Tips: it should be a single sentence")
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "mt-6 relative" },
+                [
+                  _c("label", { staticClass: "label" }, [
+                    _vm._v("Givetem Image")
+                  ]),
+                  _vm._v(" "),
+                  _c("MImageUpload", {
+                    key: "banner",
+                    staticClass: "mr-1",
+                    class: {
+                      "is-invalid": _vm.givetemForm.errors.has("image")
+                    },
+                    attrs: {
+                      showDesc: false,
+                      placeholder: "Givetem Image",
+                      name: "shot 1",
+                      id: "image1"
+                    },
+                    scopedSlots: _vm._u(
+                      [
+                        {
+                          key: "default",
+                          fn: function(slotProps) {
+                            return [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "w-48 h-32 border rounded-md hover:border-blue-700 flex justify-center items-center cursor-pointer bg-cover bg-repeat-space",
+                                  style: {
+                                    backgroundImage:
+                                      "url(" +
+                                      _vm.givetemForm.image.data.replace(
+                                        /(\r\n|\n|\r)/gm,
+                                        ""
+                                      ) +
+                                      ")"
+                                  },
+                                  on: { click: slotProps.clickUpload }
+                                },
+                                [
+                                  _c("IImageArea", {
+                                    directives: [
+                                      {
+                                        name: "show",
+                                        rawName: "v-show",
+                                        value:
+                                          _vm.givetemForm.image.data === "" ||
+                                          _vm.givetemForm.image.data ===
+                                            "/storage/",
+                                        expression:
+                                          "givetemForm.image.data === '' || givetemForm.image.data === '/storage/'  "
+                                      }
+                                    ],
+                                    attrs: {
+                                      fill: "#2b6cb0",
+                                      width: "48",
+                                      height: "48"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ]
+                          }
+                        }
+                      ],
+                      null,
+                      false,
+                      3046911067
+                    ),
+                    model: {
+                      value: _vm.givetemForm.image,
+                      callback: function($$v) {
+                        _vm.$set(_vm.givetemForm, "image", $$v)
+                      },
+                      expression: "givetemForm.image"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("has-error", {
+                    attrs: { form: _vm.givetemForm, field: "image" }
+                  }),
+                  _vm._v(" "),
+                  _c("AFormHelp", [_vm._v("Tips: Choose clear image")])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "mt-6 relative" },
+                [
+                  _c("label", { staticClass: "label" }, [
+                    _vm._v("Pickup location")
+                  ]),
+                  _vm._v(" "),
+                  _c("Places", {
+                    staticClass: "input",
+                    class: {
+                      "is-invalid": _vm.givetemForm.errors.has(
+                        "pickup_location"
+                      )
+                    },
+                    attrs: {
+                      placeholder: "Givetem pickup location",
+                      type: "text",
+                      options: _vm.options
+                    },
+                    on: {
+                      change: function(val) {
+                        _vm.givetemForm.pickup_location.data = val
+                      }
+                    },
+                    model: {
+                      value: _vm.givetemForm.pickup_location.label,
+                      callback: function($$v) {
+                        _vm.$set(_vm.givetemForm.pickup_location, "label", $$v)
+                      },
+                      expression: "givetemForm.pickup_location.label"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("has-error", {
+                    attrs: { form: _vm.givetemForm, field: "pickup_location" }
+                  }),
+                  _vm._v(" "),
+                  _c("AFormHelp", [_vm._v("Tips: pickup location")])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "mt-6 relative" },
+                [
+                  _c(
+                    "label",
+                    { staticClass: "label", attrs: { for: "#infoInput" } },
+                    [_vm._v("Givetem info")]
+                  ),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.givetemForm.info,
+                        expression: "givetemForm.info"
+                      }
+                    ],
+                    staticClass: "input",
+                    class: { "is-invalid": _vm.givetemForm.errors.has("info") },
+                    attrs: {
+                      placeholder: "Givetem full info .i.e a detailed info.",
+                      id: "",
+                      cols: "30",
+                      rows: "10"
+                    },
+                    domProps: { value: _vm.givetemForm.info },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.givetemForm, "info", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("has-error", {
+                    attrs: { form: _vm.givetemForm, field: "info" }
+                  }),
+                  _vm._v(" "),
+                  _c("AFormHelp", [_vm._v("Tips: max of 2000 words")])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "mt-6 relative" },
+                [
+                  _c(
+                    "label",
+                    { staticClass: "label", attrs: { for: "#infoTag" } },
+                    [_vm._v("Tags")]
+                  ),
+                  _vm._v(" "),
+                  _c("v-select", {
+                    staticClass: "vSelect",
+                    class: { "is-invalid": _vm.givetemForm.errors.has("tags") },
+                    attrs: {
+                      taggable: "",
+                      multiple: "",
+                      label: "title",
+                      options: _vm.tags,
+                      placeholder: "tag the givetem"
+                    },
+                    model: {
+                      value: _vm.givetemForm.tags,
+                      callback: function($$v) {
+                        _vm.$set(_vm.givetemForm, "tags", $$v)
+                      },
+                      expression: "givetemForm.tags"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("has-error", {
+                    attrs: { form: _vm.givetemForm, field: "tags" }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "mt-6 relative" }, [
                 _c(
-                  "label",
-                  { staticClass: "label", attrs: { for: "#infoTag" } },
-                  [_vm._v("Tags")]
-                ),
-                _vm._v(" "),
-                _c("v-select", {
-                  staticClass: "vSelect",
-                  attrs: {
-                    taggable: "",
-                    multiple: "",
-                    label: "title",
-                    options: _vm.tags,
-                    placeholder: "tag the givetem"
-                  }
-                })
-              ],
-              1
-            )
+                  "button",
+                  {
+                    staticClass: "btn float-right",
+                    attrs: { type: "button", disabled: _vm.givetemForm.busy },
+                    on: { click: _vm.handlePost }
+                  },
+                  [
+                    !_vm.givetemForm.busy
+                      ? _c("span", [_vm._v("POST GIVETERM")])
+                      : _c("span", [_vm._v("busy....")])
+                  ]
+                )
+              ])
+            ])
           ])
         ])
       ])
@@ -63251,7 +63376,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _OPostGivetemModal_vue_vue_type_template_id_31df2008_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./OPostGivetemModal.vue?vue&type=template&id=31df2008&scoped=true& */ "./resources/js/components/organisms/OPostGivetemModal.vue?vue&type=template&id=31df2008&scoped=true&");
 /* harmony import */ var _OPostGivetemModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OPostGivetemModal.vue?vue&type=script&lang=js& */ "./resources/js/components/organisms/OPostGivetemModal.vue?vue&type=script&lang=js&");
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _OPostGivetemModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _OPostGivetemModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _OPostGivetemModal_vue_vue_type_style_index_0_id_31df2008_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./OPostGivetemModal.vue?vue&type=style&index=0&id=31df2008&scoped=true&lang=css& */ "./resources/js/components/organisms/OPostGivetemModal.vue?vue&type=style&index=0&id=31df2008&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -63259,7 +63386,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _OPostGivetemModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _OPostGivetemModal_vue_vue_type_template_id_31df2008_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _OPostGivetemModal_vue_vue_type_template_id_31df2008_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -63290,6 +63417,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OPostGivetemModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OPostGivetemModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OPostGivetemModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OPostGivetemModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OPostGivetemModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/organisms/OPostGivetemModal.vue?vue&type=style&index=0&id=31df2008&scoped=true&lang=css&":
+/*!**************************************************************************************************************************!*\
+  !*** ./resources/js/components/organisms/OPostGivetemModal.vue?vue&type=style&index=0&id=31df2008&scoped=true&lang=css& ***!
+  \**************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_OPostGivetemModal_vue_vue_type_style_index_0_id_31df2008_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./OPostGivetemModal.vue?vue&type=style&index=0&id=31df2008&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/organisms/OPostGivetemModal.vue?vue&type=style&index=0&id=31df2008&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_OPostGivetemModal_vue_vue_type_style_index_0_id_31df2008_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_OPostGivetemModal_vue_vue_type_style_index_0_id_31df2008_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_OPostGivetemModal_vue_vue_type_style_index_0_id_31df2008_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_OPostGivetemModal_vue_vue_type_style_index_0_id_31df2008_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_OPostGivetemModal_vue_vue_type_style_index_0_id_31df2008_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -64447,6 +64590,47 @@ exports["default"] = _default;
 
 /***/ }),
 
+/***/ "./resources/js/store/givetem.js":
+/*!***************************************!*\
+  !*** ./resources/js/store/givetem.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var givetem = {
+  state: {
+    allGivetems: [],
+    myCreatedGivetems: [],
+    myReceivedGivetems: []
+  },
+  actions: {
+    postGivetem: function postGivetem(payload, form) {
+      return new Promise(function (resolve, reject) {
+        form.post("/api/givetem").then(function (response) {
+          dispatch("fetchMyCreatedGivetems");
+          resolve(form);
+        })["catch"](function (err) {
+          return reject(form);
+        });
+      });
+    },
+    fetchMyCreatedGivetems: function fetchMyCreatedGivetems() {}
+  },
+  getters: {},
+  mutations: {}
+};
+var _default = givetem;
+exports["default"] = _default;
+
+/***/ }),
+
 /***/ "./resources/js/store/index.js":
 /*!*************************************!*\
   !*** ./resources/js/store/index.js ***!
@@ -64470,11 +64654,14 @@ var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ "./node_modul
 
 var _auth = _interopRequireDefault(__webpack_require__(/*! ./auth */ "./resources/js/store/auth.js"));
 
+var _givetem = _interopRequireDefault(__webpack_require__(/*! ./givetem */ "./resources/js/store/givetem.js"));
+
 _vue["default"].use(_vuex["default"]);
 
 var _default = new _vuex["default"].Store({
   modules: {
-    authStore: _auth["default"]
+    authStore: _auth["default"],
+    givetemStore: _givetem["default"]
   },
   state: {
     tags: ['Household item', 'fashion', 'electronic', 'books', 'magazine']
