@@ -8873,6 +8873,9 @@ var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.j
 //
 //
 //
+//
+//
+//
 var _default = {
   components: {
     IBook: _IBook["default"],
@@ -8891,6 +8894,9 @@ var _default = {
   })), {}, {
     inProfile: function inProfile() {
       return this.$route.path === "/profile";
+    },
+    inEducation: function inEducation() {
+      return this.$route.path === "/education";
     }
   }),
   methods: {
@@ -37018,21 +37024,37 @@ var render = function() {
           "li",
           { staticClass: "mr-6 p-1 hidden md:inline" },
           [
-            _c(
-              "router-link",
-              {
-                staticClass: "text-white text-xs hover:text-blue-300",
-                attrs: { to: "/education" }
-              },
-              [
-                _c("IBook", {
-                  staticClass: "inline mr-2 align-bottom",
-                  attrs: { fill: "#fff" }
-                }),
-                _vm._v("Education\n\t\t\t")
-              ],
-              1
-            )
+            _vm.inEducation
+              ? _c(
+                  "router-link",
+                  {
+                    staticClass: "text-blule-300 text-xs hover:text-blue-400",
+                    attrs: { to: "/" }
+                  },
+                  [
+                    _c("IBook", {
+                      staticClass: "inline mr-2 align-middle",
+                      attrs: { fill: "#90cdf4" }
+                    }),
+                    _vm._v("Giveng\n\t\t\t")
+                  ],
+                  1
+                )
+              : _c(
+                  "router-link",
+                  {
+                    staticClass: "text-blue-300 text-xs hover:text-blue-400",
+                    attrs: { to: "/education" }
+                  },
+                  [
+                    _c("IBook", {
+                      staticClass: "inline mr-2 align-bottom",
+                      attrs: { fill: "#90cdf4" }
+                    }),
+                    _vm._v("Education\n\t\t\t")
+                  ],
+                  1
+                )
           ],
           1
         ),
