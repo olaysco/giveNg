@@ -7,6 +7,7 @@ vue.use(vuex)
 export default new vuex.Store({
     modules: { authStore },
     state: {
+        tags: ['Household item', 'fashion', 'electronic', 'books', 'magazine']
     },
     mutations: {
     },
