@@ -11,7 +11,7 @@
 			</div>
 			<div class="w-full md:w-3/5 mt-8">
 				<div class="mt-6 relative">
-					<label class="block text-blue-900 text-xs mb-2 font-bold">Givetem Title</label>
+					<label class="label">Givetem Title</label>
 					<input
 						class="input"
 						placeholder="Givetem title e.g. Used IPhone 7"
@@ -23,7 +23,7 @@
 					<AFormHelp>Tips: use short and very descriptive title</AFormHelp>
 				</div>
 				<div class="mt-6 relative">
-					<label class="block text-blue-900 text-xs mb-2 font-bold">Givetem Caption</label>
+					<label class="label">Givetem Caption</label>
 					<input
 						class="input"
 						placeholder="Givetem caption e.g. IPhone used only for about a year."
@@ -35,7 +35,7 @@
 					<AFormHelp>Tips: it should be a single sentence</AFormHelp>
 				</div>
 				<div class="mt-6 relative">
-					<label class="block text-blue-900 text-xs mb-2 font-bold">Givetem Image</label>
+					<label class="label">Givetem Image</label>
 					<MImageUpload
 						:showDesc="false"
 						v-model="givetemForm.image"
@@ -63,7 +63,7 @@
 					<AFormHelp>Tips: Choose clear image</AFormHelp>
 				</div>
 				<div class="mt-6 relative">
-					<label class="block text-blue-900 text-xs mb-2 font-bold">Givetem Caption</label>
+					<label class="label">Pickup location</label>
 					<Places
 						class="input"
 						placeholder="Givetem pickup location"
@@ -77,7 +77,7 @@
 					<AFormHelp>Tips: pickup location</AFormHelp>
 				</div>
 				<div class="mt-6 relative">
-					<label for="#infoInput" class="block text-blue-900 text-xs mb-2 font-bold"></label>
+					<label for="#infoInput" class="label">Givetem info</label>
 					<textarea
 						class="input"
 						placeholder="Givetem full info .i.e a detailed info."
@@ -90,8 +90,15 @@
 					<AFormHelp>Tips: max of 2000 words</AFormHelp>
 				</div>
 				<div class="mt-6 relative">
-					<label for="#infoTag" class="block text-blue-900 text-xs mb-2 font-bold"></label>
-					<v-select taggable multiple label="title" :options="tags" placeholder="tag the givetem" />
+					<label for="#infoTag" class="label">Tags</label>
+					<v-select
+						taggable
+						multiple
+						label="title"
+						class="vSelect"
+						:options="tags"
+						placeholder="tag the givetem"
+					/>
 				</div>
 			</div>
 		</div>

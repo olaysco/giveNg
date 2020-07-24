@@ -10089,6 +10089,13 @@ var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.j
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   props: {
     visible: {
@@ -38450,11 +38457,9 @@ var render = function() {
               "div",
               { staticClass: "mt-6 relative" },
               [
-                _c(
-                  "label",
-                  { staticClass: "block text-blue-900 text-xs mb-2 font-bold" },
-                  [_vm._v("Givetem Title")]
-                ),
+                _c("label", { staticClass: "label" }, [
+                  _vm._v("Givetem Title")
+                ]),
                 _vm._v(" "),
                 _c("input", {
                   directives: [
@@ -38497,11 +38502,9 @@ var render = function() {
               "div",
               { staticClass: "mt-6 relative" },
               [
-                _c(
-                  "label",
-                  { staticClass: "block text-blue-900 text-xs mb-2 font-bold" },
-                  [_vm._v("Givetem Caption")]
-                ),
+                _c("label", { staticClass: "label" }, [
+                  _vm._v("Givetem Caption")
+                ]),
                 _vm._v(" "),
                 _c("input", {
                   directives: [
@@ -38547,11 +38550,9 @@ var render = function() {
               "div",
               { staticClass: "mt-6 relative" },
               [
-                _c(
-                  "label",
-                  { staticClass: "block text-blue-900 text-xs mb-2 font-bold" },
-                  [_vm._v("Givetem Image")]
-                ),
+                _c("label", { staticClass: "label" }, [
+                  _vm._v("Givetem Image")
+                ]),
                 _vm._v(" "),
                 _c("MImageUpload", {
                   key: "banner",
@@ -38637,11 +38638,9 @@ var render = function() {
               "div",
               { staticClass: "mt-6 relative" },
               [
-                _c(
-                  "label",
-                  { staticClass: "block text-blue-900 text-xs mb-2 font-bold" },
-                  [_vm._v("Givetem Caption")]
-                ),
+                _c("label", { staticClass: "label" }, [
+                  _vm._v("Pickup location")
+                ]),
                 _vm._v(" "),
                 _c("Places", {
                   staticClass: "input",
@@ -38680,10 +38679,11 @@ var render = function() {
               "div",
               { staticClass: "mt-6 relative" },
               [
-                _c("label", {
-                  staticClass: "block text-blue-900 text-xs mb-2 font-bold",
-                  attrs: { for: "#infoInput" }
-                }),
+                _c(
+                  "label",
+                  { staticClass: "label", attrs: { for: "#infoInput" } },
+                  [_vm._v("Givetem info")]
+                ),
                 _vm._v(" "),
                 _c("textarea", {
                   directives: [
@@ -38722,12 +38722,14 @@ var render = function() {
               "div",
               { staticClass: "mt-6 relative" },
               [
-                _c("label", {
-                  staticClass: "block text-blue-900 text-xs mb-2 font-bold",
-                  attrs: { for: "#infoTag" }
-                }),
+                _c(
+                  "label",
+                  { staticClass: "label", attrs: { for: "#infoTag" } },
+                  [_vm._v("Tags")]
+                ),
                 _vm._v(" "),
                 _c("v-select", {
+                  staticClass: "vSelect",
                   attrs: {
                     taggable: "",
                     multiple: "",
