@@ -6,8 +6,11 @@
 		<MSideNav :visible="sideNavOpen" />
 		<ul class="hidden md:flex mr-5 font-semibold">
 			<li class="mr-6 p-1 hidden md:inline">
-				<router-link to="/education" class="text-white text-xs hover:text-blue-300">
-					<IBook class="inline mr-2 align-bottom" fill="#fff" />Education
+				<router-link to="/" class="text-blule-300 text-xs hover:text-blue-400" v-if="inEducation">
+					<IBook class="inline mr-2 align-middle" fill="#90cdf4" />Giveng
+				</router-link>
+				<router-link to="/education" class="text-blue-300 text-xs hover:text-blue-400" v-else>
+					<IBook class="inline mr-2 align-bottom" fill="#90cdf4" />Education
 				</router-link>
 			</li>
 			<li class="mr-6 p-1" v-if="authUser && authUser.email">
@@ -42,6 +45,9 @@ export default {
 		}),
 		inProfile() {
 			return this.$route.path === "/profile";
+		},
+		inEducation() {
+			return this.$route.path === "/education";
 		},
 	},
 	methods: {

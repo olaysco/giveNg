@@ -39,13 +39,13 @@ html {
     }
 }
 .btn {
-    @apply text-white text-xs bg-blue-500 py-2 px-4 rounded-full inline-block transition-all ease-linear duration-75 delay-75 text-center;
+    @apply text-white text-xs bg-blue-500 py-2 px-4 rounded-lg inline-block transition-all ease-linear duration-75 delay-75 text-center;
 }
 .btn:hover {
     @apply bg-white border-blue-500 text-blue-500;
 }
 .btn-outline {
-    @apply text-blue-900 text-xs bg-white py-2 px-6 rounded-full border inline-block transition-all ease-linear duration-75 delay-75 text-center;
+    @apply text-blue-900 text-xs bg-white py-2 px-6 rounded-lg border inline-block transition-all ease-linear duration-75 delay-75 text-center;
 }
 .btn-outline:hover,
 .btn-outline:focus {
@@ -56,7 +56,10 @@ html {
     @apply border border-blue-600;
     outline: none;
 }
-
+.label {
+    font-variant: small-caps;
+    @apply block text-blue-900 text-xs mb-2 font-bold;
+}
 .text-shadow {
     text-shadow: 0px 0px 2px rgba(128, 130, 133, 0.5);
 }
@@ -64,6 +67,28 @@ html {
     background-color: #0a1d35;
 }
 
+.vSelect .vs__search::placeholder,
+.vSelect .vs__dropdown-toggle,
+.vSelect .vs__dropdown-menu {
+    background: #fff;
+    text-transform: lowercase;
+    font-variant: small-caps;
+    @apply shadow-sm border border-gray-500 border-opacity-25 text-xs;
+}
+
+.vSelect {
+    &.is-invalid {
+        .vs__search::placeholder,
+        .vs__dropdown-toggle,
+        .vs__dropdown-menu {
+            @apply border-red-500;
+        }
+    }
+
+    & + div.invalid-feedback {
+        @apply text-xs text-red-500;
+    }
+}
 /******
 * Scrollbar
 *******/
