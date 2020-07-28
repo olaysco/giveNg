@@ -8,13 +8,13 @@ use Faker\Generator as Faker;
 $factory->define(Givetem::class, function (Faker $faker) {
     return [
         'title'     => 'ola sam',
-        'image_url' => 'http://img.url/com',
+        'image' => ["url" => "/storage/images/" . $faker->image('public/storage/images', 640, 480, null, false)],
         'caption'   => 'Illum consectetur excepturi dolorem accusamus libero magni quia.',
         'rating'    => 3,
         'available' => [true, false][rand(0, 1)],
         'category_id'  => 2,
-        'pickup_location'   => 'Lagos',
+        'pickup_location'   => ['Lagos'],
         'info'              => 'Illum consectetur excepturi cupiditate dolorem accusamus libero magni quia.',
-        'tags'              => 'kil. lop, sam',
+        'tags'              => ['kil', 'lop', 'sam'],
     ];
 });

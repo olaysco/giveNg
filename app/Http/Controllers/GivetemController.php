@@ -31,22 +31,23 @@ class GivetemController extends Controller
      */
     public function store(GivetemStoreRequest $request)
     {
-        $url = '';
+        $url = $request->image["url"] ?? null;
+        $givetem = null;
         try {
-            $url = $this->storeImage($request);
+            if (is_null($url)) $url = $this->storeImage($request);
+            $givetem = Givetem::create([
+                "title" => $request->title,
+                "image_url" => $url,
+                "caption" => $request->caption,
+                "rating" => $request->rating,
+                "pickup_location" => $request->pickup_location,
+                "info" => $request->info,
+                "tags" => $request->tags,
+                "user_id" => Auth::user()->id
+            ]);
         } catch (Exception $e) {
             return new Response($e, 500);
         }
-        $givetem = Givetem::create([
-            "title" => $request->title,
-            "image_url" => $url,
-            "caption" => $request->caption,
-            "rating" => $request->rating,
-            "pickup_location" => $request->pickup_location,
-            "info" => $request->info,
-            "tags" => $request->tags,
-            "user_id" => Auth::user()->id
-        ]);
         return new Response($givetem, 201);
     }
 

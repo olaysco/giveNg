@@ -117,11 +117,10 @@ class GivtemTest extends TestCase
     {;
         $user = factory(User::class)->create();
         Sanctum::actingAs($user);
-        $givetem = factory(Givetem::class)->create([
-            'user_id' => $user->id
-        ]);
-        $e = $this->postJson('api/givetem', $givetem->toArray());
-        $response = $this->call("delete", "api/givetem/$givetem->id");
+        $givetem = factory(Givetem::class)->make();
+        $response = $this->postJson('api/givetem', $givetem->toArray());
+        $id = $response->decodeResponseJson()['id'];
+        $response = $this->call("delete", "api/givetem/$id");
         $response->assertSuccessful();
     }
 }
