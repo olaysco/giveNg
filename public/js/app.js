@@ -10124,6 +10124,20 @@ var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.j
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   props: {
     visible: {
@@ -10134,19 +10148,20 @@ var _default = {
   data: function data() {
     return {
       givetemForm: new Form({
-        title: "",
+        title: "dnsns sosdsd",
         image: {
           data: ""
         },
-        caption: "",
-        available: "",
-        category: "",
+        caption: "sjsj;sd;jsd",
+        available: true,
+        category: "sdksdsdksdk",
         pickup_location: {
           label: null,
           data: {}
         },
-        info: "",
-        tags: ""
+        info: "sksl kslksd",
+        tags: "",
+        rating: 4
       }),
       options: {
         appId: "plDHKCL8MAZQ",
@@ -10173,6 +10188,11 @@ var _default = {
       this.$emit("close");
     },
     handlePost: function handlePost() {
+      this.givetemForm.pickup_location.data = {
+        latlang: this.givetemForm.pickup_location.data.latlang,
+        country: this.givetemForm.pickup_location.data.country,
+        county: this.givetemForm.pickup_location.data.county
+      };
       this.postGivetem(this.givetemForm).then(function () {
         alert("givetem posted successfully");
       })["catch"](function (form) {});
@@ -38872,6 +38892,55 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "mt-6 relative" },
+                [
+                  _c("label", { staticClass: "label" }, [
+                    _vm._v("Givetem Rating")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.givetemForm.rating,
+                        expression: "givetemForm.rating"
+                      }
+                    ],
+                    staticClass: "input",
+                    class: {
+                      "is-invalid": _vm.givetemForm.errors.has("rating")
+                    },
+                    attrs: {
+                      placeholder: "Rate the givetem on a scale of 1 to 5",
+                      type: "number",
+                      min: "1",
+                      max: "5"
+                    },
+                    domProps: { value: _vm.givetemForm.rating },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.givetemForm, "rating", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("has-error", {
+                    attrs: { form: _vm.givetemForm, field: "rating" }
+                  }),
+                  _vm._v(" "),
+                  _c("AFormHelp", [
+                    _vm._v("Tips: 5 is very good, 1 is very bad")
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
               _c("div", { staticClass: "mt-6 relative" }, [
                 _c(
                   "button",
@@ -64600,10 +64669,15 @@ exports["default"] = _default;
 "use strict";
 
 
+var _interopRequireDefault = __webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/interopRequireDefault */ "./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = void 0;
+
+var _axios = _interopRequireDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
+
 var givetem = {
   state: {
     allGivetems: [],
@@ -64611,17 +64685,24 @@ var givetem = {
     myReceivedGivetems: []
   },
   actions: {
-    postGivetem: function postGivetem(payload, form) {
+    postGivetem: function postGivetem(_ref, form) {
+      var dispatch = _ref.dispatch;
       return new Promise(function (resolve, reject) {
         form.post("/api/givetem").then(function (response) {
           dispatch("fetchMyCreatedGivetems");
-          resolve(form);
+          resolve(response);
         })["catch"](function (err) {
           return reject(form);
         });
       });
     },
-    fetchMyCreatedGivetems: function fetchMyCreatedGivetems() {}
+    fetchMyCreatedGivetems: function fetchMyCreatedGivetems() {
+      _axios["default"].get("api/givetem").then(function (response) {
+        console.log(response);
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
   },
   getters: {},
   mutations: {}

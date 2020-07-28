@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Givetem;
 use App\Http\Requests\GivetemStoreRequest;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use JD\Cloudder\Facades\Cloudder;
 
 class GivetemController extends Controller
 {
@@ -24,15 +26,42 @@ class GivetemController extends Controller
     /**
      * Store a newly created givetem in db.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  GivetemStoreRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(GivetemStoreRequest $request)
     {
-        $givetem = Givetem::create(array_merge($request->all(), [
-            'user_id' => Auth::user()->id
-        ]));
+        $url = '';
+        try {
+            $url = $this->storeImage($request);
+        } catch (Exception $e) {
+            return new Response($e, 500);
+        }
+        $givetem = Givetem::create([
+            "title" => $request->title,
+            "image_url" => $url,
+            "caption" => $request->caption,
+            "rating" => $request->rating,
+            "pickup_location" => $request->pickup_location,
+            "info" => $request->info,
+            "tags" => $request->tags,
+            "user_id" => Auth::user()->id
+        ]);
         return new Response($givetem, 201);
+    }
+
+    /**
+     * Stores the givetem image object
+     * in storage and returns its url
+     *
+     * @param GivetemStoreRequest $request
+     * @return string
+     */
+    public function storeImage(GivetemStoreRequest $request): string
+    {
+        Cloudder::upload($request->image["data"], null, [], "givetem");
+        $result = Cloudder::getResult();
+        return $result["secure_url"];
     }
 
     /**

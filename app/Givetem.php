@@ -8,6 +8,7 @@ class Givetem extends Model
 {
     protected $guarded = ['id'];
     protected $casts = [
-        'tags' => 'array',
+        'tags' => 'json',
+        'pickup_location' => 'json'
     ];
 }
