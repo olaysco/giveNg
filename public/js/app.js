@@ -10232,16 +10232,18 @@ var _default = {
       this.$emit("close");
     },
     handlePost: function handlePost() {
+      var _this = this;
+
       this.givetemForm.pickup_location.data = {
         latlang: this.givetemForm.pickup_location.data.latlang,
         country: this.givetemForm.pickup_location.data.country,
         county: this.givetemForm.pickup_location.data.county
       };
-      this.$toast.open("Toast created successfully"); // this.postGivetem(this.givetemForm)
-      // 	.then(() => {
-      // 		this.$emit("close");
-      // 	})
-      // 	.catch((form) => {});
+      this.postGivetem(this.givetemForm).then(function () {
+        _this.$toast.open("Givetem created created successfully");
+
+        _this.$emit("close");
+      })["catch"](function (form) {});
     }
   })
 };
