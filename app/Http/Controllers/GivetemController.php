@@ -92,4 +92,18 @@ class GivetemController extends Controller
             return new Response(['msg' => 'unable to delete resource'], 500);
         }
     }
+
+    /**
+     * Retrieves givetems created by authenticated user
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function userGivetem()
+    {
+        $givetems = Givetem::where('user_id', Auth::user()->id)->get();
+        return new Response(
+            $givetems,
+            202
+        );
+    }
 }

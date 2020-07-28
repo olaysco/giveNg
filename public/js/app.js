@@ -10227,7 +10227,7 @@ var _default = {
     Places: _vuePlaces["default"],
     vSelect: _vueSelect2["default"]
   },
-  methods: (0, _objectSpread2["default"])((0, _objectSpread2["default"])({}, (0, _vuex.mapActions)(["postGivetem"])), {}, {
+  methods: (0, _objectSpread2["default"])((0, _objectSpread2["default"])({}, (0, _vuex.mapActions)(["postGivetem", "fetchMyCreatedGivetems"])), {}, {
     doClose: function doClose() {
       this.$emit("close");
     },
@@ -10245,7 +10245,10 @@ var _default = {
         _this.$emit("close");
       })["catch"](function (form) {});
     }
-  })
+  }),
+  mounted: function mounted() {
+    this.fetchMyCreatedGivetems();
+  }
 };
 exports["default"] = _default;
 
@@ -65422,16 +65425,22 @@ var givetem = {
         });
       });
     },
-    fetchMyCreatedGivetems: function fetchMyCreatedGivetems() {
-      _axios["default"].get("api/givetem").then(function (response) {
-        console.log(response);
+    fetchMyCreatedGivetems: function fetchMyCreatedGivetems(_ref2) {
+      var commit = _ref2.commit;
+
+      _axios["default"].get("/api/user/givetems").then(function (response) {
+        commit("setMyCreatedGivetems", response.data);
       })["catch"](function (err) {
         console.log(err);
       });
     }
   },
   getters: {},
-  mutations: {}
+  mutations: {
+    setMyCreatedGivetems: function setMyCreatedGivetems(state, givetems) {
+      state.myCreatedGivetems = givetems;
+    }
+  }
 };
 var _default = givetem;
 exports["default"] = _default;

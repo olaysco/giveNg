@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\User;
 use App\Givetem;
 use Tests\TestCase;
 use Laravel\Sanctum\Sanctum;
@@ -15,7 +16,7 @@ class GetMyGivetems extends TestCase
      */
     public function testUserGetGivetemRouteExist()
     {
-        $response = $this->get('/user/givetems');
+        $response = $this->get('/api/user/givetems');
         $this->assertNotEquals($response->status(), 404);
     }
 
@@ -34,7 +35,7 @@ class GetMyGivetems extends TestCase
         }
 
         //assert
-        $response = $this->get('/user/givetems');
-        $this->assertGreaterThanOrEqual(4, $response->count());
+        $response = $this->get('/api/user/givetems');
+        $response->assertStatus(202);
     }
 }

@@ -17,17 +17,21 @@ const givetem = {
                     .catch(err => reject(form));
             });
         },
-        fetchMyCreatedGivetems() {
-            Axios.get("api/givetem")
+        fetchMyCreatedGivetems({commit}) {
+            Axios.get("/api/user/givetems")
                 .then(response => {
-                    console.log(response)
+                    commit("setMyCreatedGivetems", response.data)
                 }).catch(err => {
                     console.log(err)
                 })
         }
     },
     getters: {},
-    mutations: {  }
+    mutations: {
+        setMyCreatedGivetems(state, givetems) {
+            state.myCreatedGivetems = givetems
+        }
+     }
 }
 
 export default givetem;

@@ -193,7 +193,7 @@ export default {
 		vSelect,
 	},
 	methods: {
-		...mapActions(["postGivetem"]),
+		...mapActions(["postGivetem", "fetchMyCreatedGivetems"]),
 		doClose() {
 			this.$emit("close");
 		},
@@ -210,6 +210,9 @@ export default {
 				})
 				.catch((form) => {});
 		},
+	},
+	mounted() {
+		this.fetchMyCreatedGivetems();
 	},
 };
 </script>
