@@ -203,11 +203,12 @@ export default {
 				country: this.givetemForm.pickup_location.data.country,
 				county: this.givetemForm.pickup_location.data.county,
 			};
-			this.postGivetem(this.givetemForm)
-				.then(() => {
-					alert("givetem posted successfully");
-				})
-				.catch((form) => {});
+			this.$toast.open("Toast created successfully");
+			// this.postGivetem(this.givetemForm)
+			// 	.then(() => {
+			// 		this.$emit("close");
+			// 	})
+			// 	.catch((form) => {});
 		},
 	},
 };
