@@ -1,3 +1,5 @@
+import Axios from "axios";
+
 const givetem = {
     state: {
         allGivetems: [],
@@ -5,22 +7,31 @@ const givetem = {
         myReceivedGivetems: []
     },
     actions: {
-        postGivetem(payload, form) {
+        postGivetem({dispatch}, form) {
             return new Promise((resolve, reject) => {
                 form.post("/api/givetem")
                     .then(response => {
                         dispatch("fetchMyCreatedGivetems");
-                        resolve(form);
+                        resolve(response);
                     })
                     .catch(err => reject(form));
             });
         },
-        fetchMyCreatedGivetems() {
-
+        fetchMyCreatedGivetems({commit}) {
+            Axios.get("/api/user/givetems")
+                .then(response => {
+                    commit("setMyCreatedGivetems", response.data)
+                }).catch(err => {
+                    console.log(err)
+                })
         }
     },
     getters: {},
-    mutations: {  }
+    mutations: {
+        setMyCreatedGivetems(state, givetems) {
+            state.myCreatedGivetems = givetems
+        }
+     }
 }
 
 export default givetem;

@@ -25,10 +25,8 @@ class GivetemStoreRequest extends FormRequest
     {
         return [
             'title'     => 'required',
-            'image_url' => 'required',
             'caption'   => 'required',
             'rating'    => 'required|integer',
-            'available' => 'required|boolean',
             'pickup_location'   => 'required',
             'info'              => 'required',
             'tags'              => 'required',

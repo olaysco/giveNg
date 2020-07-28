@@ -5,7 +5,10 @@ import MainApp from "./components/app.vue";
 import router from "./routes";
 import store from './store';
 import VueSocialauth from "vue-social-auth";
+import Toast from "./plugins/toast";
 import { Form, HasError, AlertError } from 'vform';
+
+Vue.use(Toast);
 
 window.Form = Form;
 Vue.prototype.$http = axios

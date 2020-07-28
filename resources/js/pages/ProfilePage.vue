@@ -48,17 +48,17 @@ import AAvatar from "../components/atoms/AAvatar";
 export default {
 	components: {
 		AAvatar,
-		OPostGivetemModal
+		OPostGivetemModal,
 	},
 	data() {
 		return {
-			showPostGivetem: true
+			showPostGivetem: true,
 		};
 	},
 	computed: {
 		user() {
 			return this.$store.state.authStore.authUser;
-		}
+		},
 	},
 	methods: {
 		doShowPostGivetem() {
@@ -66,8 +66,8 @@ export default {
 		},
 		handlePostgivetemClose() {
 			this.showPostGivetem = false;
-		}
-	}
+		},
+	},
 };
 </script>
 <style scoped>

@@ -109,6 +109,20 @@
 						<has-error :form="givetemForm" field="tags"></has-error>
 					</div>
 					<div class="mt-6 relative">
+						<label class="label">Givetem Rating</label>
+						<input
+							class="input"
+							placeholder="Rate the givetem on a scale of 1 to 5"
+							type="number"
+							min="1"
+							max="5"
+							v-model="givetemForm.rating"
+							:class="{ 'is-invalid':givetemForm.errors.has('rating') }"
+						/>
+						<has-error :form="givetemForm" field="rating"></has-error>
+						<AFormHelp>Tips: 5 is very good, 1 is very bad</AFormHelp>
+					</div>
+					<div class="mt-6 relative">
 						<button
 							type="button"
 							class="btn float-right"
@@ -143,19 +157,20 @@ export default {
 	data() {
 		return {
 			givetemForm: new Form({
-				title: "",
+				title: "dnsns sosdsd",
 				image: {
 					data: "",
 				},
-				caption: "",
-				available: "",
-				category: "",
+				caption: "sjsj;sd;jsd",
+				available: true,
+				category: "sdksdsdksdk",
 				pickup_location: {
 					label: null,
 					data: {},
 				},
-				info: "",
+				info: "sksl kslksd",
 				tags: "",
+				rating: 4,
 			}),
 			options: {
 				appId: process.env.MIX_ALGOLIA_APP_ID,
@@ -178,17 +193,26 @@ export default {
 		vSelect,
 	},
 	methods: {
-		...mapActions(["postGivetem"]),
+		...mapActions(["postGivetem", "fetchMyCreatedGivetems"]),
 		doClose() {
 			this.$emit("close");
 		},
 		handlePost() {
+			this.givetemForm.pickup_location.data = {
+				latlang: this.givetemForm.pickup_location.data.latlang,
+				country: this.givetemForm.pickup_location.data.country,
+				county: this.givetemForm.pickup_location.data.county,
+			};
 			this.postGivetem(this.givetemForm)
 				.then(() => {
-					alert("givetem posted successfully");
+					this.$toast.open("Givetem created created successfully");
+					this.$emit("close");
 				})
 				.catch((form) => {});
 		},
+	},
+	mounted() {
+		this.fetchMyCreatedGivetems();
 	},
 };
 </script>

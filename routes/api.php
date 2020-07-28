@@ -10,6 +10,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     });
     Route::patch('givetem/{givetem}', "GivetemController@update")->middleware('can:update,givetem');
     Route::delete('givetem/{givetem}', "GivetemController@destroy")->middleware('can:delete,givetem');
+    Route::get('user/givetems', "GivetemController@userGivetem");
     Route::post('givetem', "GivetemController@store");
 });
 

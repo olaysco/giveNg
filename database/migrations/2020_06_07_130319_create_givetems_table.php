@@ -21,8 +21,8 @@ class CreateGivetemsTable extends Migration
             $table->integer('rating')->default(0);
             $table->unsignedBigInteger('category_id')->nullable();
             $table->unsignedBigInteger('user_id');
-            $table->boolean('available');
-            $table->string('pickup_location');
+            $table->boolean('available')->default(true);
+            $table->text('pickup_location');
             $table->string('info');
             $table->text('tags');
             $table->timestamps();
