@@ -25,6 +25,15 @@ class GivetemController extends Controller
     }
 
     /**
+     * Get a single givetem resource
+     * by ID
+     */
+    public function single(Givetem $givetem)
+    {
+        return new GivetemResource(Givetem::with('giver')->where('id', $givetem->id)->get());
+    }
+
+    /**
      * Store a newly created givetem in db.
      *
      * @param  GivetemStoreRequest  $request

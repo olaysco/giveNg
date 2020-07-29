@@ -63,7 +63,11 @@ class GivtemTest extends TestCase
     {
         $allGivetem = Givetem::all();
         $response = $this->getJson('/api/givetems');
-        $response->assertExactJson($allGivetem->toArray());
+        $response->assertSuccessful();
+        $this->assertEquals(
+            count($allGivetem),
+            count($response->decodeResponseJson()["data"])
+        );
     }
 
     /**
@@ -121,6 +125,21 @@ class GivtemTest extends TestCase
         $response = $this->postJson('api/givetem', $givetem->toArray());
         $id = $response->decodeResponseJson()['id'];
         $response = $this->call("delete", "api/givetem/$id");
+        $response->assertSuccessful();
+    }
+
+    /**
+     * Test getting a single givietem by id
+     * @return void
+     */
+    public function testFetchSingleGivetemByIdSuccessful()
+    {
+        $user = factory(User::class)->create();
+        Sanctum::actingAs($user);
+        $givetem = factory(Givetem::class)->make();
+        $response = $this->postJson('api/givetem', $givetem->toArray());
+        $id = $response->decodeResponseJson()['id'];
+        $response = $this->get("api/givetem/$id");
         $response->assertSuccessful();
     }
 }

@@ -10658,9 +10658,17 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
+var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js"));
+
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/asyncToGenerator */ "./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/asyncToGenerator.js"));
+
+var _objectSpread2 = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/objectSpread2 */ "./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/helpers/objectSpread2.js"));
+
 var _OGivetemInfo = _interopRequireDefault(__webpack_require__(/*! ../components/organisms/OGivetemInfo */ "./resources/js/components/organisms/OGivetemInfo.vue"));
 
 var _OGiverInfo = _interopRequireDefault(__webpack_require__(/*! ../components/organisms/OGiverInfo */ "./resources/js/components/organisms/OGiverInfo.vue"));
+
+var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 
 //
 //
@@ -10672,6 +10680,31 @@ var _default = {
   components: {
     GivetemInfo: _OGivetemInfo["default"],
     GiverInfo: _OGiverInfo["default"]
+  },
+  methods: (0, _objectSpread2["default"])({}, (0, _vuex.mapActions)(["fetchGivetemById"])),
+  beforeMount: function beforeMount() {
+    var _this = this;
+
+    return (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee() {
+      var res;
+      return _regenerator["default"].wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _this.fetchGivetemById(_this.$route.params.id);
+
+            case 2:
+              res = _context.sent;
+              console.log(res);
+
+            case 4:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
   }
 };
 exports["default"] = _default;
@@ -11509,7 +11542,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".givetem-page[data-v-599df6be] {\n  min-height: 60vh;\n  padding-top: 100px;\n  padding-left: 2.5rem;\n  padding-right: 2.5rem;\n}\r\n", ""]);
+exports.push([module.i, ".givetem-page[data-v-599df6be] {\n  min-height: 60vh;\n  padding-top: 100px;\n  padding-left: 2.5rem;\n  padding-right: 2.5rem;\n}\n", ""]);
 
 // exports
 
@@ -65386,7 +65419,8 @@ var givetem = {
   state: {
     allGivetems: [],
     myCreatedGivetems: [],
-    myReceivedGivetems: []
+    myReceivedGivetems: [],
+    currentSingleGivetem: null
   },
   actions: {
     postGivetem: function postGivetem(_ref, form) {
@@ -65417,15 +65451,24 @@ var givetem = {
       })["catch"](function (err) {
         console.log(err);
       });
+    },
+    fetchGivetemById: function fetchGivetemById(_ref4, id) {
+      var commit = _ref4.commit;
+
+      _axios["default"].get("/api/givetem/".concat(id)).then(function (response) {
+        commit("setCurrentSingleGivetem", response.data.data);
+      });
     }
   },
-  getters: {},
   mutations: {
     setMyCreatedGivetems: function setMyCreatedGivetems(state, givetems) {
       state.myCreatedGivetems = givetems;
     },
     setAllGivetems: function setAllGivetems(state, givetems) {
       state.allGivetems = givetems;
+    },
+    setCurrentSingleGivetem: function setCurrentSingleGivetem(state, givetem) {
+      state.currentSingleGivetem = givetem;
     }
   }
 };

@@ -35,8 +35,8 @@ import APriceTag from "../atoms/APriceTag";
 export default {
 	components: {
 		tag,
-		APriceTag
-	}
+		APriceTag,
+	},
 };
 </script>
 <style scoped>

@@ -7,11 +7,19 @@
 <script>
 import GivetemInfo from "../components/organisms/OGivetemInfo";
 import GiverInfo from "../components/organisms/OGiverInfo";
+import { mapActions } from "vuex";
 export default {
 	components: {
 		GivetemInfo,
-		GiverInfo
-	}
+		GiverInfo,
+	},
+	methods: {
+		...mapActions(["fetchGivetemById"]),
+	},
+	async beforeMount() {
+		const res = await this.fetchGivetemById(this.$route.params.id);
+		console.log(res);
+	},
 };
 </script>
 <style scoped>

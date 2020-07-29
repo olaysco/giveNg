@@ -10,10 +10,13 @@
  */
 function authMiddleware(to, from, next, store)
 {
-    if ((to.path === "/login" || to.path === "/register") && isLoggedIn(store)) {
+    if ((to.path === "/login"
+        || to.path === "/register")
+        && isLoggedIn(store)) {
         return next({path: "/profile"})
     }
-    if (!to.meta.guest && !isLoggedIn(store)) {
+    if (!to.meta.guest
+        && !isLoggedIn(store)) {
         return next({path: "/login"})
     }
     return next()
@@ -21,7 +24,8 @@ function authMiddleware(to, from, next, store)
 
 function isLoggedIn(store)
 {
-    return store.state.authStore.authUser && store.state.authStore.authUser.email;
+    return store.state.authStore.authUser
+        && store.state.authStore.authUser.email;
 }
 
 export { authMiddleware };

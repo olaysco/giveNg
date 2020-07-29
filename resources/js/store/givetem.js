@@ -4,7 +4,8 @@ const givetem = {
     state: {
         allGivetems: [],
         myCreatedGivetems: [],
-        myReceivedGivetems: []
+        myReceivedGivetems: [],
+        currentSingleGivetem: null
     },
     actions: {
         postGivetem({dispatch}, form) {
@@ -32,17 +33,25 @@ const givetem = {
                 }).catch(err => {
                     console.log(err)
                 })
+        },
+        fetchGivetemById({ commit }, id) {
+            Axios.get(`/api/givetem/${id}`)
+                .then(response => {
+                    commit("setCurrentSingleGivetem", response.data.data);
+                })
         }
     },
-    getters: {},
     mutations: {
         setMyCreatedGivetems(state, givetems) {
             state.myCreatedGivetems = givetems
         },
         setAllGivetems(state, givetems) {
             state.allGivetems = givetems
+        },
+        setCurrentSingleGivetem(state, givetem) {
+            state.currentSingleGivetem = givetem;
         }
-     }
+    }
 }
 
 export default givetem;
