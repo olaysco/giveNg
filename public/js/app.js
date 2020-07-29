@@ -9937,7 +9937,6 @@ exports["default"] = void 0;
 //
 //
 //
-//
 var _default = {};
 exports["default"] = _default;
 
@@ -11428,7 +11427,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".hero[data-v-5610693f] {\n  background-image: url(\"/img/hero.svg\");\n  background-repeat: no-repeat;\n  background-position: 2em bottom;\n  background-size: 60vh;\n  height: calc(85vh - (0px + 0px));\n}\n@media (max-width: 764px) {\n.hero[data-v-5610693f] {\n    height: calc(75vh - (0px + 0px));\n}\n}\n.stick[data-v-5610693f] {\n  position: fixed;\n  top: 0;\n  z-index: 30;\n  width: 75vw;\n}\n@media (max-width: 764px) {\n.stick[data-v-5610693f] {\n    left: 0;\n    width: 72vw;\n}\n}\n", ""]);
+exports.push([module.i, ".hero[data-v-5610693f] {\n  /* background-image: url(\"/img/hero.svg\"); */\n  background-repeat: no-repeat;\n  background-position: 2em bottom;\n  background-size: 60vh;\n  height: calc(85vh - (0px + 0px));\n}\n@media (max-width: 764px) {\n.hero[data-v-5610693f] {\n    height: calc(75vh - (0px + 0px));\n}\n}\n.stick[data-v-5610693f] {\n  position: fixed;\n  top: 0;\n  z-index: 30;\n  width: 75vw;\n}\n@media (max-width: 764px) {\n.stick[data-v-5610693f] {\n    left: -12px;\n    width: 80vw;\n}\n}\n", ""]);
 
 // exports
 
@@ -37415,7 +37414,7 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass: "block md:hidden mr-10 md:mr-0 cursor-pointer",
+          staticClass: "block md:hidden mr-2 md:mr-0 cursor-pointer",
           on: { click: _vm.handleClick }
         },
         [_c("IBar", { attrs: { opened: _vm.sideNavOpen } })],
@@ -38244,12 +38243,14 @@ var render = function() {
                 "div",
                 { staticClass: "w-11/12 md:w-4/5 relative" },
                 [
-                  _c("magnify", { staticClass: "absolute ml-4 mt-5" }),
-                  _vm._v(" "),
                   _c("input", {
                     staticClass:
-                      "w-full px-4 py-2 h-16 rounded-full shadow-2xl text-sm md:text-xl pl-12",
+                      "w-full px-4 py-2 h-16 rounded-full shadow-2xl text-sm md:text-xl pr-12",
                     attrs: { placeholder: "Search for free givetem" }
+                  }),
+                  _vm._v(" "),
+                  _c("magnify", {
+                    staticClass: "absolute mr-4 mt-5 right-0 top-0"
                   })
                 ],
                 1
@@ -38681,7 +38682,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "px-10" }, [
+    return _c("div", { staticClass: "px-2 md:px-10" }, [
       _c("hr", { staticClass: "m-auto w-4/6" }),
       _vm._v(" "),
       _c("div", { staticClass: "flex justify-between items-center pt-8" }, [
@@ -38697,7 +38698,7 @@ var staticRenderFns = [
             "div",
             {
               staticClass:
-                "w-full sm:w-4/6 grid grid-cols-3 gap-4 text-gray-500"
+                "w-full sm:w-4/6 grid grid-cols-3 gap-4 text-gray-500 text-center sm:text-left"
             },
             [
               _c("div", [
@@ -38772,13 +38773,16 @@ var staticRenderFns = [
         _c("div", { staticClass: "grid grid-cols-2 sm:hidden mt-10" }, [
           _c("div", [
             _c("img", {
-              staticClass: "w-full h-auto",
+              staticClass: "w-8/10 h-auto",
               attrs: { src: "/img/giveng-logo-light.svg", alt: "logo" }
             })
           ]),
           _vm._v(" "),
-          _c("div", [
-            _c("img", { attrs: { src: "/img/staysafe.svg", alt: "stay-safe" } })
+          _c("div", { staticClass: "flex" }, [
+            _c("img", {
+              staticClass: "m-auto",
+              attrs: { src: "/img/staysafe.svg", alt: "stay-safe" }
+            })
           ])
         ])
       ])
@@ -38815,7 +38819,7 @@ var render = function() {
     [
       _c(
         "div",
-        { staticClass: "flex-shrink-0 ml-10 cursor-pointer" },
+        { staticClass: "flex-shrink-0 ml-2 md:ml-10 cursor-pointer" },
         [
           _c("router-link", { attrs: { to: "/" } }, [
             _c("img", {

@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div class="block md:hidden mr-10 md:mr-0 cursor-pointer" @click="handleClick">
+		<div class="block md:hidden mr-2 md:mr-0 cursor-pointer" @click="handleClick">
 			<IBar :opened="sideNavOpen" />
 		</div>
 		<MSideNav :visible="sideNavOpen" />

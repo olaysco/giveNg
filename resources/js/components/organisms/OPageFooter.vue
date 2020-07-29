@@ -1,12 +1,12 @@
 <template>
-	<div class="px-10">
+	<div class="px-2 md:px-10">
 		<hr class="m-auto w-4/6" />
 		<div class="flex justify-between items-center pt-8">
 			<div class="w-1/6 hidden sm:inline-block">
 				<img class="w-full h-auto" src="/img/giveng-logo-light.svg" alt="logo" />
 			</div>
 			<div class="flex justify-center">
-				<div class="w-full sm:w-4/6 grid grid-cols-3 gap-4 text-gray-500">
+				<div class="w-full sm:w-4/6 grid grid-cols-3 gap-4 text-gray-500 text-center sm:text-left">
 					<div>
 						<span class="block text-blue-500 pb-2 mb-3 text-sm">CONTACT US</span>
 						<p class="text-xs hover:text-blue-900 cursor-default">
@@ -43,7 +43,6 @@
 			</div>
 			<div class="w-1/6 hidden sm:inline-block">
 				<div class="flex justify-center text-gray-500">
-					<!-- <h1 class="text-3xl w-64">#STAY SAFE</h1> -->
 					<img src="/img/staysafe.svg" alt="stay-safe" />
 				</div>
 			</div>
@@ -51,10 +50,10 @@
 		<div>
 			<div class="grid grid-cols-2 sm:hidden mt-10">
 				<div>
-					<img class="w-full h-auto" src="/img/giveng-logo-light.svg" alt="logo" />
+					<img class="w-8/10 h-auto" src="/img/giveng-logo-light.svg" alt="logo" />
 				</div>
-				<div>
-					<img src="/img/staysafe.svg" alt="stay-safe" />
+				<div class="flex">
+					<img class="m-auto" src="/img/staysafe.svg" alt="stay-safe" />
 				</div>
 			</div>
 		</div>

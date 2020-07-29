@@ -12,11 +12,11 @@
 					v-stick
 				>
 					<div class="w-11/12 md:w-4/5 relative">
-						<magnify class="absolute ml-4 mt-5" />
 						<input
-							class="w-full px-4 py-2 h-16 rounded-full shadow-2xl text-sm md:text-xl pl-12"
+							class="w-full px-4 py-2 h-16 rounded-full shadow-2xl text-sm md:text-xl pr-12"
 							placeholder="Search for free givetem"
 						/>
+						<magnify class="absolute mr-4 mt-5 right-0 top-0" />
 					</div>
 				</div>
 			</div>
@@ -54,7 +54,7 @@ export default {
 </script>
 <style scoped>
 .hero {
-	background-image: url("/img/hero.svg");
+	/* background-image: url("/img/hero.svg"); */
 	background-repeat: no-repeat;
 	background-position: 2em bottom;
 	background-size: 60vh;
@@ -73,8 +73,8 @@ export default {
 }
 @media (max-width: 764px) {
 	.stick {
-		left: 0;
-		width: 72vw;
+		left: -12px;
+		width: 80vw;
 	}
 }
 </style>
