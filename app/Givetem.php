@@ -11,4 +11,9 @@ class Givetem extends Model
         'tags' => 'json',
         'pickup_location' => 'json'
     ];
+
+    public function giver()
+    {
+        return $this->belongsTo('App\User', 'user_id', 'id');
+    }
 }

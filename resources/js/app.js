@@ -30,6 +30,7 @@ window.addEventListener('load', function () {
         store,
         created() {
             user = undefined;
+            this.$store.dispatch("fetchAllGivetems");
         },
         el: "#main",
         render: h => h(MainApp)

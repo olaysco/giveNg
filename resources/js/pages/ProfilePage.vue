@@ -52,7 +52,7 @@ export default {
 	},
 	data() {
 		return {
-			showPostGivetem: true,
+			showPostGivetem: false,
 		};
 	},
 	computed: {

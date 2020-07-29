@@ -9259,11 +9259,6 @@ var _GivetemCard = _interopRequireDefault(__webpack_require__(/*! ../molecules/G
 //
 //
 //
-//
-//
-//
-//
-//
 var _default = {
   components: {
     GivetemCard: _GivetemCard["default"],
@@ -9277,28 +9272,7 @@ var _default = {
   },
   computed: {
     givetems: function givetems() {
-      return [{
-        image: "free-bag.png",
-        desc: "This school is for kids between the age of 5 -8 and in a very good condition",
-        giver: "Tijadeen Josh",
-        title: "school bag",
-        quality: 70,
-        id: 1
-      }, {
-        image: "free-shoe.png",
-        desc: "Sneakers bought in 2015 but rarely used in about 5 outings, giving it out free",
-        giver: "Mesh Goldman",
-        title: "Sneakers",
-        quality: 50,
-        id: 2
-      }, {
-        image: "free-book.png",
-        desc: "4 inspirational and 1 romantic novel books, that are taking up space In my library",
-        giver: "salisu white",
-        title: "Books",
-        quality: 90,
-        id: 3
-      }];
+      return this.$store.state.givetemStore.allGivetems;
     }
   },
   mounted: function mounted() {
@@ -10844,7 +10818,7 @@ var _default = {
   },
   data: function data() {
     return {
-      showPostGivetem: true
+      showPostGivetem: false
     };
   },
   computed: {
@@ -11497,7 +11471,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".title[data-v-31df2008] {\n  font-variant: small-caps;\n}\n", ""]);
+exports.push([module.i, ".title[data-v-31df2008] {\n  font-variant: small-caps;\n}\r\n", ""]);
 
 // exports
 
@@ -37838,7 +37812,7 @@ var render = function() {
               _vm._v("fetching ...")
             ])
           ])
-        : _vm._l(_vm.givetems.concat(_vm.givetems), function(givetem, i) {
+        : _vm._l(_vm.givetems, function(givetem, i) {
             return _c("givetem-card", { key: i, attrs: { givetem: givetem } })
           })
     ],
@@ -60978,6 +60952,7 @@ window.addEventListener('load', function () {
     store: _store["default"],
     created: function created() {
       user = undefined;
+      this.$store.dispatch("fetchAllGivetems");
     },
     el: "#main",
     render: function render(h) {
@@ -65433,12 +65408,24 @@ var givetem = {
       })["catch"](function (err) {
         console.log(err);
       });
+    },
+    fetchAllGivetems: function fetchAllGivetems(_ref3) {
+      var commit = _ref3.commit;
+
+      _axios["default"].get("/api/givetems").then(function (response) {
+        commit("setAllGivetems", response.data.data);
+      })["catch"](function (err) {
+        console.log(err);
+      });
     }
   },
   getters: {},
   mutations: {
     setMyCreatedGivetems: function setMyCreatedGivetems(state, givetems) {
       state.myCreatedGivetems = givetems;
+    },
+    setAllGivetems: function setAllGivetems(state, givetems) {
+      state.allGivetems = givetems;
     }
   }
 };

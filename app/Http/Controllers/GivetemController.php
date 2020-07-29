@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Givetem;
 use App\Http\Requests\GivetemStoreRequest;
+use App\Http\Resources\GivetemResource;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -20,7 +21,7 @@ class GivetemController extends Controller
      */
     public function index()
     {
-        return new Response(Givetem::all(), 200);
+        return GivetemResource::collection(Givetem::with('giver')->get());
     }
 
     /**

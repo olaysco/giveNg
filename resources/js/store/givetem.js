@@ -24,12 +24,23 @@ const givetem = {
                 }).catch(err => {
                     console.log(err)
                 })
+        },
+        fetchAllGivetems({ commit }) {
+            Axios.get("/api/givetems")
+                .then(response => {
+                    commit("setAllGivetems", response.data.data)
+                }).catch(err => {
+                    console.log(err)
+                })
         }
     },
     getters: {},
     mutations: {
         setMyCreatedGivetems(state, givetems) {
             state.myCreatedGivetems = givetems
+        },
+        setAllGivetems(state, givetems) {
+            state.allGivetems = givetems
         }
      }
 }
