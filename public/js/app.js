@@ -38274,7 +38274,7 @@ var staticRenderFns = [
       },
       [
         _c("span", { staticClass: "text-shadow intro-text" }, [
-          _vm._v("Lorem ipsum dolor, sit amet consectetur adipisicing poli")
+          _vm._v("Find everything you want at no cost")
         ])
       ]
     )

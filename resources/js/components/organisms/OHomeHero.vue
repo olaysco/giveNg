@@ -5,7 +5,7 @@
 				<div
 					class="text-2xl md:text-3xl text-white font-bold w-4/5 text-center mb-5 animate__animated animate__fadeIn animate__delay-2s animate__slow"
 				>
-					<span class="text-shadow intro-text">Lorem ipsum dolor, sit amet consectetur adipisicing poli</span>
+					<span class="text-shadow intro-text">Find everything you want at no cost</span>
 				</div>
 				<div
 					class="delay-100 duration-200 ease-in-out flex justify-center mt-4 transition-all w-full"
