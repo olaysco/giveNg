@@ -7,6 +7,10 @@
 
 **Giveng** is an open platform that allows anyone to get `givetems` (free items) at zero cost and anyone can also give, sort of an Amazon for free items.
 
+## Current State
+
+![Application desktop screenshot](/img/appdesktop.png)
+
 ## Motivation
 
 I don't know if I'm the only one that feels that, they are a lot of items we have that have not been used for a long time, probably because we no longer require them, or we have a better one. it could even be something we bought at the store that doesn't fit the purpose of purchase. I had been in situations where I bought wares that are too small, and there's no one in my immediate surrounding that require the clothing of that size. Then there's that of books that we've read, or used in our previous institution or training that we no longer require but someone else somewhere is in dire need of this item,
