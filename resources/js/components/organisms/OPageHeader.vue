@@ -1,6 +1,7 @@
 <template>
 	<div
-		class="page-header flex justify-between items-center py-1 fixed w-full z-20 shadow-md bg-blue-deep"
+		class="page-header flex justify-between items-center py-1 fixed w-full z-20 shadow-md"
+		:class="[inHome?'bg-blue-deep':'']"
 	>
 		<div class="flex-shrink-0 ml-2 md:ml-10 cursor-pointer">
 			<router-link to="/">
@@ -15,6 +16,11 @@ import MMenu from "../molecules/MMenu";
 export default {
 	components: {
 		MMenu,
+	},
+	computed: {
+		inHome() {
+			return this.$route.path === "/";
+		},
 	},
 };
 </script>

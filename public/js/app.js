@@ -10284,9 +10284,15 @@ var _MMenu = _interopRequireDefault(__webpack_require__(/*! ../molecules/MMenu *
 //
 //
 //
+//
 var _default = {
   components: {
     MMenu: _MMenu["default"]
+  },
+  computed: {
+    inHome: function inHome() {
+      return this.$route.path === "/";
+    }
   }
 };
 exports["default"] = _default;
@@ -11058,14 +11064,6 @@ var _default = {
     HomeHero: _OHomeHero["default"],
     GivetemGroup: _OGivetemGroup["default"],
     CategoryGroup: _OCategoryGroup["default"]
-  },
-  methods: {
-    handleScrol: function handleScrol() {
-      console.log('handles sic');
-    }
-  },
-  mounted: function mounted() {
-    window.addEventListener('scroll', this.handleScrol);
   }
 };
 exports["default"] = _default;
@@ -41253,7 +41251,8 @@ var render = function() {
     "div",
     {
       staticClass:
-        "page-header flex justify-between items-center py-1 fixed w-full z-20 shadow-md bg-blue-deep"
+        "page-header flex justify-between items-center py-1 fixed w-full z-20 shadow-md",
+      class: [_vm.inHome ? "bg-blue-deep" : ""]
     },
     [
       _c(
@@ -42276,7 +42275,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "bg-image", attrs: { nativeOnScroll: "handleScrol" } },
+    { staticClass: "bg-image" },
     [
       _c("home-hero"),
       _vm._v(" "),
