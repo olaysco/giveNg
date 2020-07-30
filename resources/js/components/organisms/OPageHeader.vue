@@ -27,5 +27,8 @@ export default {
 <style lang="scss" scoped>
 .page-header {
 	width: calc(100vw - 16px);
+	@media (screen and max-width: 769px) {
+		width: calc(100vw);
+	}
 }
 </style>

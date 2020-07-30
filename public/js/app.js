@@ -11457,7 +11457,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".page-header[data-v-1aded4c2] {\n  width: calc(100vw - 16px);\n}", ""]);
+exports.push([module.i, ".page-header[data-v-1aded4c2] {\n  width: calc(100vw - 16px);\n}\n@media (max-width: 769px) {\n.page-header[data-v-1aded4c2] {\n    width: calc(100vw);\n}\n}", ""]);
 
 // exports
 
