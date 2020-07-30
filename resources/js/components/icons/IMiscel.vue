@@ -1,0 +1,10 @@
+<template>
+	<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+		<path fill="#CDDC39" d="M5 5H23V23H5z" />
+		<path
+			fill="#8BC34A"
+			d="M32,28c0,2.761-2.238,5-5,5h-9c-2.761,0-5-2.239-5-5v-9c0-2.761,2.239-5,5-5h9c2.762,0,5,2.239,5,5V28z"
+		/>
+		<path fill="#2E7D32" d="M33 23A10 10 0 1 0 33 43A10 10 0 1 0 33 23Z" />
+	</svg>
+</template>

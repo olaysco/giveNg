@@ -3,9 +3,9 @@
 		<div class="flex w-100 hero bg-blue-deep">
 			<div class="w-full flex flex-col items-center justify-center">
 				<div
-					class="text-2xl md:text-3xl text-white font-bold w-4/5 text-center mb-5 animate__animated animate__fadeIn animate__delay-2s animate__slow"
+					class="text-2xl md:text-4xl text-white font-bold w-4/5 text-center mb-5 animate__animated animate__fadeIn animate__delay-2s animate__slow"
 				>
-					<span class="text-shadow intro-text">Find everything you want at no cost</span>
+					<span class="text-shadow intro-text uppercase">Find everything you want at zero cost</span>
 				</div>
 				<div
 					class="delay-100 duration-200 ease-in-out flex justify-center mt-4 transition-all w-full"
@@ -13,7 +13,7 @@
 				>
 					<div class="w-11/12 md:w-4/5 relative">
 						<input
-							class="w-full px-4 py-2 h-16 rounded-full shadow-2xl text-sm md:text-xl pr-12"
+							class="w-full px-4 py-2 h-16 rounded-full shadow-2xl text-xs md:text-sm pr-12"
 							placeholder="Search for free givetem"
 						/>
 						<magnify class="absolute mr-4 mt-5 right-0 top-0" />
@@ -52,13 +52,13 @@ export default {
 	},
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .hero {
 	/* background-image: url("/img/hero.svg"); */
 	background-repeat: no-repeat;
 	background-position: 2em bottom;
 	background-size: 60vh;
-	height: calc(85vh - (0px + 0px));
+	height: calc(65vh - (0px + 0px));
 }
 @media (max-width: 764px) {
 	.hero {
@@ -70,6 +70,12 @@ export default {
 	top: 0;
 	z-index: 30;
 	width: 75vw;
+	input {
+		@apply h-10;
+		+ svg {
+			@apply mt-2;
+		}
+	}
 }
 @media (max-width: 764px) {
 	.stick {
