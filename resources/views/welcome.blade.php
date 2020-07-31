@@ -4,10 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <meta name="theme-color"  content="#06243c">
+        <meta name="theme-color"  content="#381138">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-        <meta name="msapplication-navbutton-color" content="#06243c">
+        <meta name="msapplication-navbutton-color" content="#381138">
         <title>Give - enriching the society</title>
 
         <!-- Fonts -->
