@@ -34,7 +34,7 @@ export default {
 	directives: {
 		stick: {
 			bind: function (el, binding, opts) {
-				document.querySelector("body").addEventListener("scroll", function (e) {
+				window.addEventListener("scroll", function (e) {
 					if (!isInViewport(el.previousElementSibling)) {
 						/** if element is not in viewport
 						 *  and add the stick class if it doesnt

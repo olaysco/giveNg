@@ -9899,7 +9899,7 @@ var _default = {
   directives: {
     stick: {
       bind: function bind(el, binding, opts) {
-        document.querySelector("body").addEventListener("scroll", function (e) {
+        window.addEventListener("scroll", function (e) {
           if (!(0, _index["default"])(el.previousElementSibling)) {
             /** if element is not in viewport
              *  and add the stick class if it doesnt
