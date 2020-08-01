@@ -29,6 +29,7 @@ export default {
 	width: calc(100vw - 16px);
 	@media (screen and max-width: 769px) {
 		width: calc(100vw);
+		padding: 0px 8px 0px 0px;
 	}
 }
 </style>
