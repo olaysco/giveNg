@@ -2,26 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use App\Contracts\GivetemRepositoryInterface;
 use App\Givetem;
 use App\Http\Requests\GivetemStoreRequest;
 use App\Http\Resources\GivetemResource;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Gate;
 use JD\Cloudder\Facades\Cloudder;
 
 class GivetemController extends Controller
 {
+    private $givetemRepo;
+
+    public function __construct(GivetemRepositoryInterface $givetemRepo)
+    {
+        $this->givetemRepo = $givetemRepo;
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(): Collection
     {
-        return GivetemResource::collection(Givetem::with('giver')->get());
+        return $this->givetemRepo->all();
     }
 
     /**
@@ -30,7 +38,7 @@ class GivetemController extends Controller
      */
     public function single(Givetem $givetem)
     {
-        return new GivetemResource(Givetem::with('giver')->where('id', $givetem->id)->get());
+        return $givetem;
     }
 
     /**
@@ -39,7 +47,7 @@ class GivetemController extends Controller
      * @param  GivetemStoreRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(GivetemStoreRequest $request)
+    public function store(GivetemStoreRequest $request): Response
     {
         $url = $request->image["url"] ?? null;
         $givetem = null;
@@ -82,7 +90,7 @@ class GivetemController extends Controller
      * @param  \App\Givetem  $givetem
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Givetem $givetem)
+    public function update(Request $request, Givetem $givetem): Response
     {
         $updatedGivetem = $givetem->update($request->all());
         return new Response($updatedGivetem, 200);
@@ -94,7 +102,7 @@ class GivetemController extends Controller
      * @param  \App\Givetem  $givetem
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Givetem $givetem)
+    public function destroy(Givetem $givetem): Response
     {
         if ($givetem->delete()) {
             return new Response('', 204);
@@ -108,7 +116,7 @@ class GivetemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function userGivetem()
+    public function userGivetem(): Response
     {
         $givetems = Givetem::where('user_id', Auth::user()->id)->get();
         return new Response(

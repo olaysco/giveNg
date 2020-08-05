@@ -66,7 +66,7 @@ class GivtemTest extends TestCase
         $response->assertSuccessful();
         $this->assertEquals(
             count($allGivetem),
-            count($response->decodeResponseJson()["data"])
+            count($response->decodeResponseJson())
         );
     }
 
