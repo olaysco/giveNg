@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Contracts\GivetemRepositoryInterface;
+use Facades\App\Contracts\GivetemRepositoryInterface as GivetemRepo;
 use App\Givetem;
 use App\Http\Requests\GivetemStoreRequest;
-use App\Http\Resources\GivetemResource;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
@@ -18,9 +16,8 @@ class GivetemController extends Controller
 {
     private $givetemRepo;
 
-    public function __construct(GivetemRepositoryInterface $givetemRepo)
-    {
-        $this->givetemRepo = $givetemRepo;
+    public function __construct()
+    {;
     }
     /**
      * Display a listing of the resource.
@@ -29,7 +26,7 @@ class GivetemController extends Controller
      */
     public function index(): Collection
     {
-        return $this->givetemRepo->all();
+        return GivetemRepo::all();
     }
 
     /**
@@ -53,7 +50,7 @@ class GivetemController extends Controller
         $givetem = null;
         try {
             if (is_null($url)) $url = $this->storeImage($request);
-            $givetem = Givetem::create([
+            $givetem = GivetemRepo::create([
                 "title" => $request->title,
                 "image_url" => $url,
                 "caption" => $request->caption,

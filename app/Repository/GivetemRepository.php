@@ -19,4 +19,10 @@ class GivetemRepository extends BaseRepository implements GivetemRepositoryInter
     {
         return collect(GivetemResource::collection(Givetem::with('giver')->get()));
     }
+
+    public function create(array $data): Model
+    {
+        $givetem = Givetem::create($data);
+        return $givetem;
+    }
 }

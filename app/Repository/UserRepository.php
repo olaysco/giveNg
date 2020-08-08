@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class UserRepository extends BaseRepository implements UserRepositoryInterface
 {

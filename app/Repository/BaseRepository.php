@@ -17,7 +17,7 @@ class BaseRepository implements BaseRepositoryInterface
      */
     public function __construct(Model $model)
     {
-        $this->nodel = $model;
+        $this->model = $model;
     }
 
     public function create(array $data): Model
