@@ -4,7 +4,7 @@ namespace App\Contracts;
 
 use Illuminate\Support\Collection;
 
-interface GivetemRepositoryInterface
+interface GivetemRepository
 {
     public function all(): Collection;
 }

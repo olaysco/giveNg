@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Facades\App\Contracts\GivetemRepositoryInterface as GivetemRepo;
+use Facades\App\Contracts\ImageService;
+use Facades\App\Contracts\GivetemRepository as GivetemRepo;
 use App\Givetem;
 use App\Http\Requests\GivetemStoreRequest;
 use Exception;
@@ -75,9 +76,7 @@ class GivetemController extends Controller
      */
     public function storeImage(GivetemStoreRequest $request): string
     {
-        Cloudder::upload($request->image["data"], null, [], "givetem");
-        $result = Cloudder::getResult();
-        return $result["secure_url"];
+        return ImageService::upload($request->image["data"]);
     }
 
     /**

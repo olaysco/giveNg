@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Contracts\GivetemRepositoryInterface;
+use App\Contracts\GivetemRepository as GivetemRepositoryInterface;
 use App\Contracts\UserRepositoryInterface;
 use App\Repository\GivetemRepository;
 use App\Repository\UserRepository;

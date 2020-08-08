@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Contracts\ImageService;
+use App\Services\CloudderImageService;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
@@ -15,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(ImageService::class, CloudderImageService::class);
     }
 
     /**

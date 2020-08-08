@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Contracts\GivetemRepositoryInterface;
+use App\Contracts\GivetemRepository as GivetemRepositoryInterface;
 use App\Givetem;
 use App\Http\Resources\GivetemResource;
 use Illuminate\Database\Eloquent\Model;
