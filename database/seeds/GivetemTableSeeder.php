@@ -13,7 +13,7 @@ class GivetemTableSeeder extends Seeder
      */
     public function run(): void
     {
-        factory(Givetem::class, 1000)
+        factory(Givetem::class, 100)
             ->create();
     }
 }

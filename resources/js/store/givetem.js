@@ -39,7 +39,8 @@ const givetem = {
         fetchAllGivetems({ commit }) {
             Axios.get("/api/givetems")
                 .then(response => {
-                    commit("setAllGivetems", response.data.data)
+                    commit("setAllGivetems", response.data)
+                    console.log(response)
                 }).catch(err => {
                     console.log(err)
                 })

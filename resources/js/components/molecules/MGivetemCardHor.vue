@@ -13,10 +13,7 @@
 				class="absolute right-0 mt-2 mr-2"
 			>{{givetem.quality}}%</a-rate>
 			<div class="__head-img">
-				<img :src="`${givetem.image_url}`" alt="free bag" aria-label="bag image" />
-			</div>
-			<div class="__head-action">
-				<a-button class="w-full" @click="gotoPage(givetem.id)">Get Item</a-button>
+				<img :src="`${givetem.image_url}`" alt="free bag" aria-label="bag image" class="rounded-l-md" />
 			</div>
 		</div>
 		<div class="__body">
@@ -24,6 +21,7 @@
 				<span class="__body-about-title">{{givetem.title}}</span>
 				<span class="__body-about-giver">by {{givetem.giver}}</span>
 			</div>
+			<a-button class="absolute right-0 bottom-0 mx-4 mb-2 w-" @click="gotoPage(givetem.id)">Get Item</a-button>
 		</div>
 	</div>
 </template>
@@ -60,10 +58,9 @@ export default {
 .givetem-card {
 	transition: all 0.4s ease-in-out 5s;
 	box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 14px 0px;
-	@apply h-auto bg-white rounded-md relative cursor-pointer;
-	width: 90%;
+	@apply flex h-auto bg-white rounded-md relative cursor-pointer;
 	& .__head {
-		@apply relative;
+		@apply relative w-1/4;
 		.__head-action {
 			@apply absolute bottom-0 w-full p-1 hidden;
 			transition: all 4s ease-in-out 100s;
@@ -73,11 +70,11 @@ export default {
 		}
 	}
 	& .__body {
-		@apply p-6 flex flex-col justify-between text-sm;
+		@apply text-sm w-3/4 m-4;
 		& .__body-about {
 			@apply flex flex-col;
 			& .__body-about-title {
-				@apply font-semibold;
+				@apply font-semibold mb-2;
 			}
 			& .__body-about-giver {
 				@apply text-gray-600;
@@ -91,11 +88,6 @@ export default {
 		.__head-action {
 			display: inline;
 		}
-	}
-}
-@media (max-width: 500px) {
-	.givetem-card {
-		width: 90%;
 	}
 }
 </style>

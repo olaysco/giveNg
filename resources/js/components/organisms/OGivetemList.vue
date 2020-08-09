@@ -1,19 +1,19 @@
 <template>
 	<div
-		:class="[!loading?'givetem-group p-8 grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 grid-flow-row': 'flex justify-center', 'mt-0']"
+		:class="[!loading?'givetem-group p-0 md:p-8 grid grid-cols-1 grid-flow-row': 'flex justify-center', 'mt-0']"
 	>
 		<a-loader v-if="loading">
 			<span class="text-xs text-center text-gray-500">fetching ...</span>
 		</a-loader>
-		<givetem-card v-else v-for="(givetem, i) in givetems" :givetem="givetem" :key="i" />
+		<givetem-card-hor v-else v-for="(givetem, i) in givetems" :givetem="givetem" :key="i" />
 	</div>
 </template>
 <script>
 import ALoader from "../atoms/ALoader";
-import GivetemCard from "../molecules/GivetemCard";
+import GivetemCardHor from "../molecules/MGivetemCardHor";
 export default {
 	components: {
-		GivetemCard,
+		GivetemCardHor,
 		ALoader,
 	},
 	data() {
@@ -40,6 +40,6 @@ export default {
 <style scoped>
 .givetem-group {
 	justify-items: center;
-	@apply row-gap-12;
+	@apply row-gap-6;
 }
 </style>

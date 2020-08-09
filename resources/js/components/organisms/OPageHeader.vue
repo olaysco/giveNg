@@ -1,7 +1,7 @@
 <template>
 	<div
 		class="page-header flex justify-between items-center py-1 fixed w-full z-20 shadow-md"
-		:class="[inHome?'bg-blue-deep':'']"
+		:class="[headerBg]"
 	>
 		<div class="flex-shrink-0 ml-2 md:ml-10 cursor-pointer">
 			<router-link to="/">
@@ -20,6 +20,9 @@ export default {
 	computed: {
 		inHome() {
 			return this.$route.path === "/";
+		},
+		headerBg() {
+			return this.$store.state.uiStore.headerBg;
 		},
 	},
 };

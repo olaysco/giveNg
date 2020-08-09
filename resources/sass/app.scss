@@ -25,6 +25,9 @@ html {
 .w-128 {
     width: 32rem;
 }
+.w-inherit {
+    width: inherit;
+}
 .input {
     @apply shadow-sm appearance-none border border-gray-500 border-opacity-25 text-xs rounded w-full py-3 px-4 leading-tight transition-all ease-linear duration-75 delay-75;
     min-width: 30vw;
