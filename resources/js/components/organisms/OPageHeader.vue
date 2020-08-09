@@ -8,7 +8,7 @@
 				<img class="w-16 h-auto" src="/img/giveng-logo-light.svg" alt="logo" />
 			</router-link>
 		</div>
-		<MMenu class="mr-6" />
+		<MMenu class="md:mr-6" />
 	</div>
 </template>
 <script>
