@@ -10,6 +10,7 @@
  */
 function authMiddleware(to, from, next, store)
 {
+    console.log(to.path);
     if ((to.path === "/login"
         || to.path === "/register")
         && isLoggedIn(store)) {

@@ -8,7 +8,7 @@
 				<img class="w-16 h-auto" src="/img/giveng-logo-light.svg" alt="logo" />
 			</router-link>
 		</div>
-		<MMenu />
+		<MMenu class="mr-6" />
 	</div>
 </template>
 <script>
@@ -26,7 +26,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .page-header {
-	width: calc(100vw - 16px);
+	width: calc(100vw);
 	@media (screen and max-width: 769px) {
 		width: calc(100vw);
 		padding: 0px 8px 0px 0px;

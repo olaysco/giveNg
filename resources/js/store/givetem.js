@@ -4,6 +4,16 @@ const givetem = {
     state: {
         allGivetems: [],
         myCreatedGivetems: [],
+        givetemCategories: [
+				{ name: "Wares", icon: "ICloth", slug: "wares" },
+				{ name: "Food & Beverages", icon: "IFood", slug: "food" },
+				{ name: "Protective Mask", icon: "IMask", slug: "mask" },
+				{ name: "House Furniture", icon: "IFurniture", slug: "furniture" },
+				{ name: "Healthcare & wellbeing", icon: "IMedics", slug: "medics" },
+				{ name: "Counseling & care giving", icon: "ICounsel", slug: "counsel" },
+				{ name: "Pets", icon: "IPet", slug: "pet" },
+				{ name: "more", icon: "IMiscel", slug: "others" },
+			],
         myReceivedGivetems: [],
         currentSingleGivetem: null
     },

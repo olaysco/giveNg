@@ -8,7 +8,7 @@
 			@enter="enter"
 			@afterEnter="afterEnter"
 		>
-			<router-view></router-view>
+			<router-view class="router-view"></router-view>
 		</transition>
 		<page-footer></page-footer>
 	</div>
@@ -53,5 +53,8 @@ export default {
 	flex-direction: column;
 	justify-content: space-between;
 	position: relative;
+}
+.router-view {
+	/* padding-top: 100px; */
 }
 </style>

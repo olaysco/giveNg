@@ -1,16 +1,18 @@
-import VRouter from "vue-router";
 import vue from "vue";
-import EducationHomePage from "../pages/Education/HomePage.vue";
-import HomePage from "../pages/HomePage.vue";
-import GivetemPage from "../pages/GivetemPage.vue";
-import Verify from "../pages/Auth/Verify.vue";
+import store from "../store";
+import VRouter from "vue-router";
 import Login from "../pages/Auth/Login.vue";
+import HomePage from "../pages/HomePage.vue";
+import Verify from "../pages/Auth/Verify.vue";
 import Profile from "../pages/ProfilePage.vue";
 import Register from "../pages/Auth/Register.vue";
+import GivetemPage from "../pages/GivetemPage.vue";
+import { authMiddleware } from "../middleware/auth";
 import SocialAuth from "../pages/Auth/SocialAuth.vue";
 import PostGivetemPage from "../pages/PostGivetem.vue";
-import { authMiddleware } from "../middleware/auth";
-import store from "../store";
+import EducationHomePage from "../pages/Education/HomePage.vue";
+import GivetemategoryPage from "../pages/GivetemCategoryPage.vue";
+
 vue.use(VRouter);
 
 const routes = [
@@ -24,6 +26,13 @@ const routes = [
     {
         path: "/givetem/:id?",
         component: GivetemPage,
+        meta: {
+            guest: true
+        }
+    },
+    {
+        path: "/category/:slug?",
+        component: GivetemategoryPage,
         meta: {
             guest: true
         }

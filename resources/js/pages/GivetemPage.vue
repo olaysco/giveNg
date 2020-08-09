@@ -25,7 +25,6 @@ export default {
 <style scoped>
 .givetem-page {
 	min-height: 60vh;
-	padding-top: 100px;
 	@apply px-10;
 }
 </style>
