@@ -16,7 +16,11 @@
 </template>
 <script>
 import styled from "vue-styled-components";
-export default {};
+export default {
+	created() {
+		this.$store.commit("setHeaderBg", "bg-white");
+	},
+};
 </script>
 <style lang="scss">
 .auth {

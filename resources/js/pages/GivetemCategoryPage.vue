@@ -23,7 +23,4 @@ export default {
 };
 </script>
 <style scoped>
-.container-fluid {
-	padding-top: 100px;
-}
 </style>

@@ -35,7 +35,7 @@ export default {
 	},
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .fade-enter-active,
 .fade-leave-active {
 	transition-duration: 0.3s;
@@ -55,6 +55,9 @@ export default {
 	position: relative;
 }
 .router-view {
-	/* padding-top: 100px; */
+	padding-top: 72px;
+	@media (screen and max-width: 769px) {
+		padding-top: 64px;
+	}
 }
 </style>
