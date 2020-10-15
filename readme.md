@@ -26,7 +26,7 @@ Hence the need for a platform like Giveng where I can receive, or get givetems f
 - [x] As a user I can view my profile
 - [x] As a user I can post a new givetem
 - [x] As a user I can browse all givetems on homepage
-- [ ] As a user I can view a single givetem
+- [x] As a user I can view a single givetem
 - [ ] As a user I can contact a giver for a givetem
 - [ ] As a user I can browse givetems by categories
 - [ ] As a user I can search for givetems by keyword
