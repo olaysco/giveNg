@@ -1,5 +1,5 @@
 <template>
-	<div class="container-fluid px-10 min-h-screen">
+	<div class="container-fluid px-10 min-h-screen mt-10">
 		<OBreadcumb></OBreadcumb>
 		<div class="w-100 flex flex-col md:flex-row mt-4">
 			<OFilterArea class="w-full md:w-1/4 hidden md:block"></OFilterArea>

@@ -9,9 +9,9 @@
 				<router-link to="/" class="text-blule-300 text-xs hover:text-blue-400" v-if="inEducation">
 					<IBook class="inline mr-2 align-middle" fill="#90cdf4" />Giveng
 				</router-link>
-				<router-link to="/education" class="text-blue-300 text-xs hover:text-blue-400" v-else>
+				<!-- <router-link to="/education" class="text-blue-300 text-xs hover:text-blue-400" v-else>
 					<IBook class="inline mr-2 align-bottom" fill="#90cdf4" />Education
-				</router-link>
+				</router-link> -->
 			</li>
 			<li class="mr-6 p-1" v-if="authUser && authUser.email">
 				<button v-if="inProfile" @click="logout" class="btn">Logout</button>

@@ -18,13 +18,16 @@ export default {
 	},
 	async beforeMount() {
 		const res = await this.fetchGivetemById(this.$route.params.id);
-		console.log(res);
-	},
+    },
+    created() {
+        this.$store.commit("setHeaderBg", "bg-white");
+    }
 };
 </script>
 <style scoped>
 .givetem-page {
 	min-height: 60vh;
-	@apply px-10;
+    @apply px-10;
+    margin: 30px 0px;
 }
 </style>

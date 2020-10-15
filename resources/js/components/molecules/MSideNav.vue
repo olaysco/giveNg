@@ -6,11 +6,11 @@
 					<IBook class="inline mr-2 align-middle" fill="#fff" />Giveng
 				</router-link>
 			</li>
-			<li class="p-1">
+			<!-- <li class="p-1">
 				<router-link to="/education" class="text-white text-xs hover:text-blue-300">
 					<IBook class="inline mr-2 align-middle" fill="#fff" />Education
 				</router-link>
-			</li>
+			</li> -->
 			<li class="p-1 flex justify-center" v-if="authUser && authUser.email">
 				<button v-if="inProfile" @click="logout" class="btn w-3/4">Logout</button>
 				<router-link v-else to="/profile" class="text-white text-xs hover:text-blue-300">

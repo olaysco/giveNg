@@ -13,7 +13,7 @@
 			</div>
 			<div class="w-1/2 md:w-1/6 flex flex-col justify-center">
 				<div>
-					<button class="w-full btn-outline">Get Item</button>
+					<button class="w-full btn">Get Item</button>
 				</div>
 			</div>
 		</div>

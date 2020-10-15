@@ -1,5 +1,6 @@
 <template>
-	<div class="w-screen min-h-screen bg-white flex flex-row">
+<div class="relative">
+    <div class="w-screen min-h-screen bg-white flex flex-row">
 		<div
 			class="w-full min-h-screen md:flex my-auto block justify-center items-center p-0 bg-blue-100 bg-opacity-25"
 		>
@@ -38,8 +39,9 @@
 				</div>
 			</div>
 		</div>
-		<OPostGivetemModal :visible="showPostGivetem" @close="handlePostgivetemClose" />
 	</div>
+    <OPostGivetemModal :visible="showPostGivetem" @close="handlePostgivetemClose" />
+</div>
 </template>
 <script>
 import { mapState } from "vuex";
@@ -67,7 +69,10 @@ export default {
 		handlePostgivetemClose() {
 			this.showPostGivetem = false;
 		},
-	},
+    },
+    created() {
+        this.$store.commit("setHeaderBg", "bg-white");
+    }
 };
 </script>
 <style scoped>
