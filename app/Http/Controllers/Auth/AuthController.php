@@ -17,7 +17,7 @@ class AuthController extends Controller
     }
 
 
-    public function SocialSignup(SocialAccountService $service, Request $request)
+    public function socialSignup(SocialAccountService $service, Request $request)
     {
         $user = Socialite::driver($request->provider)->stateless()->user();
 

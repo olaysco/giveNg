@@ -11,7 +11,7 @@
 |
 */
 
-Route::post('sociallogin/{provider}', 'Auth\AuthController@SocialSignup');
+Route::post('sociallogin/{provider}', 'Auth\AuthController@socialSignup');
 Route::get('auth/{provider}/callback', 'Auth\AuthController@index')->where('provider', '.*');
 
 Auth::routes();

@@ -18,7 +18,8 @@ class GivetemController extends Controller
     private $givetemRepo;
 
     public function __construct()
-    {;
+    {
+        ;
     }
     /**
      * Display a listing of the resource.
@@ -50,7 +51,9 @@ class GivetemController extends Controller
         $url = $request->image["url"] ?? null;
         $givetem = null;
         try {
-            if (is_null($url)) $url = $this->storeImage($request);
+            if (is_null($url)) {
+                $url = $this->storeImage($request);
+            }
             $givetem = GivetemRepo::create([
                 "title" => $request->title,
                 "image_url" => $url,

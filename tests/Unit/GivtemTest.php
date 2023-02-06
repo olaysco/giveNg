@@ -118,7 +118,7 @@ class GivtemTest extends TestCase
      * @return void
      */
     public function testGivetemDeletedbyUser()
-    {;
+    {
         $user = factory(User::class)->create();
         Sanctum::actingAs($user);
         $givetem = factory(Givetem::class)->make();
