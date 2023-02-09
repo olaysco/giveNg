@@ -31,9 +31,9 @@ class GivtemTest extends TestCase
     {
         $allGivetemsBefore = Givetem::all()->count();
         Sanctum::actingAs(
-            factory(User::class)->create()
+            User::factory()->create()
         );
-        $givetem = factory(Givetem::class)->make();
+        $givetem = Givetem::factory()->make();
         $response = $this->postJson('api/givetem', $givetem->toArray());
         $allGivetemsAfter = Givetem::all()->count();
         $response->assertSuccessful();
@@ -48,7 +48,7 @@ class GivtemTest extends TestCase
      */
     public function testGivetemCreateFailByNonUser()
     {
-        $givetem = factory(Givetem::class)->make();
+        $givetem = Givetem::factory()->make();
         $response = $this->postJson('api/givetem', $givetem->toArray());
         $response->assertUnauthorized();
     }
@@ -78,18 +78,18 @@ class GivtemTest extends TestCase
      */
     public function testGivetemUpdateByItsCreator()
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         Sanctum::actingAs(
             $user
         );
         $response = $this->postJson(
             'api/givetem',
-            factory(Givetem::class)
+            Givetem::factory()
                 ->make()
                 ->toArray()
         );
         $givetem = $response->decodeResponseJson();
-        $response = $this->patchJson("api/givetem/{$givetem['id']}", $givetem);
+        $response = $this->patchJson("api/givetem/{$givetem['id']}", $givetem->json());
         $response->assertSuccessful();
     }
 
@@ -101,12 +101,12 @@ class GivtemTest extends TestCase
      */
     public function testGivetemCannotUpdateByInvalidUser()
     {
-        Sanctum::actingAs(factory(User::class)->create());
-        $givetem = factory(Givetem::class)->make()->toArray();
+        Sanctum::actingAs(User::factory()->create());
+        $givetem = Givetem::factory()->make()->toArray();
         $response = $this->postJson("api/givetem", $givetem);
         $d = $response->decodeResponseJson()['id'];
         Sanctum::actingAs(
-            factory(User::class)->create()
+            User::factory()->create()
         );
         $updateResponse = $this->patchJson("api/givetem/$d", $givetem);
         $updateResponse->assertStatus(403);
@@ -119,9 +119,9 @@ class GivtemTest extends TestCase
      */
     public function testGivetemDeletedbyUser()
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         Sanctum::actingAs($user);
-        $givetem = factory(Givetem::class)->make();
+        $givetem = Givetem::factory()->make();
         $response = $this->postJson('api/givetem', $givetem->toArray());
         $id = $response->decodeResponseJson()['id'];
         $response = $this->call("delete", "api/givetem/$id");
@@ -134,9 +134,9 @@ class GivtemTest extends TestCase
      */
     public function testFetchSingleGivetemByIdSuccessful()
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         Sanctum::actingAs($user);
-        $givetem = factory(Givetem::class)->make();
+        $givetem = Givetem::factory()->make();
         $response = $this->postJson('api/givetem', $givetem->toArray());
         $id = $response->decodeResponseJson()['id'];
         $response = $this->get("api/givetem/$id");

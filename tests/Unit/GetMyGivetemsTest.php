@@ -25,12 +25,12 @@ class GetMyGivetems extends TestCase
         //arrangement
         $allGivetemsBefore = Givetem::all()->count();
         Sanctum::actingAs(
-            factory(User::class)->create()
+            User::factory()->create()
         );
 
         //action
         for ($i = 0; $i < 4; $i++) {
-            $givetem = factory(Givetem::class)->make();
+            $givetem = Givetem::factory()->make();
             $response = $this->postJson('api/givetem', $givetem->toArray());
         }
 

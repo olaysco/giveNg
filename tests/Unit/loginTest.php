@@ -18,9 +18,9 @@ class LoginTest extends TestCase
      *
      * @return void
      */
-    public function testLoginFailed() : void
+    public function testLoginFailed(): void
     {
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         $response = $this->postJson('/api/login', [
             "email" => $user->email,
             "password" => "wrongPassword"

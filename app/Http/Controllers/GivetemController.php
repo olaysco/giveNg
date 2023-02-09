@@ -48,7 +48,7 @@ class GivetemController extends Controller
      */
     public function store(GivetemStoreRequest $request): Response
     {
-        $url = $request->image["url"] ?? null;
+        $url = $request->image["url"] ?? $request->image_url ?? null;
         $givetem = null;
         try {
             if (is_null($url)) {
@@ -79,6 +79,10 @@ class GivetemController extends Controller
      */
     public function storeImage(GivetemStoreRequest $request): string
     {
+        if (empty($request->image["data"])) {
+            return null;
+        }
+
         return ImageService::upload($request->image["data"]);
     }
 
